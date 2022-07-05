@@ -1,0 +1,16 @@
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# build
+/build
+/dist
+
+# macOS
+.DS_Store
+
+# yarn logs
+yarn-debug.log*
+yarn-error.log*
