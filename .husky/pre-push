@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+yarn checkNodeVersion
 yarn build
 yarn lint
 yarn prettier

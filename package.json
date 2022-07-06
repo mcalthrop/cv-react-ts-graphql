@@ -12,6 +12,7 @@
   "scripts": {
     "prebuild": "yarn compile",
     "build": "vite build",
+    "checkNodeVersion": "echo Node version: `cat .nvmrc`",
     "compile": "tsc",
     "fix": "yarn lint:fix && yarn prettier:fix",
     "lint": "eslint",
