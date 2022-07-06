@@ -1,9 +1,9 @@
 import { render, screen } from 'src/testUtils';
-import { Cv } from './Cv';
+import { CvComponent } from './CvComponent';
 
-describe('Cv', () => {
+describe('CvComponent', () => {
   it('should render CV text', () => {
-    render(<Cv />);
+    render(<CvComponent cvFragment={{}} />);
     const textElement = screen.getByText(/CV: Matt Calthrop/);
     expect(textElement).toBeInTheDocument();
   });

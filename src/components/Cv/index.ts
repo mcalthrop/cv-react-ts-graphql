@@ -1,1 +1,2 @@
-export * from './Cv';
+export * from './CvComponent';
+export * from './CvContainer';

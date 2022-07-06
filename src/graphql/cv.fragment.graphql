@@ -1,0 +1,44 @@
+fragment Cv on Cv {
+  image {
+    url
+  }
+  overviewCollection {
+    items {
+      para
+    }
+  }
+  onTheWebCollection {
+    items {
+      linkText
+      url
+    }
+  }
+  workHistoryCollection {
+    items {
+      roleTitle
+      employerName
+      employerUrl
+      viaEmployerName
+      viaEmployerUrl
+      location
+      dateFrom
+      dateTo
+      responsibilitiesCollection {
+        items {
+          para
+        }
+      }
+      skillSummary
+    }
+  }
+  interestsCollection {
+    items {
+      para
+    }
+  }
+  educationCollection {
+    items {
+      para
+    }
+  }
+}
