@@ -1,4 +1,4 @@
-query GetCvs {
+query GetCv {
   cvCollection(limit: 1, where: { name: "Matt Calthrop" }) {
     items {
       image {
