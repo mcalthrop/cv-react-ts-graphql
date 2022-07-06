@@ -1132,6 +1132,27 @@ export type ParagraphFragment = {
   para?: string | undefined;
 };
 
+export type WorkHistoryFragment = {
+  __typename?: 'WorkHistory';
+  roleTitle?: string | undefined;
+  employerName?: string | undefined;
+  employerUrl?: string | undefined;
+  viaEmployerName?: string | undefined;
+  viaEmployerUrl?: string | undefined;
+  location?: string | undefined;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+  skillSummary?: Array<string | undefined> | undefined;
+  responsibilitiesCollection?:
+    | {
+        __typename?: 'WorkHistoryResponsibilitiesCollection';
+        items: Array<
+          { __typename?: 'Paragraph'; para?: string | undefined } | undefined
+        >;
+      }
+    | undefined;
+};
+
 export const ParagraphFragmentDoc = gql`
   fragment Paragraph on Paragraph {
     para
@@ -1142,6 +1163,25 @@ export const OnTheWebFragmentDoc = gql`
     linkText
     url
   }
+`;
+export const WorkHistoryFragmentDoc = gql`
+  fragment WorkHistory on WorkHistory {
+    roleTitle
+    employerName
+    employerUrl
+    viaEmployerName
+    viaEmployerUrl
+    location
+    dateFrom
+    dateTo
+    responsibilitiesCollection {
+      items {
+        ...Paragraph
+      }
+    }
+    skillSummary
+  }
+  ${ParagraphFragmentDoc}
 `;
 export const CvFragmentDoc = gql`
   fragment Cv on Cv {
@@ -1160,20 +1200,7 @@ export const CvFragmentDoc = gql`
     }
     workHistoryCollection {
       items {
-        roleTitle
-        employerName
-        employerUrl
-        viaEmployerName
-        viaEmployerUrl
-        location
-        dateFrom
-        dateTo
-        responsibilitiesCollection {
-          items {
-            ...Paragraph
-          }
-        }
-        skillSummary
+        ...WorkHistory
       }
     }
     interestsCollection {
@@ -1189,6 +1216,7 @@ export const CvFragmentDoc = gql`
   }
   ${ParagraphFragmentDoc}
   ${OnTheWebFragmentDoc}
+  ${WorkHistoryFragmentDoc}
 `;
 export const GetCvDocument = gql`
   query GetCv {

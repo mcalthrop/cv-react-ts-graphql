@@ -14,20 +14,7 @@ fragment Cv on Cv {
   }
   workHistoryCollection {
     items {
-      roleTitle
-      employerName
-      employerUrl
-      viaEmployerName
-      viaEmployerUrl
-      location
-      dateFrom
-      dateTo
-      responsibilitiesCollection {
-        items {
-          ...Paragraph
-        }
-      }
-      skillSummary
+      ...WorkHistory
     }
   }
   interestsCollection {
