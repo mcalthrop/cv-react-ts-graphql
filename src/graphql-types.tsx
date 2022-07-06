@@ -958,9 +958,9 @@ export type WorkHistoryResponsibilitiesCollection = {
   total: Scalars['Int'];
 };
 
-export type GetCvsQueryVariables = Exact<{ [key: string]: never }>;
+export type GetCvQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetCvsQuery = {
+export type GetCvQuery = {
   __typename?: 'Query';
   cvCollection?:
     | {
@@ -1050,8 +1050,8 @@ export type GetCvsQuery = {
     | undefined;
 };
 
-export const GetCvsDocument = gql`
-  query GetCvs {
+export const GetCvDocument = gql`
+  query GetCv {
     cvCollection(limit: 1, where: { name: "Matt Calthrop" }) {
       items {
         image {
@@ -1102,41 +1102,41 @@ export const GetCvsDocument = gql`
 `;
 
 /**
- * __useGetCvsQuery__
+ * __useGetCvQuery__
  *
- * To run a query within a React component, call `useGetCvsQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetCvsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetCvQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetCvQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetCvsQuery({
+ * const { data, loading, error } = useGetCvQuery({
  *   variables: {
  *   },
  * });
  */
-export function useGetCvsQuery(
-  baseOptions?: Apollo.QueryHookOptions<GetCvsQuery, GetCvsQueryVariables>,
+export function useGetCvQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetCvQuery, GetCvQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetCvsQuery, GetCvsQueryVariables>(
-    GetCvsDocument,
+  return Apollo.useQuery<GetCvQuery, GetCvQueryVariables>(
+    GetCvDocument,
     options,
   );
 }
-export function useGetCvsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<GetCvsQuery, GetCvsQueryVariables>,
+export function useGetCvLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetCvQuery, GetCvQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetCvsQuery, GetCvsQueryVariables>(
-    GetCvsDocument,
+  return Apollo.useLazyQuery<GetCvQuery, GetCvQueryVariables>(
+    GetCvDocument,
     options,
   );
 }
-export type GetCvsQueryHookResult = ReturnType<typeof useGetCvsQuery>;
-export type GetCvsLazyQueryHookResult = ReturnType<typeof useGetCvsLazyQuery>;
-export type GetCvsQueryResult = Apollo.QueryResult<
-  GetCvsQuery,
-  GetCvsQueryVariables
+export type GetCvQueryHookResult = ReturnType<typeof useGetCvQuery>;
+export type GetCvLazyQueryHookResult = ReturnType<typeof useGetCvLazyQuery>;
+export type GetCvQueryResult = Apollo.QueryResult<
+  GetCvQuery,
+  GetCvQueryVariables
 >;
