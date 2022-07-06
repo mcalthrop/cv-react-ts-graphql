@@ -958,6 +958,77 @@ export type WorkHistoryResponsibilitiesCollection = {
   total: Scalars['Int'];
 };
 
+export type CvFragment = {
+  __typename?: 'Cv';
+  image?: { __typename?: 'Asset'; url?: string | undefined } | undefined;
+  overviewCollection?:
+    | {
+        __typename?: 'CvOverviewCollection';
+        items: Array<
+          { __typename?: 'Paragraph'; para?: string | undefined } | undefined
+        >;
+      }
+    | undefined;
+  onTheWebCollection?:
+    | {
+        __typename?: 'CvOnTheWebCollection';
+        items: Array<
+          | {
+              __typename?: 'OnTheWeb';
+              linkText?: string | undefined;
+              url?: string | undefined;
+            }
+          | undefined
+        >;
+      }
+    | undefined;
+  workHistoryCollection?:
+    | {
+        __typename?: 'CvWorkHistoryCollection';
+        items: Array<
+          | {
+              __typename?: 'WorkHistory';
+              roleTitle?: string | undefined;
+              employerName?: string | undefined;
+              employerUrl?: string | undefined;
+              viaEmployerName?: string | undefined;
+              viaEmployerUrl?: string | undefined;
+              location?: string | undefined;
+              dateFrom?: string | undefined;
+              dateTo?: string | undefined;
+              skillSummary?: Array<string | undefined> | undefined;
+              responsibilitiesCollection?:
+                | {
+                    __typename?: 'WorkHistoryResponsibilitiesCollection';
+                    items: Array<
+                      | { __typename?: 'Paragraph'; para?: string | undefined }
+                      | undefined
+                    >;
+                  }
+                | undefined;
+            }
+          | undefined
+        >;
+      }
+    | undefined;
+  interestsCollection?:
+    | {
+        __typename?: 'CvInterestsCollection';
+        items: Array<
+          { __typename?: 'Paragraph'; para?: string | undefined } | undefined
+        >;
+      }
+    | undefined;
+  educationCollection?:
+    | {
+        __typename?: 'CvEducationCollection';
+        items: Array<
+          { __typename?: 'Paragraph'; para?: string | undefined } | undefined
+        >;
+      }
+    | undefined;
+};
+
 export type GetCvQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetCvQuery = {
@@ -1050,55 +1121,61 @@ export type GetCvQuery = {
     | undefined;
 };
 
+export const CvFragmentDoc = gql`
+  fragment Cv on Cv {
+    image {
+      url
+    }
+    overviewCollection {
+      items {
+        para
+      }
+    }
+    onTheWebCollection {
+      items {
+        linkText
+        url
+      }
+    }
+    workHistoryCollection {
+      items {
+        roleTitle
+        employerName
+        employerUrl
+        viaEmployerName
+        viaEmployerUrl
+        location
+        dateFrom
+        dateTo
+        responsibilitiesCollection {
+          items {
+            para
+          }
+        }
+        skillSummary
+      }
+    }
+    interestsCollection {
+      items {
+        para
+      }
+    }
+    educationCollection {
+      items {
+        para
+      }
+    }
+  }
+`;
 export const GetCvDocument = gql`
   query GetCv {
     cvCollection(limit: 1, where: { name: "Matt Calthrop" }) {
       items {
-        image {
-          url
-        }
-        overviewCollection {
-          items {
-            para
-          }
-        }
-        onTheWebCollection {
-          items {
-            linkText
-            url
-          }
-        }
-        workHistoryCollection {
-          items {
-            roleTitle
-            employerName
-            employerUrl
-            viaEmployerName
-            viaEmployerUrl
-            location
-            dateFrom
-            dateTo
-            responsibilitiesCollection {
-              items {
-                para
-              }
-            }
-            skillSummary
-          }
-        }
-        interestsCollection {
-          items {
-            para
-          }
-        }
-        educationCollection {
-          items {
-            para
-          }
-        }
+        ...Cv
       }
     }
   }
+  ${CvFragmentDoc}
 `;
 
 /**
