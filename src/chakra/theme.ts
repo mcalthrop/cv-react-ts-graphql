@@ -11,6 +11,9 @@ export const chakraTheme = extendTheme({
   components: {
     Heading: {
       sizes: {
+        md: {
+          fontWeight: 100,
+        },
         lg: {
           fontWeight: 100,
         },

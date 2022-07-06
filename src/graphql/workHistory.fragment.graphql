@@ -1,0 +1,16 @@
+fragment WorkHistory on WorkHistory {
+  roleTitle
+  employerName
+  employerUrl
+  viaEmployerName
+  viaEmployerUrl
+  location
+  dateFrom
+  dateTo
+  responsibilitiesCollection {
+    items {
+      ...Paragraph
+    }
+  }
+  skillSummary
+}

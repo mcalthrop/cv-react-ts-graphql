@@ -5,6 +5,7 @@ import { Footer } from '../Footer';
 import { Interests } from '../Interests';
 import { OnTheWeb } from '../OnTheWeb';
 import { Overview } from '../Overview';
+import { WorkHistory } from '../WorkHistory';
 
 type CvComponentProps = {
   cvFragment: CvFragment;
@@ -23,6 +24,7 @@ export function CvComponent({ cvFragment }: CvComponentProps): JSX.Element {
         items={cvFragment.overviewCollection?.items}
       />
       <OnTheWeb items={cvFragment.onTheWebCollection?.items} />
+      <WorkHistory items={cvFragment.workHistoryCollection?.items} />
       <Education items={cvFragment.educationCollection?.items} />
       <Interests items={cvFragment.interestsCollection?.items} />
       <Footer />
