@@ -1,0 +1,12 @@
+overwrite: true
+schema: 'src/graphql/schema.graphql'
+documents: 'src/graphql/*.query.graphql'
+generates:
+  ./src/graphql-types.tsx:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      enumsAsTypes: true
+      maybeValue: T | undefined

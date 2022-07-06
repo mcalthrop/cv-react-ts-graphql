@@ -25,7 +25,10 @@ module.exports = {
     'unused-imports',
     'jest-dom',
   ],
-  ignorePatterns: [],
+  ignorePatterns: [
+    'dist',
+    'src/graphql-types.tsx', // Ignore generated file
+  ],
   rules: {
     curly: 'error',
     'no-empty-pattern': 'off',
