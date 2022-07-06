@@ -1,0 +1,3 @@
+fragment Paragraph on Paragraph {
+  para
+}

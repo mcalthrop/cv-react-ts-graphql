@@ -1121,6 +1121,11 @@ export type GetCvQuery = {
     | undefined;
 };
 
+export type ParagraphFragment = {
+  __typename?: 'Paragraph';
+  para?: string | undefined;
+};
+
 export const CvFragmentDoc = gql`
   fragment Cv on Cv {
     image {
@@ -1165,6 +1170,11 @@ export const CvFragmentDoc = gql`
         para
       }
     }
+  }
+`;
+export const ParagraphFragmentDoc = gql`
+  fragment Paragraph on Paragraph {
+    para
   }
 `;
 export const GetCvDocument = gql`
