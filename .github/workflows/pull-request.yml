@@ -1,0 +1,39 @@
+name: 'Pull Request'
+
+on:
+  pull_request:
+    paths-ignore:
+      - 'README.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: 'Set variables'
+        id: vars
+        run: |
+          NVMRC=$(cat .nvmrc)
+          echo "NVMRC=${NVMRC}"
+          echo "::set-output name=node_version::${NVMRC}"
+
+      - name: Set up node ${{steps.vars.outputs.node_version}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{steps.vars.outputs.node_version}}
+
+      - name: Install
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Prettier
+        run: yarn prettier
+
+      - name: Test
+        run: yarn test

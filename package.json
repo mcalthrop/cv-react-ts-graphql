@@ -10,7 +10,8 @@
     "node": "16.15.1"
   },
   "scripts": {
-    "build": "yarn compile && vite build",
+    "prebuild": "yarn compile",
+    "build": "vite build",
     "compile": "tsc",
     "fix": "yarn lint:fix && yarn prettier:fix",
     "lint": "eslint",
