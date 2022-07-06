@@ -1,15 +1,15 @@
-import { HStack, Image, Text, VStack } from '@chakra-ui/react';
+import { Text, VStack } from '@chakra-ui/react';
 import type { Maybe, ParagraphFragment } from 'src/graphql-types';
+import { SectionHeading } from '../SectionHeading';
 
-type OverviewProps = {
-  image?: string;
+type EducationProps = {
   items?: Array<Maybe<ParagraphFragment>>;
 };
 
-export function Overview({ image, items }: OverviewProps): JSX.Element {
+export function Education({ items }: EducationProps): JSX.Element {
   return (
-    <HStack maxWidth={520} alignItems={'start'}>
-      <Image src={image} width={100} />
+    <>
+      <SectionHeading heading={'Education'} />
       <VStack alignItems={'start'}>
         {items?.map((item, idx) => (
           <Text key={idx} fontSize={'sm'}>
@@ -17,6 +17,6 @@ export function Overview({ image, items }: OverviewProps): JSX.Element {
           </Text>
         ))}
       </VStack>
-    </HStack>
+    </>
   );
 }
