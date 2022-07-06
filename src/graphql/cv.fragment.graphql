@@ -37,7 +37,7 @@ fragment Cv on Cv {
   }
   educationCollection {
     items {
-      para
+      ...Paragraph
     }
   }
 }

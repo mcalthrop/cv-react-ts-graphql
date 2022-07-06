@@ -1183,7 +1183,7 @@ export const CvFragmentDoc = gql`
     }
     educationCollection {
       items {
-        para
+        ...Paragraph
       }
     }
   }

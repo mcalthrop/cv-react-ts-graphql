@@ -1,5 +1,6 @@
-import { Heading, Link, List, ListItem } from '@chakra-ui/react';
+import { Link, List, ListItem } from '@chakra-ui/react';
 import type { Maybe, OnTheWebFragment } from 'src/graphql-types';
+import { SectionHeading } from '../SectionHeading';
 
 type OnTheWebProps = {
   items?: Array<Maybe<OnTheWebFragment>>;
@@ -8,9 +9,7 @@ type OnTheWebProps = {
 export function OnTheWeb({ items }: OnTheWebProps): JSX.Element {
   return (
     <>
-      <Heading as={'h2'} size={'lg'} marginTop={3}>
-        On the web
-      </Heading>
+      <SectionHeading heading={'On the web'} />
       <List>
         {items?.map((item, idx) => (
           <ListItem key={idx}>

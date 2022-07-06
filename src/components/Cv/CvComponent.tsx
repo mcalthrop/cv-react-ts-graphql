@@ -1,5 +1,6 @@
 import { Heading } from '@chakra-ui/react';
 import type { CvFragment } from 'src/graphql-types';
+import { Education } from '../Education';
 import { OnTheWeb } from '../OnTheWeb';
 import { Overview } from '../Overview';
 
@@ -20,6 +21,7 @@ export function CvComponent({ cvFragment }: CvComponentProps): JSX.Element {
         items={cvFragment.overviewCollection?.items}
       />
       <OnTheWeb items={cvFragment.onTheWebCollection?.items} />
+      <Education items={cvFragment.educationCollection?.items} />
     </>
   );
 }
