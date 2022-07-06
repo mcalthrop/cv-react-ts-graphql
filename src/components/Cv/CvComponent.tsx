@@ -12,8 +12,6 @@ type CvComponentProps = {
 };
 
 export function CvComponent({ cvFragment }: CvComponentProps): JSX.Element {
-  console.log('*** CvComponent', { cvFragment });
-
   return (
     <>
       <Heading as={'h1'} size={'xl'} marginTop={3} marginBottom={3}>
