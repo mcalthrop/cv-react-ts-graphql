@@ -4,13 +4,12 @@ fragment Cv on Cv {
   }
   overviewCollection {
     items {
-      para
+      ...Paragraph
     }
   }
   onTheWebCollection {
     items {
-      linkText
-      url
+      ...OnTheWeb
     }
   }
   workHistoryCollection {

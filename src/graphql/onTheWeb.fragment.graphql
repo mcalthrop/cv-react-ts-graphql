@@ -1,0 +1,4 @@
+fragment OnTheWeb on OnTheWeb {
+  linkText
+  url
+}

@@ -1121,11 +1121,28 @@ export type GetCvQuery = {
     | undefined;
 };
 
+export type OnTheWebFragment = {
+  __typename?: 'OnTheWeb';
+  linkText?: string | undefined;
+  url?: string | undefined;
+};
+
 export type ParagraphFragment = {
   __typename?: 'Paragraph';
   para?: string | undefined;
 };
 
+export const ParagraphFragmentDoc = gql`
+  fragment Paragraph on Paragraph {
+    para
+  }
+`;
+export const OnTheWebFragmentDoc = gql`
+  fragment OnTheWeb on OnTheWeb {
+    linkText
+    url
+  }
+`;
 export const CvFragmentDoc = gql`
   fragment Cv on Cv {
     image {
@@ -1133,13 +1150,12 @@ export const CvFragmentDoc = gql`
     }
     overviewCollection {
       items {
-        para
+        ...Paragraph
       }
     }
     onTheWebCollection {
       items {
-        linkText
-        url
+        ...OnTheWeb
       }
     }
     workHistoryCollection {
@@ -1171,11 +1187,8 @@ export const CvFragmentDoc = gql`
       }
     }
   }
-`;
-export const ParagraphFragmentDoc = gql`
-  fragment Paragraph on Paragraph {
-    para
-  }
+  ${ParagraphFragmentDoc}
+  ${OnTheWebFragmentDoc}
 `;
 export const GetCvDocument = gql`
   query GetCv {
