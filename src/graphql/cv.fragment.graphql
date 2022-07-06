@@ -24,7 +24,7 @@ fragment Cv on Cv {
       dateTo
       responsibilitiesCollection {
         items {
-          para
+          ...Paragraph
         }
       }
       skillSummary
@@ -32,7 +32,7 @@ fragment Cv on Cv {
   }
   interestsCollection {
     items {
-      para
+      ...Paragraph
     }
   }
   educationCollection {

@@ -1170,7 +1170,7 @@ export const CvFragmentDoc = gql`
         dateTo
         responsibilitiesCollection {
           items {
-            para
+            ...Paragraph
           }
         }
         skillSummary
@@ -1178,7 +1178,7 @@ export const CvFragmentDoc = gql`
     }
     interestsCollection {
       items {
-        para
+        ...Paragraph
       }
     }
     educationCollection {
