@@ -1,6 +1,10 @@
 import { extendTheme } from '@chakra-ui/react';
 
 export const chakraTheme = extendTheme({
+  fonts: {
+    heading: 'Roboto',
+    body: 'Roboto',
+  },
   styles: {
     global: {
       p: {
@@ -9,16 +13,24 @@ export const chakraTheme = extendTheme({
     },
   },
   components: {
+    Link: {
+      baseStyle: {
+        color: 'blue.600',
+        ':hover': {
+          textDecorationThickness: '1px',
+        },
+      },
+    },
     Heading: {
       sizes: {
         md: {
-          fontWeight: 100,
+          fontWeight: 400,
         },
         lg: {
-          fontWeight: 100,
+          fontWeight: 300,
         },
         xl: {
-          fontWeight: 200,
+          fontWeight: 300,
         },
       },
     },
