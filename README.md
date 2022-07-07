@@ -22,6 +22,18 @@ You can fork this repo, and run it locally yourself. Following are instructions 
 
 ## Setup
 
+### Install nvm
+
+Follow instructions here:
+
+[github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm#readme)
+
+Then download and install the correct version of `node`:
+
+```sh
+nvm install
+```
+
 ### Install yarn
 
 Follow the instructions here:
@@ -32,16 +44,16 @@ Follow the instructions here:
 
 Install the NodeJS packages:
 
-``` sh
-$ yarn
+```sh
+yarn
 ```
 
 ## Running the app
 
 ### During development
 
-``` sh
-$ yarn start:dev
+```sh
+yarn start:dev
 ```
 
 This will open a web browser at this URL:
@@ -54,8 +66,8 @@ This will open a web browser at this URL:
 
 To run all tests:
 
-``` sh
-$ yarn test
+```sh
+yarn test
 ```
 
 ### Linting
@@ -64,14 +76,14 @@ $ yarn test
 
 To run the linter:
 
-``` sh
-$ yarn lint
+```sh
+yarn lint
 ```
 
 And to auto-correct any errors that can be corrected:
 
-``` sh
-$ yarn lint:fix
+```sh
+yarn lint:fix
 ```
 
 ### Code formatting
@@ -80,14 +92,14 @@ $ yarn lint:fix
 
 To check the TypeScript formatting:
 
-``` sh
-$ yarn prettier
+```sh
+yarn prettier
 ```
 
 And to auto-correct any errors that can be corrected:
 
-``` sh
-$ yarn prettier:fix
+```sh
+yarn prettier:fix
 ```
 
 ## License
