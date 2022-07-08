@@ -16,7 +16,7 @@ It uses the following features:
 - [Prettier](https://prettier.io/) for code formatting
 - [Husky](https://github.com/typicode/husky) to leverage git commit hooks
 - [GitHub Actions](https://docs.github.com/en/actions) for CI workflow
-- [Heroku](https://www.heroku.com/) for deployment and hosting
+- [Netlify](https://www.netlify.com/blog/2016/10/27/a-step-by-step-guide-deploying-a-static-site-or-single-page-app/) for deployment and hosting
 
 You can fork this repo, and run it locally yourself. Following are instructions for setting it up and running it.
 
