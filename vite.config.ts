@@ -4,6 +4,18 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 const viteConfig = defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react'],
+          reactDom: ['react-dom/client'],
+          apollo: ['@apollo/client'],
+          chakra: ['@chakra-ui/react'],
+        },
+      },
+    },
+  },
   clearScreen: false,
   envPrefix: 'REACT_APP_',
   plugins: [react()],
