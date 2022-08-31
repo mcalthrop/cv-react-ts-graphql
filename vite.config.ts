@@ -5,6 +5,7 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 const viteConfig = defineConfig({
   build: {
+    // https://rollupjs.org/guide/en/#big-list-of-options
     rollupOptions: {
       output: {
         manualChunks: {
