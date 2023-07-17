@@ -29,7 +29,7 @@
     "test:watch": "yarn test --watch"
   },
   "dependencies": {
-    "@apollo/client": "^3.7.16",
+    "@apollo/client": "^3.7.17",
     "@chakra-ui/react": "^2.7.1",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
