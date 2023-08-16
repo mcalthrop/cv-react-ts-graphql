@@ -7,7 +7,7 @@
   "author": "Matt Calthrop <matt@calthrop.com>",
   "license": "MIT",
   "engines": {
-    "node": "16.15.1",
+    "node": "18.17.1",
     "yarn": "1.22.19"
   },
   "scripts": {
