@@ -38,7 +38,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.25.8",
+    "@babel/preset-env": "^7.26.9",
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.26.0",
     "@graphql-codegen/cli": "^5.0.5",
