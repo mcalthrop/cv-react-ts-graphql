@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.26.9",
-    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.0",
     "@graphql-codegen/cli": "^5.0.7",
     "@graphql-codegen/typescript": "^4.1.6",
