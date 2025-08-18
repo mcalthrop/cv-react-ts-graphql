@@ -9,17 +9,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v5.0.0
 
-      - name: 'Set variables'
+      - name: Set variables
         id: vars
         run: |
           NVMRC=$(cat .nvmrc)
           echo "NVMRC=${NVMRC}"
-          echo "::set-output name=node_version::${NVMRC}"
+          echo "node_version=${NVMRC}" >> $GITHUB_OUTPUT
 
       - name: Set up node ${{steps.vars.outputs.node_version}}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.4.0
         with:
           node-version: ${{steps.vars.outputs.node_version}}
 
