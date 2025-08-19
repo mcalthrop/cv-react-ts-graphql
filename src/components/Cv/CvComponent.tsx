@@ -9,9 +9,15 @@ import { WorkHistory } from '../WorkHistory';
 
 type CvComponentProps = {
   cvFragment: CvFragment;
+  workHistoryPagination?: { total: number; skip: number; limit: number };
+  onWorkHistoryFetchMore?: () => void;
 };
 
-export function CvComponent({ cvFragment }: CvComponentProps): JSX.Element {
+export function CvComponent({
+  cvFragment,
+  workHistoryPagination,
+  onWorkHistoryFetchMore,
+}: CvComponentProps): JSX.Element {
   return (
     <>
       <Heading as={'h1'} size={'xl'} marginTop={3} marginBottom={3}>
@@ -22,7 +28,11 @@ export function CvComponent({ cvFragment }: CvComponentProps): JSX.Element {
         items={cvFragment.overviewCollection?.items}
       />
       <OnTheWeb items={cvFragment.onTheWebCollection?.items} />
-      <WorkHistory items={cvFragment.workHistoryCollection?.items} />
+      <WorkHistory
+        items={cvFragment.workHistoryCollection?.items}
+        pagination={workHistoryPagination}
+        onFetchMore={onWorkHistoryFetchMore}
+      />
       <Education items={cvFragment.educationCollection?.items} />
       <Interests items={cvFragment.interestsCollection?.items} />
       <Footer />

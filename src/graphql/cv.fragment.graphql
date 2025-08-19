@@ -12,7 +12,10 @@ fragment Cv on Cv {
       ...OnTheWeb
     }
   }
-  workHistoryCollection {
+  workHistoryCollection(skip: $workHistorySkip, limit: $workHistoryLimit) {
+    total
+    skip
+    limit
     items {
       ...WorkHistory
     }

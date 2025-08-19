@@ -1,4 +1,4 @@
-query GetCv {
+query GetCv($workHistorySkip: Int = 0, $workHistoryLimit: Int = 5) {
   cvCollection(limit: 1, where: { name: "Matt Calthrop" }) {
     items {
       ...Cv

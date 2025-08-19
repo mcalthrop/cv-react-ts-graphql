@@ -1,5 +1,5 @@
-import * as Apollo from '@apollo/client';
 import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
 export type Maybe<T> = T | undefined;
 export type InputMaybe<T> = T | undefined;
 export type Exact<T extends { [key: string]: unknown }> = {
@@ -11,147 +11,160 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
   [SubKey in K]: Maybe<T[SubKey]>;
 };
+export type MakeEmpty<
+  T extends { [key: string]: unknown },
+  K extends keyof T,
+> = { [_ in K]?: never };
+export type Incremental<T> =
+  | T
+  | {
+      [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never;
+    };
 const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string;
-  String: string;
-  Boolean: boolean;
-  Int: number;
-  Float: number;
-  DateTime: any;
-  Dimension: any;
-  HexColor: any;
-  Quality: any;
+  ID: { input: string; output: string };
+  String: { input: string; output: string };
+  Boolean: { input: boolean; output: boolean };
+  Int: { input: number; output: number };
+  Float: { input: number; output: number };
+  DateTime: { input: any; output: any };
+  Dimension: { input: any; output: any };
+  HexColor: { input: any; output: any };
+  Quality: { input: any; output: any };
 };
 
 export type Asset = {
   __typename?: 'Asset';
-  contentType?: Maybe<Scalars['String']>;
+  contentType?: Maybe<Scalars['String']['output']>;
   contentfulMetadata: ContentfulMetadata;
-  description?: Maybe<Scalars['String']>;
-  fileName?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Int']>;
+  description?: Maybe<Scalars['String']['output']>;
+  fileName?: Maybe<Scalars['String']['output']>;
+  height?: Maybe<Scalars['Int']['output']>;
   linkedFrom?: Maybe<AssetLinkingCollections>;
-  size?: Maybe<Scalars['Int']>;
+  size?: Maybe<Scalars['Int']['output']>;
   sys: Sys;
-  title?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
+  title?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<Scalars['String']['output']>;
+  width?: Maybe<Scalars['Int']['output']>;
 };
 
 export type AssetContentTypeArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AssetDescriptionArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AssetFileNameArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AssetHeightArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AssetLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type AssetSizeArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AssetTitleArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AssetUrlArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
   transform?: InputMaybe<ImageTransformOptions>;
 };
 
 export type AssetWidthArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AssetCollection = {
   __typename?: 'AssetCollection';
   items: Array<Maybe<Asset>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
 };
 
 export type AssetFilter = {
   AND?: InputMaybe<Array<InputMaybe<AssetFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<AssetFilter>>>;
-  contentType?: InputMaybe<Scalars['String']>;
-  contentType_contains?: InputMaybe<Scalars['String']>;
-  contentType_exists?: InputMaybe<Scalars['Boolean']>;
-  contentType_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  contentType_not?: InputMaybe<Scalars['String']>;
-  contentType_not_contains?: InputMaybe<Scalars['String']>;
-  contentType_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  contentType?: InputMaybe<Scalars['String']['input']>;
+  contentType_contains?: InputMaybe<Scalars['String']['input']>;
+  contentType_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  contentType_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contentType_not?: InputMaybe<Scalars['String']['input']>;
+  contentType_not_contains?: InputMaybe<Scalars['String']['input']>;
+  contentType_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  description?: InputMaybe<Scalars['String']>;
-  description_contains?: InputMaybe<Scalars['String']>;
-  description_exists?: InputMaybe<Scalars['Boolean']>;
-  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  description_not?: InputMaybe<Scalars['String']>;
-  description_not_contains?: InputMaybe<Scalars['String']>;
-  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  fileName?: InputMaybe<Scalars['String']>;
-  fileName_contains?: InputMaybe<Scalars['String']>;
-  fileName_exists?: InputMaybe<Scalars['Boolean']>;
-  fileName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  fileName_not?: InputMaybe<Scalars['String']>;
-  fileName_not_contains?: InputMaybe<Scalars['String']>;
-  fileName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  height?: InputMaybe<Scalars['Int']>;
-  height_exists?: InputMaybe<Scalars['Boolean']>;
-  height_gt?: InputMaybe<Scalars['Int']>;
-  height_gte?: InputMaybe<Scalars['Int']>;
-  height_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  height_lt?: InputMaybe<Scalars['Int']>;
-  height_lte?: InputMaybe<Scalars['Int']>;
-  height_not?: InputMaybe<Scalars['Int']>;
-  height_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  size?: InputMaybe<Scalars['Int']>;
-  size_exists?: InputMaybe<Scalars['Boolean']>;
-  size_gt?: InputMaybe<Scalars['Int']>;
-  size_gte?: InputMaybe<Scalars['Int']>;
-  size_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  size_lt?: InputMaybe<Scalars['Int']>;
-  size_lte?: InputMaybe<Scalars['Int']>;
-  size_not?: InputMaybe<Scalars['Int']>;
-  size_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_contains?: InputMaybe<Scalars['String']['input']>;
+  description_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_not?: InputMaybe<Scalars['String']['input']>;
+  description_not_contains?: InputMaybe<Scalars['String']['input']>;
+  description_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  fileName?: InputMaybe<Scalars['String']['input']>;
+  fileName_contains?: InputMaybe<Scalars['String']['input']>;
+  fileName_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  fileName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fileName_not?: InputMaybe<Scalars['String']['input']>;
+  fileName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  fileName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  height_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  height_gt?: InputMaybe<Scalars['Int']['input']>;
+  height_gte?: InputMaybe<Scalars['Int']['input']>;
+  height_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  height_lt?: InputMaybe<Scalars['Int']['input']>;
+  height_lte?: InputMaybe<Scalars['Int']['input']>;
+  height_not?: InputMaybe<Scalars['Int']['input']>;
+  height_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  size?: InputMaybe<Scalars['Int']['input']>;
+  size_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  size_gt?: InputMaybe<Scalars['Int']['input']>;
+  size_gte?: InputMaybe<Scalars['Int']['input']>;
+  size_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  size_lt?: InputMaybe<Scalars['Int']['input']>;
+  size_lte?: InputMaybe<Scalars['Int']['input']>;
+  size_not?: InputMaybe<Scalars['Int']['input']>;
+  size_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
   sys?: InputMaybe<SysFilter>;
-  title?: InputMaybe<Scalars['String']>;
-  title_contains?: InputMaybe<Scalars['String']>;
-  title_exists?: InputMaybe<Scalars['Boolean']>;
-  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  title_not?: InputMaybe<Scalars['String']>;
-  title_not_contains?: InputMaybe<Scalars['String']>;
-  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  url?: InputMaybe<Scalars['String']>;
-  url_contains?: InputMaybe<Scalars['String']>;
-  url_exists?: InputMaybe<Scalars['Boolean']>;
-  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  url_not?: InputMaybe<Scalars['String']>;
-  url_not_contains?: InputMaybe<Scalars['String']>;
-  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  width?: InputMaybe<Scalars['Int']>;
-  width_exists?: InputMaybe<Scalars['Boolean']>;
-  width_gt?: InputMaybe<Scalars['Int']>;
-  width_gte?: InputMaybe<Scalars['Int']>;
-  width_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  width_lt?: InputMaybe<Scalars['Int']>;
-  width_lte?: InputMaybe<Scalars['Int']>;
-  width_not?: InputMaybe<Scalars['Int']>;
-  width_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_contains?: InputMaybe<Scalars['String']['input']>;
+  title_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_not?: InputMaybe<Scalars['String']['input']>;
+  title_not_contains?: InputMaybe<Scalars['String']['input']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url?: InputMaybe<Scalars['String']['input']>;
+  url_contains?: InputMaybe<Scalars['String']['input']>;
+  url_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url_not?: InputMaybe<Scalars['String']['input']>;
+  url_not_contains?: InputMaybe<Scalars['String']['input']>;
+  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  width?: InputMaybe<Scalars['Int']['input']>;
+  width_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  width_gt?: InputMaybe<Scalars['Int']['input']>;
+  width_gte?: InputMaybe<Scalars['Int']['input']>;
+  width_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  width_lt?: InputMaybe<Scalars['Int']['input']>;
+  width_lte?: InputMaybe<Scalars['Int']['input']>;
+  width_not?: InputMaybe<Scalars['Int']['input']>;
+  width_not_in?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
 };
 
 export type AssetLinkingCollections = {
@@ -161,17 +174,17 @@ export type AssetLinkingCollections = {
 };
 
 export type AssetLinkingCollectionsCvCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type AssetLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type AssetOrder =
@@ -203,19 +216,19 @@ export type ContentfulMetadata = {
 
 export type ContentfulMetadataFilter = {
   tags?: InputMaybe<ContentfulMetadataTagsFilter>;
-  tags_exists?: InputMaybe<Scalars['Boolean']>;
+  tags_exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type ContentfulMetadataTagsFilter = {
-  id_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  id_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  id_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type ContentfulTag = {
   __typename?: 'ContentfulTag';
-  id?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
 };
 
 export type Cv = Entry & {
@@ -225,7 +238,7 @@ export type Cv = Entry & {
   image?: Maybe<Asset>;
   interestsCollection?: Maybe<CvInterestsCollection>;
   linkedFrom?: Maybe<CvLinkingCollections>;
-  name?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']['output']>;
   onTheWebCollection?: Maybe<CvOnTheWebCollection>;
   overviewCollection?: Maybe<CvOverviewCollection>;
   sys: Sys;
@@ -233,95 +246,95 @@ export type Cv = Entry & {
 };
 
 export type CvEducationCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type CvImageArgs = {
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type CvInterestsCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type CvLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type CvNameArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type CvOnTheWebCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type CvOverviewCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type CvWorkHistoryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type CvCollection = {
   __typename?: 'CvCollection';
   items: Array<Maybe<Cv>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
 };
 
 export type CvEducationCollection = {
   __typename?: 'CvEducationCollection';
   items: Array<Maybe<Paragraph>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
 };
 
 export type CvFilter = {
   AND?: InputMaybe<Array<InputMaybe<CvFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<CvFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  educationCollection_exists?: InputMaybe<Scalars['Boolean']>;
-  image_exists?: InputMaybe<Scalars['Boolean']>;
-  interestsCollection_exists?: InputMaybe<Scalars['Boolean']>;
-  name?: InputMaybe<Scalars['String']>;
-  name_contains?: InputMaybe<Scalars['String']>;
-  name_exists?: InputMaybe<Scalars['Boolean']>;
-  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  name_not?: InputMaybe<Scalars['String']>;
-  name_not_contains?: InputMaybe<Scalars['String']>;
-  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  onTheWebCollection_exists?: InputMaybe<Scalars['Boolean']>;
-  overviewCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  educationCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  image_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  interestsCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_contains?: InputMaybe<Scalars['String']['input']>;
+  name_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  name_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  name_not?: InputMaybe<Scalars['String']['input']>;
+  name_not_contains?: InputMaybe<Scalars['String']['input']>;
+  name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  onTheWebCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  overviewCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
   sys?: InputMaybe<SysFilter>;
-  workHistoryCollection_exists?: InputMaybe<Scalars['Boolean']>;
+  workHistoryCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type CvInterestsCollection = {
   __typename?: 'CvInterestsCollection';
   items: Array<Maybe<Paragraph>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
 };
 
 export type CvLinkingCollections = {
@@ -330,18 +343,18 @@ export type CvLinkingCollections = {
 };
 
 export type CvLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type CvOnTheWebCollection = {
   __typename?: 'CvOnTheWebCollection';
   items: Array<Maybe<OnTheWeb>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
 };
 
 export type CvOrder =
@@ -359,17 +372,17 @@ export type CvOrder =
 export type CvOverviewCollection = {
   __typename?: 'CvOverviewCollection';
   items: Array<Maybe<Paragraph>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
 };
 
 export type CvWorkHistoryCollection = {
   __typename?: 'CvWorkHistoryCollection';
   items: Array<Maybe<WorkHistory>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
 };
 
 export type Entry = {
@@ -380,9 +393,9 @@ export type Entry = {
 export type EntryCollection = {
   __typename?: 'EntryCollection';
   items: Array<Maybe<Entry>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
 };
 
 export type EntryFilter = {
@@ -432,76 +445,78 @@ export type ImageResizeStrategy =
   | 'THUMB';
 
 export type ImageTransformOptions = {
-  backgroundColor?: InputMaybe<Scalars['HexColor']>;
-  cornerRadius?: InputMaybe<Scalars['Int']>;
+  backgroundColor?: InputMaybe<Scalars['HexColor']['input']>;
+  cornerRadius?: InputMaybe<Scalars['Int']['input']>;
   format?: InputMaybe<ImageFormat>;
-  height?: InputMaybe<Scalars['Dimension']>;
-  quality?: InputMaybe<Scalars['Quality']>;
+  height?: InputMaybe<Scalars['Dimension']['input']>;
+  quality?: InputMaybe<Scalars['Quality']['input']>;
   resizeFocus?: InputMaybe<ImageResizeFocus>;
   resizeStrategy?: InputMaybe<ImageResizeStrategy>;
-  width?: InputMaybe<Scalars['Dimension']>;
+  width?: InputMaybe<Scalars['Dimension']['input']>;
 };
 
 export type OnTheWeb = Entry & {
   __typename?: 'OnTheWeb';
   contentfulMetadata: ContentfulMetadata;
-  description?: Maybe<Scalars['String']>;
-  linkText?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']['output']>;
+  linkText?: Maybe<Scalars['String']['output']>;
   linkedFrom?: Maybe<OnTheWebLinkingCollections>;
   sys: Sys;
-  url?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']['output']>;
 };
 
 export type OnTheWebDescriptionArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type OnTheWebLinkTextArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type OnTheWebLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type OnTheWebUrlArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type OnTheWebCollection = {
   __typename?: 'OnTheWebCollection';
   items: Array<Maybe<OnTheWeb>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
 };
 
 export type OnTheWebFilter = {
   AND?: InputMaybe<Array<InputMaybe<OnTheWebFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<OnTheWebFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  description?: InputMaybe<Scalars['String']>;
-  description_contains?: InputMaybe<Scalars['String']>;
-  description_exists?: InputMaybe<Scalars['Boolean']>;
-  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  description_not?: InputMaybe<Scalars['String']>;
-  description_not_contains?: InputMaybe<Scalars['String']>;
-  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  linkText?: InputMaybe<Scalars['String']>;
-  linkText_contains?: InputMaybe<Scalars['String']>;
-  linkText_exists?: InputMaybe<Scalars['Boolean']>;
-  linkText_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  linkText_not?: InputMaybe<Scalars['String']>;
-  linkText_not_contains?: InputMaybe<Scalars['String']>;
-  linkText_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_contains?: InputMaybe<Scalars['String']['input']>;
+  description_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_not?: InputMaybe<Scalars['String']['input']>;
+  description_not_contains?: InputMaybe<Scalars['String']['input']>;
+  description_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  linkText?: InputMaybe<Scalars['String']['input']>;
+  linkText_contains?: InputMaybe<Scalars['String']['input']>;
+  linkText_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  linkText_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  linkText_not?: InputMaybe<Scalars['String']['input']>;
+  linkText_not_contains?: InputMaybe<Scalars['String']['input']>;
+  linkText_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sys?: InputMaybe<SysFilter>;
-  url?: InputMaybe<Scalars['String']>;
-  url_contains?: InputMaybe<Scalars['String']>;
-  url_exists?: InputMaybe<Scalars['Boolean']>;
-  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  url_not?: InputMaybe<Scalars['String']>;
-  url_not_contains?: InputMaybe<Scalars['String']>;
-  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  url?: InputMaybe<Scalars['String']['input']>;
+  url_contains?: InputMaybe<Scalars['String']['input']>;
+  url_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url_not?: InputMaybe<Scalars['String']['input']>;
+  url_not_contains?: InputMaybe<Scalars['String']['input']>;
+  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type OnTheWebLinkingCollections = {
@@ -511,17 +526,17 @@ export type OnTheWebLinkingCollections = {
 };
 
 export type OnTheWebLinkingCollectionsCvCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type OnTheWebLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type OnTheWebOrder =
@@ -544,37 +559,37 @@ export type Paragraph = Entry & {
   __typename?: 'Paragraph';
   contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<ParagraphLinkingCollections>;
-  para?: Maybe<Scalars['String']>;
+  para?: Maybe<Scalars['String']['output']>;
   sys: Sys;
 };
 
 export type ParagraphLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type ParagraphParaArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ParagraphCollection = {
   __typename?: 'ParagraphCollection';
   items: Array<Maybe<Paragraph>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
 };
 
 export type ParagraphFilter = {
   AND?: InputMaybe<Array<InputMaybe<ParagraphFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<ParagraphFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  para?: InputMaybe<Scalars['String']>;
-  para_contains?: InputMaybe<Scalars['String']>;
-  para_exists?: InputMaybe<Scalars['Boolean']>;
-  para_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  para_not?: InputMaybe<Scalars['String']>;
-  para_not_contains?: InputMaybe<Scalars['String']>;
-  para_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  para?: InputMaybe<Scalars['String']['input']>;
+  para_contains?: InputMaybe<Scalars['String']['input']>;
+  para_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  para_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  para_not?: InputMaybe<Scalars['String']['input']>;
+  para_not_contains?: InputMaybe<Scalars['String']['input']>;
+  para_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sys?: InputMaybe<SysFilter>;
 };
 
@@ -586,24 +601,24 @@ export type ParagraphLinkingCollections = {
 };
 
 export type ParagraphLinkingCollectionsCvCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ParagraphLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ParagraphLinkingCollectionsWorkHistoryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ParagraphOrder =
@@ -634,274 +649,300 @@ export type Query = {
 };
 
 export type QueryAssetArgs = {
-  id: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type QueryAssetCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
   order?: InputMaybe<Array<InputMaybe<AssetOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<AssetFilter>;
 };
 
 export type QueryCvArgs = {
-  id: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type QueryCvCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
   order?: InputMaybe<Array<InputMaybe<CvOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<CvFilter>;
 };
 
 export type QueryEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
   order?: InputMaybe<Array<InputMaybe<EntryOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<EntryFilter>;
 };
 
 export type QueryOnTheWebArgs = {
-  id: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type QueryOnTheWebCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
   order?: InputMaybe<Array<InputMaybe<OnTheWebOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<OnTheWebFilter>;
 };
 
 export type QueryParagraphArgs = {
-  id: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type QueryParagraphCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
   order?: InputMaybe<Array<InputMaybe<ParagraphOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<ParagraphFilter>;
 };
 
 export type QueryWorkHistoryArgs = {
-  id: Scalars['String'];
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type QueryWorkHistoryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
   order?: InputMaybe<Array<InputMaybe<WorkHistoryOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<WorkHistoryFilter>;
 };
 
 export type Sys = {
   __typename?: 'Sys';
-  environmentId: Scalars['String'];
-  firstPublishedAt?: Maybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  publishedAt?: Maybe<Scalars['DateTime']>;
-  publishedVersion?: Maybe<Scalars['Int']>;
-  spaceId: Scalars['String'];
+  environmentId: Scalars['String']['output'];
+  firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+  id: Scalars['String']['output'];
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  publishedVersion?: Maybe<Scalars['Int']['output']>;
+  spaceId: Scalars['String']['output'];
 };
 
 export type SysFilter = {
-  firstPublishedAt?: InputMaybe<Scalars['DateTime']>;
-  firstPublishedAt_exists?: InputMaybe<Scalars['Boolean']>;
-  firstPublishedAt_gt?: InputMaybe<Scalars['DateTime']>;
-  firstPublishedAt_gte?: InputMaybe<Scalars['DateTime']>;
-  firstPublishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
-  firstPublishedAt_lt?: InputMaybe<Scalars['DateTime']>;
-  firstPublishedAt_lte?: InputMaybe<Scalars['DateTime']>;
-  firstPublishedAt_not?: InputMaybe<Scalars['DateTime']>;
-  firstPublishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
-  id?: InputMaybe<Scalars['String']>;
-  id_contains?: InputMaybe<Scalars['String']>;
-  id_exists?: InputMaybe<Scalars['Boolean']>;
-  id_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  id_not?: InputMaybe<Scalars['String']>;
-  id_not_contains?: InputMaybe<Scalars['String']>;
-  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  publishedAt?: InputMaybe<Scalars['DateTime']>;
-  publishedAt_exists?: InputMaybe<Scalars['Boolean']>;
-  publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
-  publishedAt_gte?: InputMaybe<Scalars['DateTime']>;
-  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
-  publishedAt_lt?: InputMaybe<Scalars['DateTime']>;
-  publishedAt_lte?: InputMaybe<Scalars['DateTime']>;
-  publishedAt_not?: InputMaybe<Scalars['DateTime']>;
-  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
-  publishedVersion?: InputMaybe<Scalars['Float']>;
-  publishedVersion_exists?: InputMaybe<Scalars['Boolean']>;
-  publishedVersion_gt?: InputMaybe<Scalars['Float']>;
-  publishedVersion_gte?: InputMaybe<Scalars['Float']>;
-  publishedVersion_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  publishedVersion_lt?: InputMaybe<Scalars['Float']>;
-  publishedVersion_lte?: InputMaybe<Scalars['Float']>;
-  publishedVersion_not?: InputMaybe<Scalars['Float']>;
-  publishedVersion_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  firstPublishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  firstPublishedAt_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  firstPublishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  firstPublishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  firstPublishedAt_in?: InputMaybe<
+    Array<InputMaybe<Scalars['DateTime']['input']>>
+  >;
+  firstPublishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  firstPublishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  firstPublishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  firstPublishedAt_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['DateTime']['input']>>
+  >;
+  id?: InputMaybe<Scalars['String']['input']>;
+  id_contains?: InputMaybe<Scalars['String']['input']>;
+  id_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id_not?: InputMaybe<Scalars['String']['input']>;
+  id_not_contains?: InputMaybe<Scalars['String']['input']>;
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  publishedAt_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  publishedAt_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['DateTime']['input']>>
+  >;
+  publishedVersion?: InputMaybe<Scalars['Float']['input']>;
+  publishedVersion_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  publishedVersion_gt?: InputMaybe<Scalars['Float']['input']>;
+  publishedVersion_gte?: InputMaybe<Scalars['Float']['input']>;
+  publishedVersion_in?: InputMaybe<
+    Array<InputMaybe<Scalars['Float']['input']>>
+  >;
+  publishedVersion_lt?: InputMaybe<Scalars['Float']['input']>;
+  publishedVersion_lte?: InputMaybe<Scalars['Float']['input']>;
+  publishedVersion_not?: InputMaybe<Scalars['Float']['input']>;
+  publishedVersion_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['Float']['input']>>
+  >;
 };
 
 export type WorkHistory = Entry & {
   __typename?: 'WorkHistory';
   contentfulMetadata: ContentfulMetadata;
-  dateFrom?: Maybe<Scalars['String']>;
-  dateTo?: Maybe<Scalars['String']>;
-  employerName?: Maybe<Scalars['String']>;
-  employerUrl?: Maybe<Scalars['String']>;
+  dateFrom?: Maybe<Scalars['String']['output']>;
+  dateTo?: Maybe<Scalars['String']['output']>;
+  employerName?: Maybe<Scalars['String']['output']>;
+  employerUrl?: Maybe<Scalars['String']['output']>;
   linkedFrom?: Maybe<WorkHistoryLinkingCollections>;
-  location?: Maybe<Scalars['String']>;
+  location?: Maybe<Scalars['String']['output']>;
   responsibilitiesCollection?: Maybe<WorkHistoryResponsibilitiesCollection>;
-  roleTitle?: Maybe<Scalars['String']>;
-  skillSummary?: Maybe<Array<Maybe<Scalars['String']>>>;
+  roleTitle?: Maybe<Scalars['String']['output']>;
+  skillSummary?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   sys: Sys;
-  viaEmployerName?: Maybe<Scalars['String']>;
-  viaEmployerUrl?: Maybe<Scalars['String']>;
+  viaEmployerName?: Maybe<Scalars['String']['output']>;
+  viaEmployerUrl?: Maybe<Scalars['String']['output']>;
 };
 
 export type WorkHistoryDateFromArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type WorkHistoryDateToArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type WorkHistoryEmployerNameArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type WorkHistoryEmployerUrlArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type WorkHistoryLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type WorkHistoryLocationArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type WorkHistoryResponsibilitiesCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type WorkHistoryRoleTitleArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type WorkHistorySkillSummaryArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type WorkHistoryViaEmployerNameArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type WorkHistoryViaEmployerUrlArgs = {
-  locale?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type WorkHistoryCollection = {
   __typename?: 'WorkHistoryCollection';
   items: Array<Maybe<WorkHistory>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
 };
 
 export type WorkHistoryFilter = {
   AND?: InputMaybe<Array<InputMaybe<WorkHistoryFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<WorkHistoryFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  dateFrom?: InputMaybe<Scalars['String']>;
-  dateFrom_contains?: InputMaybe<Scalars['String']>;
-  dateFrom_exists?: InputMaybe<Scalars['Boolean']>;
-  dateFrom_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  dateFrom_not?: InputMaybe<Scalars['String']>;
-  dateFrom_not_contains?: InputMaybe<Scalars['String']>;
-  dateFrom_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  dateTo?: InputMaybe<Scalars['String']>;
-  dateTo_contains?: InputMaybe<Scalars['String']>;
-  dateTo_exists?: InputMaybe<Scalars['Boolean']>;
-  dateTo_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  dateTo_not?: InputMaybe<Scalars['String']>;
-  dateTo_not_contains?: InputMaybe<Scalars['String']>;
-  dateTo_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  employerName?: InputMaybe<Scalars['String']>;
-  employerName_contains?: InputMaybe<Scalars['String']>;
-  employerName_exists?: InputMaybe<Scalars['Boolean']>;
-  employerName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  employerName_not?: InputMaybe<Scalars['String']>;
-  employerName_not_contains?: InputMaybe<Scalars['String']>;
-  employerName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  employerUrl?: InputMaybe<Scalars['String']>;
-  employerUrl_contains?: InputMaybe<Scalars['String']>;
-  employerUrl_exists?: InputMaybe<Scalars['Boolean']>;
-  employerUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  employerUrl_not?: InputMaybe<Scalars['String']>;
-  employerUrl_not_contains?: InputMaybe<Scalars['String']>;
-  employerUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  location?: InputMaybe<Scalars['String']>;
-  location_contains?: InputMaybe<Scalars['String']>;
-  location_exists?: InputMaybe<Scalars['Boolean']>;
-  location_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  location_not?: InputMaybe<Scalars['String']>;
-  location_not_contains?: InputMaybe<Scalars['String']>;
-  location_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  responsibilitiesCollection_exists?: InputMaybe<Scalars['Boolean']>;
-  roleTitle?: InputMaybe<Scalars['String']>;
-  roleTitle_contains?: InputMaybe<Scalars['String']>;
-  roleTitle_exists?: InputMaybe<Scalars['Boolean']>;
-  roleTitle_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  roleTitle_not?: InputMaybe<Scalars['String']>;
-  roleTitle_not_contains?: InputMaybe<Scalars['String']>;
-  roleTitle_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  skillSummary_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  skillSummary_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  skillSummary_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  skillSummary_exists?: InputMaybe<Scalars['Boolean']>;
+  dateFrom?: InputMaybe<Scalars['String']['input']>;
+  dateFrom_contains?: InputMaybe<Scalars['String']['input']>;
+  dateFrom_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  dateFrom_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateFrom_not?: InputMaybe<Scalars['String']['input']>;
+  dateFrom_not_contains?: InputMaybe<Scalars['String']['input']>;
+  dateFrom_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateTo?: InputMaybe<Scalars['String']['input']>;
+  dateTo_contains?: InputMaybe<Scalars['String']['input']>;
+  dateTo_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  dateTo_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateTo_not?: InputMaybe<Scalars['String']['input']>;
+  dateTo_not_contains?: InputMaybe<Scalars['String']['input']>;
+  dateTo_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  employerName?: InputMaybe<Scalars['String']['input']>;
+  employerName_contains?: InputMaybe<Scalars['String']['input']>;
+  employerName_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  employerName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  employerName_not?: InputMaybe<Scalars['String']['input']>;
+  employerName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  employerName_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  employerUrl?: InputMaybe<Scalars['String']['input']>;
+  employerUrl_contains?: InputMaybe<Scalars['String']['input']>;
+  employerUrl_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  employerUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  employerUrl_not?: InputMaybe<Scalars['String']['input']>;
+  employerUrl_not_contains?: InputMaybe<Scalars['String']['input']>;
+  employerUrl_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  location?: InputMaybe<Scalars['String']['input']>;
+  location_contains?: InputMaybe<Scalars['String']['input']>;
+  location_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  location_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  location_not?: InputMaybe<Scalars['String']['input']>;
+  location_not_contains?: InputMaybe<Scalars['String']['input']>;
+  location_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  responsibilitiesCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  roleTitle?: InputMaybe<Scalars['String']['input']>;
+  roleTitle_contains?: InputMaybe<Scalars['String']['input']>;
+  roleTitle_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  roleTitle_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  roleTitle_not?: InputMaybe<Scalars['String']['input']>;
+  roleTitle_not_contains?: InputMaybe<Scalars['String']['input']>;
+  roleTitle_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  skillSummary_contains_all?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  skillSummary_contains_none?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  skillSummary_contains_some?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  skillSummary_exists?: InputMaybe<Scalars['Boolean']['input']>;
   sys?: InputMaybe<SysFilter>;
-  viaEmployerName?: InputMaybe<Scalars['String']>;
-  viaEmployerName_contains?: InputMaybe<Scalars['String']>;
-  viaEmployerName_exists?: InputMaybe<Scalars['Boolean']>;
-  viaEmployerName_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  viaEmployerName_not?: InputMaybe<Scalars['String']>;
-  viaEmployerName_not_contains?: InputMaybe<Scalars['String']>;
-  viaEmployerName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  viaEmployerUrl?: InputMaybe<Scalars['String']>;
-  viaEmployerUrl_contains?: InputMaybe<Scalars['String']>;
-  viaEmployerUrl_exists?: InputMaybe<Scalars['Boolean']>;
-  viaEmployerUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  viaEmployerUrl_not?: InputMaybe<Scalars['String']>;
-  viaEmployerUrl_not_contains?: InputMaybe<Scalars['String']>;
-  viaEmployerUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  viaEmployerName?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerName_contains?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerName_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  viaEmployerName_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  viaEmployerName_not?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerName_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  viaEmployerUrl?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerUrl_contains?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerUrl_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  viaEmployerUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  viaEmployerUrl_not?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerUrl_not_contains?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerUrl_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
 };
 
 export type WorkHistoryLinkingCollections = {
@@ -911,17 +952,17 @@ export type WorkHistoryLinkingCollections = {
 };
 
 export type WorkHistoryLinkingCollectionsCvCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type WorkHistoryLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']>;
-  locale?: InputMaybe<Scalars['String']>;
-  preview?: InputMaybe<Scalars['Boolean']>;
-  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type WorkHistoryOrder =
@@ -953,9 +994,9 @@ export type WorkHistoryOrder =
 export type WorkHistoryResponsibilitiesCollection = {
   __typename?: 'WorkHistoryResponsibilitiesCollection';
   items: Array<Maybe<Paragraph>>;
-  limit: Scalars['Int'];
-  skip: Scalars['Int'];
-  total: Scalars['Int'];
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
 };
 
 export type CvFragment = {
@@ -985,6 +1026,9 @@ export type CvFragment = {
   workHistoryCollection?:
     | {
         __typename?: 'CvWorkHistoryCollection';
+        total: number;
+        skip: number;
+        limit: number;
         items: Array<
           | {
               __typename?: 'WorkHistory';
@@ -1029,7 +1073,10 @@ export type CvFragment = {
     | undefined;
 };
 
-export type GetCvQueryVariables = Exact<{ [key: string]: never }>;
+export type GetCvQueryVariables = Exact<{
+  workHistorySkip?: InputMaybe<Scalars['Int']['input']>;
+  workHistoryLimit?: InputMaybe<Scalars['Int']['input']>;
+}>;
 
 export type GetCvQuery = {
   __typename?: 'Query';
@@ -1067,6 +1114,9 @@ export type GetCvQuery = {
               workHistoryCollection?:
                 | {
                     __typename?: 'CvWorkHistoryCollection';
+                    total: number;
+                    skip: number;
+                    limit: number;
                     items: Array<
                       | {
                           __typename?: 'WorkHistory';
@@ -1198,7 +1248,10 @@ export const CvFragmentDoc = gql`
         ...OnTheWeb
       }
     }
-    workHistoryCollection {
+    workHistoryCollection(skip: $workHistorySkip, limit: $workHistoryLimit) {
+      total
+      skip
+      limit
       items {
         ...WorkHistory
       }
@@ -1219,7 +1272,7 @@ export const CvFragmentDoc = gql`
   ${WorkHistoryFragmentDoc}
 `;
 export const GetCvDocument = gql`
-  query GetCv {
+  query GetCv($workHistorySkip: Int = 0, $workHistoryLimit: Int = 5) {
     cvCollection(limit: 1, where: { name: "Matt Calthrop" }) {
       items {
         ...Cv
@@ -1241,6 +1294,8 @@ export const GetCvDocument = gql`
  * @example
  * const { data, loading, error } = useGetCvQuery({
  *   variables: {
+ *      workHistorySkip: // value for 'workHistorySkip'
+ *      workHistoryLimit: // value for 'workHistoryLimit'
  *   },
  * });
  */
@@ -1262,8 +1317,25 @@ export function useGetCvLazyQuery(
     options,
   );
 }
+export function useGetCvSuspenseQuery(
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<GetCvQuery, GetCvQueryVariables>,
+) {
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
+  return Apollo.useSuspenseQuery<GetCvQuery, GetCvQueryVariables>(
+    GetCvDocument,
+    options,
+  );
+}
 export type GetCvQueryHookResult = ReturnType<typeof useGetCvQuery>;
 export type GetCvLazyQueryHookResult = ReturnType<typeof useGetCvLazyQuery>;
+export type GetCvSuspenseQueryHookResult = ReturnType<
+  typeof useGetCvSuspenseQuery
+>;
 export type GetCvQueryResult = Apollo.QueryResult<
   GetCvQuery,
   GetCvQueryVariables
