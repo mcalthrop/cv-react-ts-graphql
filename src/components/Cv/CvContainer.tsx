@@ -22,7 +22,9 @@ export function CvContainer(): JSX.Element {
   const initialTotal = workPage?.total ?? 0;
   const initialLimit = workPage?.limit ?? PAGE_SIZE;
 
-  const [allWorkItems, setAllWorkItems] = useState<Array<Maybe<WorkHistoryFragment>>>([]);
+  const [allWorkItems, setAllWorkItems] = useState<
+    Array<Maybe<WorkHistoryFragment>>
+  >([]);
   const [workTotal, setWorkTotal] = useState<number>(0);
   const [workLimit, setWorkLimit] = useState<number>(PAGE_SIZE);
 
