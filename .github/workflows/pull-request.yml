@@ -26,6 +26,9 @@ jobs:
       - name: Install
         run: yarn install
 
+      - name: Compile
+        run: yarn compile
+
       - name: Build
         run: yarn build
 
