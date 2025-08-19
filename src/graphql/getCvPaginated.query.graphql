@@ -1,0 +1,37 @@
+query GetCvPaginated($workLimit: Int!, $workSkip: Int!) {
+  cvCollection(limit: 1, where: { name: "Matt Calthrop" }) {
+    items {
+      image {
+        url
+      }
+      overviewCollection {
+        items {
+          ...Paragraph
+        }
+      }
+      onTheWebCollection {
+        items {
+          ...OnTheWeb
+        }
+      }
+      workHistoryPage: workHistoryCollection(limit: $workLimit, skip: $workSkip) {
+        total
+        limit
+        skip
+        items {
+          ...WorkHistory
+        }
+      }
+      interestsCollection {
+        items {
+          ...Paragraph
+        }
+      }
+      educationCollection {
+        items {
+          ...Paragraph
+        }
+      }
+    }
+  }
+}
