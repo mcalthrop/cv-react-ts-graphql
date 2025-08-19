@@ -1,0 +1,8 @@
+query GetWorkHistory($limit: Int = 5, $skip: Int = 0) {
+  workHistoryCollection(limit: $limit, skip: $skip, order: [dateTo_DESC]) {
+    total
+    items {
+      ...WorkHistory
+    }
+  }
+}

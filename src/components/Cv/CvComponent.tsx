@@ -22,7 +22,10 @@ export function CvComponent({ cvFragment }: CvComponentProps): JSX.Element {
         items={cvFragment.overviewCollection?.items}
       />
       <OnTheWeb items={cvFragment.onTheWebCollection?.items} />
-      <WorkHistory items={cvFragment.workHistoryCollection?.items} />
+      <WorkHistory
+        items={cvFragment.workHistoryCollection?.items}
+        total={cvFragment.workHistoryCollection?.total}
+      />
       <Education items={cvFragment.educationCollection?.items} />
       <Interests items={cvFragment.interestsCollection?.items} />
       <Footer />

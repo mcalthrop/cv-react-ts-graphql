@@ -4,7 +4,12 @@ import { useGetCvQuery } from 'src/graphql-types';
 import { CvComponent } from './CvComponent';
 
 export function CvContainer(): JSX.Element {
-  const { data } = useGetCvQuery();
+  const { data } = useGetCvQuery({
+    variables: {
+      workHistoryLimit: 5,
+      workHistorySkip: 0,
+    },
+  });
   const [cvFragment, setCvFragment] = useState<CvFragment | undefined>();
 
   useEffect(() => {
