@@ -12,11 +12,6 @@ fragment Cv on Cv {
       ...OnTheWeb
     }
   }
-  workHistoryCollection {
-    items {
-      ...WorkHistory
-    }
-  }
   interestsCollection {
     items {
       ...Paragraph
