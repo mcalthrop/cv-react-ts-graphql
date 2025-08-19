@@ -20,7 +20,7 @@
     "lint:fix": "yarn lint --fix --quiet",
     "prepare": "husky install",
     "prettier": "yarn prettier:run --check",
-    "prettier:fix": "yarn prettier:run --write --loglevel=error",
+    "prettier:fix": "yarn prettier:run --write",
     "prettier:run": "prettier '*.{js,ts}' 'src/**/*.{js,jsx,ts,tsx}'",
     "start:dev": "vite",
     "start:preview": "vite preview",
