@@ -1,5 +1,5 @@
 import { Heading } from '@chakra-ui/react';
-import type { CvFragment } from 'src/graphql-types';
+import type { CvFragment, Maybe, WorkHistoryFragment } from 'src/graphql-types';
 import { Education } from '../Education';
 import { Footer } from '../Footer';
 import { Interests } from '../Interests';
@@ -9,9 +9,17 @@ import { WorkHistory } from '../WorkHistory';
 
 type CvComponentProps = {
   cvFragment: CvFragment;
+  workHistoryItemsOverride?: Array<Maybe<WorkHistoryFragment>>;
+  onFetchMoreWorkHistory?: () => void;
+  hasMoreWorkHistory?: boolean;
 };
 
-export function CvComponent({ cvFragment }: CvComponentProps): JSX.Element {
+export function CvComponent({
+  cvFragment,
+  workHistoryItemsOverride,
+  onFetchMoreWorkHistory,
+  hasMoreWorkHistory,
+}: CvComponentProps): JSX.Element {
   return (
     <>
       <Heading as={'h1'} size={'xl'} marginTop={3} marginBottom={3}>
@@ -22,7 +30,13 @@ export function CvComponent({ cvFragment }: CvComponentProps): JSX.Element {
         items={cvFragment.overviewCollection?.items}
       />
       <OnTheWeb items={cvFragment.onTheWebCollection?.items} />
-      <WorkHistory items={cvFragment.workHistoryCollection?.items} />
+      <WorkHistory
+        items={
+          workHistoryItemsOverride ?? cvFragment.workHistoryCollection?.items
+        }
+        onFetchMore={onFetchMoreWorkHistory}
+        hasMore={hasMoreWorkHistory}
+      />
       <Education items={cvFragment.educationCollection?.items} />
       <Interests items={cvFragment.interestsCollection?.items} />
       <Footer />
