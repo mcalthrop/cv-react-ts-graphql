@@ -1,5 +1,5 @@
 import { Heading } from '@chakra-ui/react';
-import type { CvFragment } from 'src/graphql-types';
+import type { CvFragment, WorkHistoryFragment } from 'src/graphql-types';
 import { Education } from '../Education';
 import { Footer } from '../Footer';
 import { Interests } from '../Interests';
@@ -9,9 +9,19 @@ import { WorkHistory } from '../WorkHistory';
 
 type CvComponentProps = {
   cvFragment: CvFragment;
+  workHistoryItems: WorkHistoryFragment[];
+  onFetchMoreWorkHistory: () => Promise<void>;
+  hasMoreWorkHistory: boolean;
+  isLoadingMoreWorkHistory: boolean;
 };
 
-export function CvComponent({ cvFragment }: CvComponentProps): JSX.Element {
+export function CvComponent({
+  cvFragment,
+  workHistoryItems,
+  onFetchMoreWorkHistory,
+  hasMoreWorkHistory,
+  isLoadingMoreWorkHistory,
+}: CvComponentProps): JSX.Element {
   return (
     <>
       <Heading as={'h1'} size={'xl'} marginTop={3} marginBottom={3}>
@@ -22,7 +32,12 @@ export function CvComponent({ cvFragment }: CvComponentProps): JSX.Element {
         items={cvFragment.overviewCollection?.items}
       />
       <OnTheWeb items={cvFragment.onTheWebCollection?.items} />
-      <WorkHistory items={cvFragment.workHistoryCollection?.items} />
+      <WorkHistory
+        items={workHistoryItems}
+        onFetchMore={onFetchMoreWorkHistory}
+        hasMore={hasMoreWorkHistory}
+        isLoadingMore={isLoadingMoreWorkHistory}
+      />
       <Education items={cvFragment.educationCollection?.items} />
       <Interests items={cvFragment.interestsCollection?.items} />
       <Footer />

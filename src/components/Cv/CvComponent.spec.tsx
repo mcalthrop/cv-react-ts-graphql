@@ -3,7 +3,15 @@ import { CvComponent } from './CvComponent';
 
 describe('CvComponent', () => {
   it('should render CV text', () => {
-    render(<CvComponent cvFragment={{}} />);
+    const mockProps = {
+      cvFragment: {},
+      workHistoryItems: [],
+      onFetchMoreWorkHistory: jest.fn(),
+      hasMoreWorkHistory: false,
+      isLoadingMoreWorkHistory: false,
+    };
+
+    render(<CvComponent {...mockProps} />);
     const textElement = screen.getByText(/CV: Matt Calthrop/);
     expect(textElement).toBeInTheDocument();
   });

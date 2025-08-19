@@ -1,0 +1,14 @@
+query GetMoreWorkHistory($cvName: String!, $limit: Int!, $skip: Int!) {
+  cvCollection(limit: 1, where: { name: $cvName }) {
+    items {
+      workHistoryCollection(limit: $limit, skip: $skip) {
+        items {
+          ...WorkHistory
+        }
+        limit
+        skip
+        total
+      }
+    }
+  }
+}
