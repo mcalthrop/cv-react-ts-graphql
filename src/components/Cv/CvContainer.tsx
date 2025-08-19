@@ -15,53 +15,44 @@ export function CvContainer(): JSX.Element {
   const [isFetchingMore, setIsFetchingMore] = useState(false);
 
   const workPage = data?.cvCollection?.items?.[0]?.workHistoryPage;
-  const workItems = useMemo(
+  const initialItems = useMemo(
     () => workPage?.items as Array<Maybe<WorkHistoryFragment>> | undefined,
     [workPage?.items],
   );
-  const workTotal = workPage?.total ?? 0;
-  const workLimit = workPage?.limit ?? PAGE_SIZE;
-  const workHasMore = (workItems?.length ?? 0) < workTotal;
+  const initialTotal = workPage?.total ?? 0;
+  const initialLimit = workPage?.limit ?? PAGE_SIZE;
+
+  const [allWorkItems, setAllWorkItems] = useState<Array<Maybe<WorkHistoryFragment>>>([]);
+  const [workTotal, setWorkTotal] = useState<number>(0);
+  const [workLimit, setWorkLimit] = useState<number>(PAGE_SIZE);
+
+  useEffect(() => {
+    if (initialItems && initialItems.length > 0 && allWorkItems.length === 0) {
+      setAllWorkItems(initialItems);
+      setWorkTotal(initialTotal);
+      setWorkLimit(initialLimit);
+    }
+  }, [initialItems, initialTotal, initialLimit, allWorkItems.length]);
+
+  const workHasMore = allWorkItems.length < workTotal;
 
   const handleFetchMore = () => {
     if (!workHasMore) {
       return;
     }
-    const nextSkip = workItems?.length ?? 0;
+    const nextSkip = allWorkItems.length;
     setIsFetchingMore(true);
     fetchMore({
-      variables: { workSkip: nextSkip, workLimit: workLimit },
-      updateQuery: (prev: any, { fetchMoreResult }: any) => {
-        if (!fetchMoreResult) {
-          return prev;
+      variables: { workSkip: nextSkip, workLimit },
+    })
+      .then((res: any) => {
+        const nextItems: Array<Maybe<WorkHistoryFragment>> =
+          res?.data?.cvCollection?.items?.[0]?.workHistoryPage?.items ?? [];
+        if (nextItems.length > 0) {
+          setAllWorkItems((prev) => [...prev, ...nextItems]);
         }
-        const prevCv = prev.cvCollection?.items?.[0];
-        const nextCv = fetchMoreResult.cvCollection?.items?.[0];
-        if (!prevCv || !nextCv) {
-          return prev;
-        }
-        const mergedItems = [
-          ...(prevCv.workHistoryPage?.items ?? []),
-          ...(nextCv.workHistoryPage?.items ?? []),
-        ];
-        return {
-          ...prev,
-          cvCollection: {
-            ...prev.cvCollection!,
-            items: [
-              {
-                ...prevCv,
-                workHistoryPage: {
-                  ...nextCv.workHistoryPage!,
-                  items: mergedItems,
-                  skip: prevCv.workHistoryPage?.skip ?? 0,
-                },
-              },
-            ],
-          },
-        };
-      },
-    }).finally(() => setIsFetchingMore(false));
+      })
+      .finally(() => setIsFetchingMore(false));
   };
 
   useEffect(() => {
@@ -78,7 +69,7 @@ export function CvContainer(): JSX.Element {
   return (
     <CvComponent
       cvFragment={cvFragment}
-      workItems={workItems}
+      workItems={allWorkItems}
       workHasMore={workHasMore}
       workOnFetchMore={handleFetchMore}
       workIsFetchingMore={isFetchingMore}
