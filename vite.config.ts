@@ -44,6 +44,8 @@ const viteConfig = defineConfig({
         'src/mocks/**',
         'src/graphql-types.tsx',
         'src/index.tsx',
+        '**/index.ts',
+        '**/index.tsx',
         'babel.config.js',
         '.eslintrc.js',
       ],
