@@ -18,7 +18,7 @@
     "graphql:types": "graphql-codegen --config codegen.yml && npm run prettier:fix",
     "lint": "eslint . --env-info",
     "lint:fix": "yarn lint --fix --quiet",
-    "prepare": "husky install",
+    "prepare": "husky",
     "prettier": "yarn prettier:run --check",
     "prettier:fix": "yarn prettier:run --write",
     "prettier:run": "prettier '*.{js,ts}' 'src/**/*.{js,jsx,ts,tsx}'",
