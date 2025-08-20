@@ -9,6 +9,7 @@
     "paths": {
       "src/*": ["src/*"]
     },
+    "types": ["vitest/globals"],
     "noEmit": true,
     /* Additional Options */
     "strict": true,
