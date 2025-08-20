@@ -46,6 +46,7 @@ const viteConfig = defineConfig({
         'src/index.tsx',
         '**/index.ts',
         '**/index.tsx',
+        'src/chakra/theme.ts',
         'babel.config.js',
         '.eslintrc.js',
       ],
