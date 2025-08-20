@@ -2,78 +2,78 @@ import { render, screen } from 'src/testUtils';
 import { CvComponent } from './CvComponent';
 import type { CvFragment } from 'src/graphql-types';
 
-describe('CvComponent', () => {
-  const mockCvFragment: CvFragment = {
-    __typename: 'Cv',
-    image: {
-      __typename: 'Asset',
-      url: 'https://example.com/image.jpg',
-    },
-    overviewCollection: {
-      __typename: 'CvOverviewCollection',
-      items: [
-        {
-          __typename: 'Paragraph',
-          para: 'Overview paragraph 1',
+const mockCvFragment: CvFragment = {
+  __typename: 'Cv',
+  image: {
+    __typename: 'Asset',
+    url: 'https://example.com/image.jpg',
+  },
+  overviewCollection: {
+    __typename: 'CvOverviewCollection',
+    items: [
+      {
+        __typename: 'Paragraph',
+        para: 'Overview paragraph 1',
+      },
+    ],
+  },
+  onTheWebCollection: {
+    __typename: 'CvOnTheWebCollection',
+    items: [
+      {
+        __typename: 'OnTheWeb',
+        linkText: 'GitHub',
+        url: 'https://github.com/test',
+      },
+    ],
+  },
+  workHistoryCollection: {
+    __typename: 'CvWorkHistoryCollection',
+    items: [
+      {
+        __typename: 'WorkHistory',
+        roleTitle: 'Software Engineer',
+        employerName: 'Test Company',
+        employerUrl: 'https://test.com',
+        viaEmployerName: undefined,
+        viaEmployerUrl: undefined,
+        location: 'London',
+        dateFrom: '2020-01',
+        dateTo: 'Present',
+        responsibilitiesCollection: {
+          __typename: 'WorkHistoryResponsibilitiesCollection',
+          items: [
+            {
+              __typename: 'Paragraph',
+              para: 'Test responsibility',
+            },
+          ],
         },
-      ],
-    },
-    onTheWebCollection: {
-      __typename: 'CvOnTheWebCollection',
-      items: [
-        {
-          __typename: 'OnTheWeb',
-          linkText: 'GitHub',
-          url: 'https://github.com/test',
-        },
-      ],
-    },
-    workHistoryCollection: {
-      __typename: 'CvWorkHistoryCollection',
-      items: [
-        {
-          __typename: 'WorkHistory',
-          roleTitle: 'Software Engineer',
-          employerName: 'Test Company',
-          employerUrl: 'https://test.com',
-          viaEmployerName: undefined,
-          viaEmployerUrl: undefined,
-          location: 'London',
-          dateFrom: '2020-01',
-          dateTo: 'Present',
-          responsibilitiesCollection: {
-            __typename: 'WorkHistoryResponsibilitiesCollection',
-            items: [
-              {
-                __typename: 'Paragraph',
-                para: 'Test responsibility',
-              },
-            ],
-          },
-          skillSummary: ['React', 'TypeScript'],
-        },
-      ],
-    },
-    educationCollection: {
-      __typename: 'CvEducationCollection',
-      items: [
-        {
-          __typename: 'Paragraph',
-          para: 'Test education',
-        },
-      ],
-    },
-    interestsCollection: {
-      __typename: 'CvInterestsCollection',
-      items: [
-        {
-          __typename: 'Paragraph',
-          para: 'Test interest',
-        },
-      ],
-    },
-  };
+        skillSummary: ['React', 'TypeScript'],
+      },
+    ],
+  },
+  educationCollection: {
+    __typename: 'CvEducationCollection',
+    items: [
+      {
+        __typename: 'Paragraph',
+        para: 'Test education',
+      },
+    ],
+  },
+  interestsCollection: {
+    __typename: 'CvInterestsCollection',
+    items: [
+      {
+        __typename: 'Paragraph',
+        para: 'Test interest',
+      },
+    ],
+  },
+};
 
+describe('CvComponent', () => {
   it('should render CV heading', () => {
     render(<CvComponent cvFragment={mockCvFragment} />);
     expect(screen.getByRole('heading', { name: /CV: Matt Calthrop/ })).toBeInTheDocument();
