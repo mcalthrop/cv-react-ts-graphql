@@ -2,22 +2,22 @@ import { render, screen } from 'src/testUtils';
 import { Education } from './Education';
 import type { ParagraphFragment } from 'src/graphql-types';
 
-describe('Education', () => {
-  const mockItems: ParagraphFragment[] = [
-    {
-      __typename: 'Paragraph',
-      para: 'BSc Computer Science, University of Test',
-    },
-    {
-      __typename: 'Paragraph',
-      para: 'MSc Software Engineering, Test Institute',
-    },
-  ];
+const mockItems: ParagraphFragment[] = [
+  {
+    __typename: 'Paragraph',
+    para: 'BSc Computer Science, University of Test',
+  },
+  {
+    __typename: 'Paragraph',
+    para: 'MSc Software Engineering, Test Institute',
+  },
+];
 
+describe('Education', () => {
   it('renders section heading', () => {
     render(<Education items={mockItems} />);
 
-    expect(screen.getByRole('heading', { name: 'Education' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Education', level: 2 })).toBeInTheDocument();
   });
 
   it('renders all education items', () => {
@@ -30,14 +30,14 @@ describe('Education', () => {
   it('renders with no items', () => {
     render(<Education items={[]} />);
 
-    expect(screen.getByRole('heading', { name: 'Education' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Education', level: 2 })).toBeInTheDocument();
     expect(screen.queryByText(/University/)).not.toBeInTheDocument();
   });
 
   it('renders with undefined items', () => {
     render(<Education items={undefined} />);
 
-    expect(screen.getByRole('heading', { name: 'Education' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Education', level: 2 })).toBeInTheDocument();
     expect(screen.queryByText(/University/)).not.toBeInTheDocument();
   });
 

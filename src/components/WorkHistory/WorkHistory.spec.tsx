@@ -51,7 +51,7 @@ describe('WorkHistory', () => {
   it('renders section heading', () => {
     render(<WorkHistory items={mockItems} />);
 
-    expect(screen.getByRole('heading', { name: 'Work history' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Work history', level: 2 })).toBeInTheDocument();
   });
 
   it('renders all work history items', () => {
@@ -66,14 +66,14 @@ describe('WorkHistory', () => {
   it('renders with no items', () => {
     render(<WorkHistory items={[]} />);
 
-    expect(screen.getByRole('heading', { name: 'Work history' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Work history', level: 2 })).toBeInTheDocument();
     expect(screen.queryByText(/Engineer/)).not.toBeInTheDocument();
   });
 
   it('renders with undefined items', () => {
     render(<WorkHistory items={undefined} />);
 
-    expect(screen.getByRole('heading', { name: 'Work history' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Work history', level: 2 })).toBeInTheDocument();
     expect(screen.queryByText(/Engineer/)).not.toBeInTheDocument();
   });
 

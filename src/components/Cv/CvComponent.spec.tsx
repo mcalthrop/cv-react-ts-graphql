@@ -76,7 +76,7 @@ const mockCvFragment: CvFragment = {
 describe('CvComponent', () => {
   it('should render CV heading', () => {
     render(<CvComponent cvFragment={mockCvFragment} />);
-    expect(screen.getByRole('heading', { name: /CV: Matt Calthrop/ })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /CV: Matt Calthrop/, level: 1 })).toBeInTheDocument();
   });
 
   it('should render all sections', () => {
@@ -94,7 +94,7 @@ describe('CvComponent', () => {
     const minimalFragment = { __typename: 'Cv' as const };
     render(<CvComponent cvFragment={minimalFragment} />);
 
-    expect(screen.getByRole('heading', { name: /CV: Matt Calthrop/ })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /CV: Matt Calthrop/, level: 1 })).toBeInTheDocument();
     expect(screen.getByText(/Copyright ©/)).toBeInTheDocument();
   });
 

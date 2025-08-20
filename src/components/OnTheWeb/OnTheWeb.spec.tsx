@@ -19,7 +19,7 @@ describe('OnTheWeb', () => {
   it('renders section heading', () => {
     render(<OnTheWeb items={mockItems} />);
 
-    expect(screen.getByRole('heading', { name: 'On the web' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'On the web', level: 2 })).toBeInTheDocument();
   });
 
   it('renders links with correct attributes', () => {
@@ -37,14 +37,14 @@ describe('OnTheWeb', () => {
   it('renders with no items', () => {
     render(<OnTheWeb items={[]} />);
 
-    expect(screen.getByRole('heading', { name: 'On the web' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'On the web', level: 2 })).toBeInTheDocument();
     expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
 
   it('renders with undefined items', () => {
     render(<OnTheWeb items={undefined} />);
 
-    expect(screen.getByRole('heading', { name: 'On the web' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'On the web', level: 2 })).toBeInTheDocument();
     expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
 
