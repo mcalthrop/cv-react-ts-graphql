@@ -46,8 +46,6 @@ export const mockCvData: GetCvQuery = {
               roleTitle: 'Senior Software Engineer',
               employerName: 'Test Company',
               employerUrl: 'https://testcompany.com',
-              viaEmployerName: undefined,
-              viaEmployerUrl: undefined,
               location: 'London, UK',
               dateFrom: '2020-01',
               dateTo: 'Present',
