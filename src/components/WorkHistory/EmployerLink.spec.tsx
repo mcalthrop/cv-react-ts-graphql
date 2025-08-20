@@ -28,7 +28,7 @@ describe('EmployerLink', () => {
     });
 
     render(<EmployerLink item={item} />);
-    
+
     expect(screen.getByText('Test Company')).toBeInTheDocument();
     expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
@@ -40,7 +40,7 @@ describe('EmployerLink', () => {
     });
 
     render(<EmployerLink item={item} />);
-    
+
     const link = screen.getByRole('link', { name: 'Test Company' });
     expect(link).toHaveAttribute('href', 'https://testcompany.com');
     expect(link).toHaveAttribute('target', '_blank');
@@ -53,7 +53,7 @@ describe('EmployerLink', () => {
     });
 
     render(<EmployerLink item={item} />);
-    
+
     expect(screen.getByText(/via Recruitment Agency/)).toBeInTheDocument();
     expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
@@ -65,7 +65,7 @@ describe('EmployerLink', () => {
     });
 
     render(<EmployerLink item={item} />);
-    
+
     expect(screen.getByText(/via/)).toBeInTheDocument();
     const link = screen.getByRole('link', { name: 'Recruitment Agency' });
     expect(link).toHaveAttribute('href', 'https://agency.com');
@@ -81,13 +81,13 @@ describe('EmployerLink', () => {
     });
 
     render(<EmployerLink item={item} />);
-    
+
     const companyLink = screen.getByRole('link', { name: 'Test Company' });
     expect(companyLink).toHaveAttribute('href', 'https://testcompany.com');
-    
+
     const agencyLink = screen.getByRole('link', { name: 'Recruitment Agency' });
     expect(agencyLink).toHaveAttribute('href', 'https://agency.com');
-    
+
     expect(screen.getByText(/via/)).toBeInTheDocument();
   });
 
@@ -100,7 +100,7 @@ describe('EmployerLink', () => {
     });
 
     render(<EmployerLink item={item} />);
-    
+
     expect(screen.getByText(/Test Company/)).toBeInTheDocument();
     expect(screen.getByText(/via/)).toBeInTheDocument();
     expect(screen.getByText(/Recruitment Agency/)).toBeInTheDocument();
@@ -114,20 +114,20 @@ describe('EmployerLink', () => {
     });
 
     render(<EmployerLink item={item} />);
-    
+
     expect(screen.getByRole('link', { name: 'Test Company' })).toBeInTheDocument();
     expect(screen.queryByText(/via/)).not.toBeInTheDocument();
   });
 
   it('handles null item', () => {
     render(<EmployerLink item={undefined} />);
-    
+
     expect(screen.queryByText(/Company/)).not.toBeInTheDocument();
   });
 
   it('handles undefined item', () => {
     render(<EmployerLink item={undefined} />);
-    
+
     expect(screen.queryByText(/Company/)).not.toBeInTheDocument();
   });
 
@@ -138,7 +138,7 @@ describe('EmployerLink', () => {
     });
 
     const { container } = render(<EmployerLink item={item} />);
-    
+
     expect(container.firstChild).toBeInTheDocument();
   });
 });

@@ -18,17 +18,17 @@ describe('OnTheWeb', () => {
 
   it('renders section heading', () => {
     render(<OnTheWeb items={mockItems} />);
-    
+
     expect(screen.getByRole('heading', { name: 'On the web' })).toBeInTheDocument();
   });
 
   it('renders links with correct attributes', () => {
     render(<OnTheWeb items={mockItems} />);
-    
+
     const githubLink = screen.getByRole('link', { name: 'GitHub' });
     expect(githubLink).toHaveAttribute('href', 'https://github.com/test');
     expect(githubLink).toHaveAttribute('target', '_blank');
-    
+
     const linkedinLink = screen.getByRole('link', { name: 'LinkedIn' });
     expect(linkedinLink).toHaveAttribute('href', 'https://linkedin.com/in/test');
     expect(linkedinLink).toHaveAttribute('target', '_blank');
@@ -36,14 +36,14 @@ describe('OnTheWeb', () => {
 
   it('renders with no items', () => {
     render(<OnTheWeb items={[]} />);
-    
+
     expect(screen.getByRole('heading', { name: 'On the web' })).toBeInTheDocument();
     expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
 
   it('renders with undefined items', () => {
     render(<OnTheWeb items={undefined} />);
-    
+
     expect(screen.getByRole('heading', { name: 'On the web' })).toBeInTheDocument();
     expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
@@ -64,7 +64,7 @@ describe('OnTheWeb', () => {
     ];
 
     render(<OnTheWeb items={itemsWithNull} />);
-    
+
     expect(screen.getByRole('link', { name: 'Valid' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Another' })).toBeInTheDocument();
     expect(screen.getAllByRole('link')).toHaveLength(2);
@@ -72,10 +72,10 @@ describe('OnTheWeb', () => {
 
   it('has correct list structure', () => {
     render(<OnTheWeb items={mockItems} />);
-    
+
     const list = screen.getByRole('list');
     expect(list).toBeInTheDocument();
-    
+
     const listItems = screen.getAllByRole('listitem');
     expect(listItems).toHaveLength(2);
   });

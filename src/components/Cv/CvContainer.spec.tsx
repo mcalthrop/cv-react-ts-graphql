@@ -43,7 +43,7 @@ describe('CvContainer', () => {
     } as any);
 
     render(<CvContainer />);
-    
+
     await waitFor(() => {
       expect(screen.getByText('CV: Matt Calthrop')).toBeInTheDocument();
     });

@@ -50,13 +50,13 @@ describe('WorkHistory', () => {
 
   it('renders section heading', () => {
     render(<WorkHistory items={mockItems} />);
-    
+
     expect(screen.getByRole('heading', { name: 'Work history' })).toBeInTheDocument();
   });
 
   it('renders all work history items', () => {
     render(<WorkHistory items={mockItems} />);
-    
+
     expect(screen.getByText('Senior Software Engineer')).toBeInTheDocument();
     expect(screen.getByText('Software Engineer')).toBeInTheDocument();
     expect(screen.getByText('Test Company 1')).toBeInTheDocument();
@@ -65,34 +65,30 @@ describe('WorkHistory', () => {
 
   it('renders with no items', () => {
     render(<WorkHistory items={[]} />);
-    
+
     expect(screen.getByRole('heading', { name: 'Work history' })).toBeInTheDocument();
     expect(screen.queryByText(/Engineer/)).not.toBeInTheDocument();
   });
 
   it('renders with undefined items', () => {
     render(<WorkHistory items={undefined} />);
-    
+
     expect(screen.getByRole('heading', { name: 'Work history' })).toBeInTheDocument();
     expect(screen.queryByText(/Engineer/)).not.toBeInTheDocument();
   });
 
   it('filters out null items', () => {
-    const itemsWithNull = [
-      mockItems[0],
-      undefined,
-      mockItems[1],
-    ];
+    const itemsWithNull = [mockItems[0], undefined, mockItems[1]];
 
     render(<WorkHistory items={itemsWithNull} />);
-    
+
     expect(screen.getByText('Senior Software Engineer')).toBeInTheDocument();
     expect(screen.getByText('Software Engineer')).toBeInTheDocument();
   });
 
   it('has correct flex layout structure', () => {
     const { container } = render(<WorkHistory items={mockItems} />);
-    
+
     // Check that a container exists (the component renders)
     expect(container.firstChild).toBeInTheDocument();
   });

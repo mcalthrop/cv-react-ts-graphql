@@ -43,10 +43,12 @@ describe('CvComponent', () => {
           dateTo: 'Present',
           responsibilitiesCollection: {
             __typename: 'WorkHistoryResponsibilitiesCollection',
-            items: [{
-              __typename: 'Paragraph',
-              para: 'Test responsibility',
-            }],
+            items: [
+              {
+                __typename: 'Paragraph',
+                para: 'Test responsibility',
+              },
+            ],
           },
           skillSummary: ['React', 'TypeScript'],
         },
@@ -79,7 +81,7 @@ describe('CvComponent', () => {
 
   it('should render all sections', () => {
     render(<CvComponent cvFragment={mockCvFragment} />);
-    
+
     expect(screen.getByText('Overview paragraph 1')).toBeInTheDocument();
     expect(screen.getByText('On the web')).toBeInTheDocument();
     expect(screen.getByText('Work history')).toBeInTheDocument();
@@ -91,18 +93,18 @@ describe('CvComponent', () => {
   it('should render with minimal cvFragment', () => {
     const minimalFragment = { __typename: 'Cv' as const };
     render(<CvComponent cvFragment={minimalFragment} />);
-    
+
     expect(screen.getByRole('heading', { name: /CV: Matt Calthrop/ })).toBeInTheDocument();
     expect(screen.getByText(/Copyright ©/)).toBeInTheDocument();
   });
 
   it('should pass correct props to child components', () => {
     render(<CvComponent cvFragment={mockCvFragment} />);
-    
+
     // Check that image URL is passed to Overview
     const img = screen.getByRole('img');
     expect(img).toHaveAttribute('src', 'https://example.com/image.jpg');
-    
+
     // Check that work history items are rendered
     expect(screen.getByText('Software Engineer')).toBeInTheDocument();
     expect(screen.getByText('Test Company')).toBeInTheDocument();
