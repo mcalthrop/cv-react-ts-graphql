@@ -2,20 +2,20 @@ import { render, screen } from 'src/testUtils';
 import { OnTheWeb } from './OnTheWeb';
 import type { OnTheWebFragment } from 'src/graphql-types';
 
-describe('OnTheWeb', () => {
-  const mockItems: OnTheWebFragment[] = [
-    {
-      __typename: 'OnTheWeb',
-      linkText: 'GitHub',
-      url: 'https://github.com/test',
-    },
-    {
-      __typename: 'OnTheWeb',
-      linkText: 'LinkedIn',
-      url: 'https://linkedin.com/in/test',
-    },
-  ];
+const mockItems: OnTheWebFragment[] = [
+  {
+    __typename: 'OnTheWeb',
+    linkText: 'GitHub',
+    url: 'https://github.com/test',
+  },
+  {
+    __typename: 'OnTheWeb',
+    linkText: 'LinkedIn',
+    url: 'https://linkedin.com/in/test',
+  },
+];
 
+describe('OnTheWeb', () => {
   it('renders section heading', () => {
     render(<OnTheWeb items={mockItems} />);
 

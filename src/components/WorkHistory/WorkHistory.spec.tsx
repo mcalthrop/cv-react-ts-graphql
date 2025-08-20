@@ -2,52 +2,52 @@ import { render, screen } from 'src/testUtils';
 import { WorkHistory } from './WorkHistory';
 import type { WorkHistoryFragment } from 'src/graphql-types';
 
-describe('WorkHistory', () => {
-  const mockItems: WorkHistoryFragment[] = [
-    {
-      __typename: 'WorkHistory',
-      roleTitle: 'Senior Software Engineer',
-      employerName: 'Test Company 1',
-      employerUrl: 'https://test1.com',
-      viaEmployerName: undefined,
-      viaEmployerUrl: undefined,
-      location: 'London, UK',
-      dateFrom: '2020-01',
-      dateTo: 'Present',
-      responsibilitiesCollection: {
-        __typename: 'WorkHistoryResponsibilitiesCollection',
-        items: [
-          {
-            __typename: 'Paragraph',
-            para: 'Led development of React applications',
-          },
-        ],
-      },
-      skillSummary: ['React', 'TypeScript', 'GraphQL'],
+const mockItems: WorkHistoryFragment[] = [
+  {
+    __typename: 'WorkHistory',
+    roleTitle: 'Senior Software Engineer',
+    employerName: 'Test Company 1',
+    employerUrl: 'https://test1.com',
+    viaEmployerName: undefined,
+    viaEmployerUrl: undefined,
+    location: 'London, UK',
+    dateFrom: '2020-01',
+    dateTo: 'Present',
+    responsibilitiesCollection: {
+      __typename: 'WorkHistoryResponsibilitiesCollection',
+      items: [
+        {
+          __typename: 'Paragraph',
+          para: 'Led development of React applications',
+        },
+      ],
     },
-    {
-      __typename: 'WorkHistory',
-      roleTitle: 'Software Engineer',
-      employerName: 'Test Company 2',
-      employerUrl: undefined,
-      viaEmployerName: undefined,
-      viaEmployerUrl: undefined,
-      location: 'Remote',
-      dateFrom: '2018-06',
-      dateTo: '2019-12',
-      responsibilitiesCollection: {
-        __typename: 'WorkHistoryResponsibilitiesCollection',
-        items: [
-          {
-            __typename: 'Paragraph',
-            para: 'Developed web applications',
-          },
-        ],
-      },
-      skillSummary: ['JavaScript', 'Node.js'],
+    skillSummary: ['React', 'TypeScript', 'GraphQL'],
+  },
+  {
+    __typename: 'WorkHistory',
+    roleTitle: 'Software Engineer',
+    employerName: 'Test Company 2',
+    employerUrl: undefined,
+    viaEmployerName: undefined,
+    viaEmployerUrl: undefined,
+    location: 'Remote',
+    dateFrom: '2018-06',
+    dateTo: '2019-12',
+    responsibilitiesCollection: {
+      __typename: 'WorkHistoryResponsibilitiesCollection',
+      items: [
+        {
+          __typename: 'Paragraph',
+          para: 'Developed web applications',
+        },
+      ],
     },
-  ];
+    skillSummary: ['JavaScript', 'Node.js'],
+  },
+];
 
+describe('WorkHistory', () => {
   it('renders section heading', () => {
     render(<WorkHistory items={mockItems} />);
 

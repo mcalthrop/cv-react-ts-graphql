@@ -2,18 +2,18 @@ import { render, screen } from 'src/testUtils';
 import { Overview } from './Overview';
 import type { ParagraphFragment } from 'src/graphql-types';
 
-describe('Overview', () => {
-  const mockItems: ParagraphFragment[] = [
-    {
-      __typename: 'Paragraph',
-      para: 'First overview paragraph',
-    },
-    {
-      __typename: 'Paragraph',
-      para: 'Second overview paragraph',
-    },
-  ];
+const mockItems: ParagraphFragment[] = [
+  {
+    __typename: 'Paragraph',
+    para: 'First overview paragraph',
+  },
+  {
+    __typename: 'Paragraph',
+    para: 'Second overview paragraph',
+  },
+];
 
+describe('Overview', () => {
   it('renders without image', () => {
     render(<Overview items={mockItems} />);
 
@@ -65,7 +65,7 @@ describe('Overview', () => {
   });
 
   it('has correct layout structure', () => {
-    render(<Overview image="https://example.com/test.jpg" items={mockItems} />);
+    render(<Overview image={'https://example.com/test.jpg'} items={mockItems} />);
 
     const container = screen.getByRole('img').closest('.chakra-stack');
     expect(container).toBeInTheDocument();

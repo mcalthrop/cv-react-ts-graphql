@@ -15,21 +15,14 @@ describe('Footer', () => {
   it('renders copyright text with current year', () => {
     render(<Footer />);
 
-    expect(screen.getByText(/Copyright © Matt Calthrop 2018-/)).toBeInTheDocument();
-  });
-
-  it('displays correct year range', () => {
-    render(<Footer />);
-
-    const copyrightText = screen.getByText(/Copyright © Matt Calthrop/);
-    expect(copyrightText).toHaveTextContent(/2018-\d{4}/);
+    expect(screen.getByText('Copyright © Matt Calthrop 2018-2024')).toBeInTheDocument();
   });
 
   it('uses current year dynamically', () => {
-    vi.setSystemTime(new Date('2025-06-15'));
+    vi.setSystemTime(new Date('2027-06-15'));
     render(<Footer />);
 
-    expect(screen.getByText(/Copyright © Matt Calthrop 2018-2025/)).toBeInTheDocument();
+    expect(screen.getByText('Copyright © Matt Calthrop 2018-2027')).toBeInTheDocument();
   });
 
   it('has correct styling', () => {

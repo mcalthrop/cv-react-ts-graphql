@@ -2,33 +2,33 @@ import { render, screen } from 'src/testUtils';
 import { WorkHistoryItem } from './WorkHistoryItem';
 import type { WorkHistoryFragment } from 'src/graphql-types';
 
-describe('WorkHistoryItem', () => {
-  const mockItem: WorkHistoryFragment = {
-    __typename: 'WorkHistory',
-    roleTitle: 'Senior Software Engineer',
-    employerName: 'Test Company',
-    employerUrl: 'https://testcompany.com',
-    viaEmployerName: 'Recruitment Agency',
-    viaEmployerUrl: 'https://agency.com',
-    location: 'London, UK',
-    dateFrom: '2020-01',
-    dateTo: 'Present',
-    responsibilitiesCollection: {
-      __typename: 'WorkHistoryResponsibilitiesCollection',
-      items: [
-        {
-          __typename: 'Paragraph',
-          para: 'Led development of React applications',
-        },
-        {
-          __typename: 'Paragraph',
-          para: 'Mentored junior developers',
-        },
-      ],
-    },
-    skillSummary: ['React', 'TypeScript', 'GraphQL', 'Node.js'],
-  };
+const mockItem: WorkHistoryFragment = {
+  __typename: 'WorkHistory',
+  roleTitle: 'Senior Software Engineer',
+  employerName: 'Test Company',
+  employerUrl: 'https://testcompany.com',
+  viaEmployerName: 'Recruitment Agency',
+  viaEmployerUrl: 'https://agency.com',
+  location: 'London, UK',
+  dateFrom: '2020-01',
+  dateTo: 'Present',
+  responsibilitiesCollection: {
+    __typename: 'WorkHistoryResponsibilitiesCollection',
+    items: [
+      {
+        __typename: 'Paragraph',
+        para: 'Led development of React applications',
+      },
+      {
+        __typename: 'Paragraph',
+        para: 'Mentored junior developers',
+      },
+    ],
+  },
+  skillSummary: ['React', 'TypeScript', 'GraphQL', 'Node.js'],
+};
 
+describe('WorkHistoryItem', () => {
   it('renders all sub-components with correct data', () => {
     render(<WorkHistoryItem item={mockItem} />);
 

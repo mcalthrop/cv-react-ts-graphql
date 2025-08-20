@@ -2,25 +2,25 @@ import { render, screen } from 'src/testUtils';
 import { EmployerLink } from './EmployerLink';
 import type { WorkHistoryFragment } from 'src/graphql-types';
 
-describe('EmployerLink', () => {
-  const createMockItem = (overrides: Partial<WorkHistoryFragment> = {}): WorkHistoryFragment => ({
-    __typename: 'WorkHistory',
-    roleTitle: 'Test Role',
-    employerName: undefined,
-    employerUrl: undefined,
-    viaEmployerName: undefined,
-    viaEmployerUrl: undefined,
-    location: undefined,
-    dateFrom: undefined,
-    dateTo: undefined,
-    responsibilitiesCollection: {
-      __typename: 'WorkHistoryResponsibilitiesCollection',
-      items: [],
-    },
-    skillSummary: [],
-    ...overrides,
-  });
+const createMockItem = (overrides: Partial<WorkHistoryFragment> = {}): WorkHistoryFragment => ({
+  __typename: 'WorkHistory',
+  roleTitle: 'Test Role',
+  employerName: undefined,
+  employerUrl: undefined,
+  viaEmployerName: undefined,
+  viaEmployerUrl: undefined,
+  location: undefined,
+  dateFrom: undefined,
+  dateTo: undefined,
+  responsibilitiesCollection: {
+    __typename: 'WorkHistoryResponsibilitiesCollection',
+    items: [],
+  },
+  skillSummary: [],
+  ...overrides,
+});
 
+describe('EmployerLink', () => {
   it('renders employer name without URL as plain text', () => {
     const item = createMockItem({
       employerName: 'Test Company',

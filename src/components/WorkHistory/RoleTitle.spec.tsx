@@ -3,7 +3,7 @@ import { RoleTitle } from './RoleTitle';
 
 describe('RoleTitle', () => {
   it('renders role title text', () => {
-    render(<RoleTitle roleTitle="Senior Software Engineer" />);
+    render(<RoleTitle roleTitle={'Senior Software Engineer'} />);
 
     expect(screen.getByText('Senior Software Engineer')).toBeInTheDocument();
   });
@@ -15,13 +15,13 @@ describe('RoleTitle', () => {
   });
 
   it('handles empty role title', () => {
-    const { container } = render(<RoleTitle roleTitle="" />);
+    const { container } = render(<RoleTitle roleTitle={''} />);
 
     expect(container.firstChild).toBeInTheDocument();
   });
 
   it('applies correct font weight styling', () => {
-    render(<RoleTitle roleTitle="Test Role" />);
+    render(<RoleTitle roleTitle={'Test Role'} />);
 
     const roleElement = screen.getByText('Test Role');
     expect(roleElement).toHaveClass('chakra-text');

@@ -22,7 +22,7 @@ describe('CvContainer', () => {
   it('displays loading when data is undefined', () => {
     mockUseGetCvQuery.mockReturnValue({
       data: undefined,
-    } as any);
+    });
 
     render(<CvContainer />);
     expect(screen.getByText(/Loading.../)).toBeInTheDocument();
@@ -31,7 +31,7 @@ describe('CvContainer', () => {
   it('displays loading when cvCollection is empty', () => {
     mockUseGetCvQuery.mockReturnValue({
       data: { cvCollection: { items: [] } },
-    } as any);
+    });
 
     render(<CvContainer />);
     expect(screen.getByText(/Loading.../)).toBeInTheDocument();
@@ -40,7 +40,7 @@ describe('CvContainer', () => {
   it('renders CvComponent when data is available', async () => {
     mockUseGetCvQuery.mockReturnValue({
       data: mockCvData,
-    } as any);
+    });
 
     render(<CvContainer />);
 
@@ -53,7 +53,7 @@ describe('CvContainer', () => {
     // First render with no data
     mockUseGetCvQuery.mockReturnValue({
       data: { cvCollection: { items: [] } },
-    } as any);
+    });
 
     const { rerender } = render(<CvContainer />);
     expect(screen.getByText(/Loading.../)).toBeInTheDocument();
@@ -61,7 +61,7 @@ describe('CvContainer', () => {
     // Update with real data
     mockUseGetCvQuery.mockReturnValue({
       data: mockCvData,
-    } as any);
+    });
 
     rerender(<CvContainer />);
 

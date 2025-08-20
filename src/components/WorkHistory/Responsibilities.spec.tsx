@@ -2,22 +2,22 @@ import { render, screen } from 'src/testUtils';
 import { Responsibilities } from './Responsibilities';
 import type { ParagraphFragment } from 'src/graphql-types';
 
-describe('Responsibilities', () => {
-  const mockItems: ParagraphFragment[] = [
-    {
-      __typename: 'Paragraph',
-      para: 'Led development of React applications using TypeScript',
-    },
-    {
-      __typename: 'Paragraph',
-      para: 'Mentored junior developers and conducted code reviews',
-    },
-    {
-      __typename: 'Paragraph',
-      para: 'Collaborated with product team on feature requirements',
-    },
-  ];
+const mockItems: ParagraphFragment[] = [
+  {
+    __typename: 'Paragraph',
+    para: 'Led development of React applications using TypeScript',
+  },
+  {
+    __typename: 'Paragraph',
+    para: 'Mentored junior developers and conducted code reviews',
+  },
+  {
+    __typename: 'Paragraph',
+    para: 'Collaborated with product team on feature requirements',
+  },
+];
 
+describe('Responsibilities', () => {
   it('renders all responsibility items', () => {
     render(<Responsibilities items={mockItems} />);
 
