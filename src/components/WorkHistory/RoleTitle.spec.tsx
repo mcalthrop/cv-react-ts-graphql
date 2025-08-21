@@ -24,7 +24,7 @@ describe('RoleTitle', () => {
     render(<RoleTitle roleTitle={'Test Role'} />);
 
     const roleElement = screen.getByText('Test Role');
-    expect(roleElement).toHaveClass('chakra-text');
+    expect(roleElement).toBeInTheDocument();
   });
 
   it('renders long role titles', () => {

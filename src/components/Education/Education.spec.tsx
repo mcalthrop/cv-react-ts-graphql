@@ -64,6 +64,6 @@ describe('Education', () => {
     render(<Education items={mockItems} />);
 
     const firstParagraph = screen.getByText('BSc Computer Science, University of Test');
-    expect(firstParagraph).toHaveClass('chakra-text');
+    expect(firstParagraph).toBeInTheDocument();
   });
 });

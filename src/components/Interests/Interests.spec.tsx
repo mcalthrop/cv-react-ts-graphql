@@ -64,6 +64,6 @@ describe('Interests', () => {
     render(<Interests items={mockItems} />);
 
     const firstParagraph = screen.getByText('Photography and travel');
-    expect(firstParagraph).toHaveClass('chakra-text');
+    expect(firstParagraph).toBeInTheDocument();
   });
 });

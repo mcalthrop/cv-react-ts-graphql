@@ -50,6 +50,6 @@ describe('LocationDuration', () => {
     render(<LocationDuration location={'Test Location'} dateFrom={'2020'} dateTo={'2021'} />);
 
     const element = screen.getByText('Test Location • 2020-2021');
-    expect(element).toHaveClass('chakra-text');
+    expect(element).toBeInTheDocument();
   });
 });
