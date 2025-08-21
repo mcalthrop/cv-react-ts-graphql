@@ -1,4 +1,9 @@
-import { createSystem, defineConfig, defaultConfig, defineRecipe } from '@chakra-ui/react';
+import {
+  createSystem,
+  defineConfig,
+  defaultConfig,
+  defineRecipe,
+} from '@chakra-ui/react';
 
 const linkRecipe = defineRecipe({
   className: 'link',
