@@ -41,6 +41,7 @@ const viteConfig = defineConfig({
         '**/node_modules/**',
         '**/.yarn/**',
         'src/setupTestsAfterEnv.ts',
+        'src/components/chakra/**',
         'src/mocks/**',
         'src/graphql-types.tsx',
         'src/index.tsx',
