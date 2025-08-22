@@ -1,5 +1,6 @@
 import { ApolloProvider } from '@apollo/client';
 import { CustomChakraProvider } from './components/chakra/provider';
+import './App.css';
 import { Container } from '@chakra-ui/react';
 import { CvContainer } from './components/Cv';
 import { createApolloClient } from './graphql';
