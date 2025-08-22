@@ -13,16 +13,9 @@ export const chakraTheme = createSystem(defaultConfig, {
         base: { fontWeight: 'extralight' },
         variants: {
           size: {
-            xl: {
-              fontSize: 'var(--chakra-font-sizes-3xl)',
-            },
-            lg: {
-              fontSize: 'var(--chakra-font-sizes-2xl)',
-            },
-            md: {
-              fontSize: 'var(--chakra-font-sizes-xl)',
-              fontWeight: 'var(--chakra-font-weights-normal)',
-            },
+            xl: { fontSize: '3xl' },
+            lg: { fontSize: '2xl' },
+            md: { fontSize: 'xl', fontWeight: 'normal' },
           },
         },
       }),
