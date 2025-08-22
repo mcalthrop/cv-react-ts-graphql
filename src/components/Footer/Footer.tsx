@@ -1,6 +1,6 @@
 import { Text } from '@chakra-ui/react';
 
-export function Footer(): JSX.Element {
+export const Footer = (): JSX.Element => {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
 
@@ -9,4 +9,4 @@ export function Footer(): JSX.Element {
       Copyright &copy; Matt Calthrop 2018-{currentYear}
     </Text>
   );
-}
+};

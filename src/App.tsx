@@ -7,14 +7,12 @@ import { createApolloClient } from './graphql';
 
 const apolloClient = createApolloClient();
 
-export function App(): JSX.Element {
-  return (
-    <ApolloProvider client={apolloClient}>
-      <CustomChakraProvider enableSystem={false}>
-        <Container maxWidth={'4xl'}>
-          <CvContainer />
-        </Container>
-      </CustomChakraProvider>
-    </ApolloProvider>
-  );
-}
+export const App = (): JSX.Element => (
+  <ApolloProvider client={apolloClient}>
+    <CustomChakraProvider enableSystem={false}>
+      <Container maxWidth={'4xl'}>
+        <CvContainer />
+      </Container>
+    </CustomChakraProvider>
+  </ApolloProvider>
+);
