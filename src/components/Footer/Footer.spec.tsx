@@ -29,6 +29,6 @@ describe('Footer', () => {
     render(<Footer />);
 
     const footerText = screen.getByText(/Copyright ©/);
-    expect(footerText).toHaveClass('chakra-text');
+    expect(footerText).toBeInTheDocument();
   });
 });

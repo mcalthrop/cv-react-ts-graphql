@@ -1,4 +1,4 @@
-import { Link, List, ListItem } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/react';
 import type { Maybe, OnTheWebFragment } from 'src/graphql-types';
 import { SectionHeading } from '../SectionHeading';
 
@@ -10,15 +10,15 @@ export function OnTheWeb({ items }: OnTheWebProps): JSX.Element {
   return (
     <>
       <SectionHeading heading={'On the web'} />
-      <List>
+      <ul>
         {items?.map((item, idx) => (
-          <ListItem key={idx}>
+          <li key={idx}>
             <Link href={item?.url} target={'_blank'} fontSize={'sm'}>
               {item?.linkText}
             </Link>
-          </ListItem>
+          </li>
         ))}
-      </List>
+      </ul>
     </>
   );
 }

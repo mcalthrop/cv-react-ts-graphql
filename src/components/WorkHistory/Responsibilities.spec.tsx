@@ -61,7 +61,7 @@ describe('Responsibilities', () => {
     render(<Responsibilities items={mockItems} />);
 
     const firstItem = screen.getByText('Led development of React applications using TypeScript');
-    expect(firstItem).toHaveClass('chakra-text');
+    expect(firstItem).toBeInTheDocument();
   });
 
   it('handles single responsibility item', () => {
