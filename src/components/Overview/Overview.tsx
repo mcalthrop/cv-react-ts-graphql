@@ -1,22 +1,20 @@
 import { HStack, Image, Text, VStack } from '@chakra-ui/react';
 import type { Maybe, ParagraphFragment } from 'src/graphql-types';
 
-type OverviewProps = {
+export type OverviewProps = {
   image?: string;
   items?: Array<Maybe<ParagraphFragment>>;
 };
 
-export function Overview({ image, items }: OverviewProps): JSX.Element {
-  return (
-    <HStack maxWidth={520} alignItems={'start'}>
-      <Image src={image} width={100} />
-      <VStack alignItems={'start'}>
-        {items?.map((item, idx) => (
-          <Text key={idx} fontSize={'sm'}>
-            {item?.para}
-          </Text>
-        ))}
-      </VStack>
-    </HStack>
-  );
-}
+export const Overview = ({ image, items }: OverviewProps): JSX.Element => (
+  <HStack maxWidth={520} alignItems={'start'}>
+    <Image src={image} width={100} />
+    <VStack alignItems={'start'}>
+      {items?.map((item, idx) => (
+        <Text key={idx} fontSize={'sm'}>
+          {item?.para}
+        </Text>
+      ))}
+    </VStack>
+  </HStack>
+);

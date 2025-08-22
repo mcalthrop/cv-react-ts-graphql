@@ -2,11 +2,11 @@ import { Heading, Link } from '@chakra-ui/react';
 import { useMemo } from 'react';
 import type { Maybe, WorkHistoryFragment } from 'src/graphql-types';
 
-type EmployerLinkProps = {
+export type EmployerLinkProps = {
   item: Maybe<WorkHistoryFragment>;
 };
 
-export function EmployerLink({ item }: EmployerLinkProps): JSX.Element {
+export const EmployerLink = ({ item }: EmployerLinkProps): JSX.Element => {
   const viaEmployerElement = useMemo(() => {
     let element = <></>;
 
@@ -52,4 +52,4 @@ export function EmployerLink({ item }: EmployerLinkProps): JSX.Element {
       {employerElement}
     </Heading>
   );
-}
+};
