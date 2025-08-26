@@ -9,7 +9,7 @@ const apolloClient = createApolloClient();
 
 export const App = (): JSX.Element => (
   <ApolloProvider client={apolloClient}>
-    <CustomChakraProvider enableSystem={false}>
+    <CustomChakraProvider>
       <Container maxWidth={'4xl'}>
         <CvContainer />
       </Container>
