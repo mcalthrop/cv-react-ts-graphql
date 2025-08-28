@@ -131,6 +131,6 @@ describe('metadata', () => {
   });
 
   it('has correct favicon path', () => {
-    expect(metadata.icons?.icon).toBe('/favicon.ico');
+    expect(metadata.icons).toEqual({ icon: '/favicon.ico' });
   });
 });
