@@ -7,7 +7,7 @@ export type ResponsibilitiesProps = {
 
 export const Responsibilities = ({
   items,
-}: ResponsibilitiesProps): JSX.Element => (
+}: ResponsibilitiesProps): React.JSX.Element => (
   <Box>
     {items?.map((item, idx) => (
       <Text key={idx} fontSize={'sm'} marginTop={0.5} letterSpacing={-0.25}>

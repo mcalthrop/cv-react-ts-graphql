@@ -6,7 +6,10 @@ export type OverviewProps = {
   items?: Array<Maybe<ParagraphFragment>>;
 };
 
-export const Overview = ({ image, items }: OverviewProps): JSX.Element => (
+export const Overview = ({
+  image,
+  items,
+}: OverviewProps): React.JSX.Element => (
   <HStack maxWidth={520} alignItems={'start'}>
     <Image src={image} width={100} />
     <VStack alignItems={'start'}>

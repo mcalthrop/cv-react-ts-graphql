@@ -11,7 +11,7 @@ export interface ColorModeProviderProps extends ThemeProviderProps {}
 
 export const ColorModeProvider = (
   props: ColorModeProviderProps,
-): JSX.Element => (
+): React.JSX.Element => (
   <ThemeProvider attribute={'class'} disableTransitionOnChange {...props} />
 );
 
@@ -41,7 +41,7 @@ export const useColorModeValue = <T,>(light: T, dark: T): T => {
   return colorMode === 'dark' ? dark : light;
 };
 
-export const ColorModeIcon = (): JSX.Element => {
+export const ColorModeIcon = (): React.JSX.Element => {
   const { colorMode } = useColorMode();
   return colorMode === 'dark' ? <LuMoon /> : <LuSun />;
 };

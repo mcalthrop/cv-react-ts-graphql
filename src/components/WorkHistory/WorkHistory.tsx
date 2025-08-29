@@ -7,7 +7,7 @@ export type WorkHistoryProps = {
   items?: Array<Maybe<WorkHistoryFragment>>;
 };
 
-export const WorkHistory = ({ items }: WorkHistoryProps): JSX.Element => (
+export const WorkHistory = ({ items }: WorkHistoryProps): React.JSX.Element => (
   <>
     <SectionHeading heading={'Work history'} />
     <Flex gap={2} direction={'column'}>

@@ -12,7 +12,7 @@ export type WorkHistoryItemProps = {
 
 export const WorkHistoryItem = ({
   item,
-}: WorkHistoryItemProps): JSX.Element => (
+}: WorkHistoryItemProps): React.JSX.Element => (
   <Box marginBottom={2}>
     <EmployerLink item={item} />
     <RoleTitle roleTitle={item?.roleTitle} />

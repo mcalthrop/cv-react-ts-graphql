@@ -10,7 +10,7 @@ export const LocationDuration = ({
   location,
   dateFrom,
   dateTo,
-}: LocationDurationProps): JSX.Element => (
+}: LocationDurationProps): React.JSX.Element => (
   <Text fontSize={'sm'}>
     {location} &bull; {dateFrom}-{dateTo}
   </Text>

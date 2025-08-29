@@ -11,7 +11,9 @@ export type CvComponentProps = {
   cvFragment: CvFragment;
 };
 
-export const CvComponent = ({ cvFragment }: CvComponentProps): JSX.Element => (
+export const CvComponent = ({
+  cvFragment,
+}: CvComponentProps): React.JSX.Element => (
   <>
     <Heading as={'h1'} size={'xl'} marginTop={3} marginBottom={3}>
       CV: Matt Calthrop
