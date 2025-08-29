@@ -1,4 +1,4 @@
-import { MockedProvider as ApolloProvider } from '@apollo/client/testing';
+import { MockedProvider as ApolloProvider } from '@apollo/client/testing/react';
 import type { RenderOptions } from '@testing-library/react';
 import { render } from '@testing-library/react';
 import type { FC, ReactElement, ReactNode } from 'react';

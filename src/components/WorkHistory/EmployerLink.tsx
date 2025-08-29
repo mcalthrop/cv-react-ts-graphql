@@ -6,7 +6,9 @@ export type EmployerLinkProps = {
   item: Maybe<WorkHistoryFragment>;
 };
 
-export const EmployerLink = ({ item }: EmployerLinkProps): JSX.Element => {
+export const EmployerLink = ({
+  item,
+}: EmployerLinkProps): React.JSX.Element => {
   const viaEmployerElement = useMemo(() => {
     let element = <></>;
 

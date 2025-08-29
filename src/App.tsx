@@ -1,4 +1,4 @@
-import { ApolloProvider } from '@apollo/client';
+import { ApolloProvider } from '@apollo/client/react';
 import { CustomChakraProvider } from './components/chakra/provider';
 import './App.css';
 import { Container } from '@chakra-ui/react';
@@ -7,7 +7,7 @@ import { createApolloClient } from './graphql';
 
 const apolloClient = createApolloClient();
 
-export const App = (): JSX.Element => (
+export const App = (): React.JSX.Element => (
   <ApolloProvider client={apolloClient}>
     <CustomChakraProvider>
       <Container maxWidth={'4xl'}>

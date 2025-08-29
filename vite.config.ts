@@ -50,6 +50,7 @@ const viteConfig = defineConfig({
         'src/chakra/**',
         'babel.config.js',
         '.eslintrc.js',
+        'codegen.ts',
       ],
       thresholds: {
         global: {

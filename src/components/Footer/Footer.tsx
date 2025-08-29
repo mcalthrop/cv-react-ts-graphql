@@ -1,6 +1,6 @@
 import { Text } from '@chakra-ui/react';
 
-export const Footer = (): JSX.Element => {
+export const Footer = (): React.JSX.Element => {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
 

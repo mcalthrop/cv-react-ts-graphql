@@ -6,7 +6,7 @@ import { chakraTheme } from './theme';
 
 export const CustomChakraProvider = (
   props: ColorModeProviderProps,
-): JSX.Element => (
+): React.JSX.Element => (
   <ChakraProvider value={chakraTheme}>
     <ColorModeProvider {...props} />
   </ChakraProvider>

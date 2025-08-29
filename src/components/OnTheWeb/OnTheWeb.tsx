@@ -6,7 +6,7 @@ export type OnTheWebProps = {
   items?: Array<Maybe<OnTheWebFragment>>;
 };
 
-export const OnTheWeb = ({ items }: OnTheWebProps): JSX.Element => (
+export const OnTheWeb = ({ items }: OnTheWebProps): React.JSX.Element => (
   <>
     <SectionHeading heading={'On the web'} />
     <ul>

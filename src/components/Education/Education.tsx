@@ -6,7 +6,7 @@ export type EducationProps = {
   items?: Array<Maybe<ParagraphFragment>>;
 };
 
-export const Education = ({ items }: EducationProps): JSX.Element => (
+export const Education = ({ items }: EducationProps): React.JSX.Element => (
   <>
     <SectionHeading heading={'Education'} />
     <VStack alignItems={'start'}>

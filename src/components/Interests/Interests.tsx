@@ -6,7 +6,7 @@ export type InterestsProps = {
   items?: Array<Maybe<ParagraphFragment>>;
 };
 
-export const Interests = ({ items }: InterestsProps): JSX.Element => (
+export const Interests = ({ items }: InterestsProps): React.JSX.Element => (
   <>
     <SectionHeading heading={'Interests'} />
     <VStack alignItems={'start'}>

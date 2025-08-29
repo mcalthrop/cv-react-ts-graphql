@@ -3,7 +3,7 @@ import type { CvFragment } from 'src/graphql-types';
 import { useGetCvQuery } from 'src/graphql-types';
 import { CvComponent } from './CvComponent';
 
-export const CvContainer = (): JSX.Element => {
+export const CvContainer = (): React.JSX.Element => {
   const { data } = useGetCvQuery();
   const [cvFragment, setCvFragment] = useState<CvFragment | undefined>();
 

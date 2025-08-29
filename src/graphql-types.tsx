@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
+import * as Apollo from '@apollo/client/react';
 export type Maybe<T> = T | undefined;
 export type InputMaybe<T> = T | undefined;
 export type Exact<T extends { [key: string]: unknown }> = {
@@ -31,9 +31,11 @@ export type Scalars = {
   DateTime: { input: any; output: any };
   Dimension: { input: any; output: any };
   HexColor: { input: any; output: any };
+  JSON: { input: any; output: any };
   Quality: { input: any; output: any };
 };
 
+/** Represents a binary file in a space. An asset can be any file type. */
 export type Asset = {
   __typename?: 'Asset';
   contentType?: Maybe<Scalars['String']['output']>;
@@ -49,39 +51,48 @@ export type Asset = {
   width?: Maybe<Scalars['Int']['output']>;
 };
 
+/** Represents a binary file in a space. An asset can be any file type. */
 export type AssetContentTypeArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** Represents a binary file in a space. An asset can be any file type. */
 export type AssetDescriptionArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** Represents a binary file in a space. An asset can be any file type. */
 export type AssetFileNameArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** Represents a binary file in a space. An asset can be any file type. */
 export type AssetHeightArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** Represents a binary file in a space. An asset can be any file type. */
 export type AssetLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+/** Represents a binary file in a space. An asset can be any file type. */
 export type AssetSizeArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** Represents a binary file in a space. An asset can be any file type. */
 export type AssetTitleArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** Represents a binary file in a space. An asset can be any file type. */
 export type AssetUrlArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   transform?: InputMaybe<ImageTransformOptions>;
 };
 
+/** Represents a binary file in a space. An asset can be any file type. */
 export type AssetWidthArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
@@ -211,10 +222,26 @@ export type AssetOrder =
 
 export type ContentfulMetadata = {
   __typename?: 'ContentfulMetadata';
+  concepts: Array<Maybe<TaxonomyConcept>>;
   tags: Array<Maybe<ContentfulTag>>;
 };
 
+export type ContentfulMetadataConceptsDescendantsFilter = {
+  id_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ContentfulMetadataConceptsFilter = {
+  descendants?: InputMaybe<ContentfulMetadataConceptsDescendantsFilter>;
+  id_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type ContentfulMetadataFilter = {
+  concepts?: InputMaybe<ContentfulMetadataConceptsFilter>;
+  concepts_exists?: InputMaybe<Scalars['Boolean']['input']>;
   tags?: InputMaybe<ContentfulMetadataTagsFilter>;
   tags_exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
@@ -225,72 +252,97 @@ export type ContentfulMetadataTagsFilter = {
   id_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+/**
+ * Represents a tag entity for finding and organizing content easily.
+ *       Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-tags
+ */
 export type ContentfulTag = {
   __typename?: 'ContentfulTag';
   id?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
 };
 
-export type Cv = Entry & {
-  __typename?: 'Cv';
-  contentfulMetadata: ContentfulMetadata;
-  educationCollection?: Maybe<CvEducationCollection>;
-  image?: Maybe<Asset>;
-  interestsCollection?: Maybe<CvInterestsCollection>;
-  linkedFrom?: Maybe<CvLinkingCollections>;
-  name?: Maybe<Scalars['String']['output']>;
-  onTheWebCollection?: Maybe<CvOnTheWebCollection>;
-  overviewCollection?: Maybe<CvOverviewCollection>;
-  sys: Sys;
-  workHistoryCollection?: Maybe<CvWorkHistoryCollection>;
-};
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
+export type Cv = Entry &
+  _Node & {
+    __typename?: 'Cv';
+    _id: Scalars['ID']['output'];
+    contentfulMetadata: ContentfulMetadata;
+    educationCollection?: Maybe<CvEducationCollection>;
+    image?: Maybe<Asset>;
+    interestsCollection?: Maybe<CvInterestsCollection>;
+    linkedFrom?: Maybe<CvLinkingCollections>;
+    name?: Maybe<Scalars['String']['output']>;
+    onTheWebCollection?: Maybe<CvOnTheWebCollection>;
+    overviewCollection?: Maybe<CvOverviewCollection>;
+    sys: Sys;
+    workHistoryCollection?: Maybe<CvWorkHistoryCollection>;
+  };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvEducationCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<CvEducationCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ParagraphFilter>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvImageArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvInterestsCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<CvInterestsCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ParagraphFilter>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvNameArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvOnTheWebCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<CvOnTheWebCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<OnTheWebFilter>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvOverviewCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<CvOverviewCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ParagraphFilter>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvWorkHistoryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<CvWorkHistoryCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<WorkHistoryFilter>;
 };
 
 export type CvCollection = {
@@ -309,12 +361,26 @@ export type CvEducationCollection = {
   total: Scalars['Int']['output'];
 };
 
+export type CvEducationCollectionOrder =
+  | 'para_ASC'
+  | 'para_DESC'
+  | 'sys_firstPublishedAt_ASC'
+  | 'sys_firstPublishedAt_DESC'
+  | 'sys_id_ASC'
+  | 'sys_id_DESC'
+  | 'sys_publishedAt_ASC'
+  | 'sys_publishedAt_DESC'
+  | 'sys_publishedVersion_ASC'
+  | 'sys_publishedVersion_DESC';
+
 export type CvFilter = {
   AND?: InputMaybe<Array<InputMaybe<CvFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<CvFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  education?: InputMaybe<CfParagraphNestedFilter>;
   educationCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
   image_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  interests?: InputMaybe<CfParagraphNestedFilter>;
   interestsCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   name_contains?: InputMaybe<Scalars['String']['input']>;
@@ -323,9 +389,12 @@ export type CvFilter = {
   name_not?: InputMaybe<Scalars['String']['input']>;
   name_not_contains?: InputMaybe<Scalars['String']['input']>;
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  onTheWeb?: InputMaybe<CfOnTheWebNestedFilter>;
   onTheWebCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  overview?: InputMaybe<CfParagraphNestedFilter>;
   overviewCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
   sys?: InputMaybe<SysFilter>;
+  workHistory?: InputMaybe<CfWorkHistoryNestedFilter>;
   workHistoryCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -336,6 +405,18 @@ export type CvInterestsCollection = {
   skip: Scalars['Int']['output'];
   total: Scalars['Int']['output'];
 };
+
+export type CvInterestsCollectionOrder =
+  | 'para_ASC'
+  | 'para_DESC'
+  | 'sys_firstPublishedAt_ASC'
+  | 'sys_firstPublishedAt_DESC'
+  | 'sys_id_ASC'
+  | 'sys_id_DESC'
+  | 'sys_publishedAt_ASC'
+  | 'sys_publishedAt_DESC'
+  | 'sys_publishedVersion_ASC'
+  | 'sys_publishedVersion_DESC';
 
 export type CvLinkingCollections = {
   __typename?: 'CvLinkingCollections';
@@ -357,6 +438,22 @@ export type CvOnTheWebCollection = {
   total: Scalars['Int']['output'];
 };
 
+export type CvOnTheWebCollectionOrder =
+  | 'description_ASC'
+  | 'description_DESC'
+  | 'linkText_ASC'
+  | 'linkText_DESC'
+  | 'sys_firstPublishedAt_ASC'
+  | 'sys_firstPublishedAt_DESC'
+  | 'sys_id_ASC'
+  | 'sys_id_DESC'
+  | 'sys_publishedAt_ASC'
+  | 'sys_publishedAt_DESC'
+  | 'sys_publishedVersion_ASC'
+  | 'sys_publishedVersion_DESC'
+  | 'url_ASC'
+  | 'url_DESC';
+
 export type CvOrder =
   | 'name_ASC'
   | 'name_DESC'
@@ -377,6 +474,18 @@ export type CvOverviewCollection = {
   total: Scalars['Int']['output'];
 };
 
+export type CvOverviewCollectionOrder =
+  | 'para_ASC'
+  | 'para_DESC'
+  | 'sys_firstPublishedAt_ASC'
+  | 'sys_firstPublishedAt_DESC'
+  | 'sys_id_ASC'
+  | 'sys_id_DESC'
+  | 'sys_publishedAt_ASC'
+  | 'sys_publishedAt_DESC'
+  | 'sys_publishedVersion_ASC'
+  | 'sys_publishedVersion_DESC';
+
 export type CvWorkHistoryCollection = {
   __typename?: 'CvWorkHistoryCollection';
   items: Array<Maybe<WorkHistory>>;
@@ -384,6 +493,32 @@ export type CvWorkHistoryCollection = {
   skip: Scalars['Int']['output'];
   total: Scalars['Int']['output'];
 };
+
+export type CvWorkHistoryCollectionOrder =
+  | 'dateFrom_ASC'
+  | 'dateFrom_DESC'
+  | 'dateTo_ASC'
+  | 'dateTo_DESC'
+  | 'employerName_ASC'
+  | 'employerName_DESC'
+  | 'employerUrl_ASC'
+  | 'employerUrl_DESC'
+  | 'location_ASC'
+  | 'location_DESC'
+  | 'roleTitle_ASC'
+  | 'roleTitle_DESC'
+  | 'sys_firstPublishedAt_ASC'
+  | 'sys_firstPublishedAt_DESC'
+  | 'sys_id_ASC'
+  | 'sys_id_DESC'
+  | 'sys_publishedAt_ASC'
+  | 'sys_publishedAt_DESC'
+  | 'sys_publishedVersion_ASC'
+  | 'sys_publishedVersion_DESC'
+  | 'viaEmployerName_ASC'
+  | 'viaEmployerName_DESC'
+  | 'viaEmployerUrl_ASC'
+  | 'viaEmployerUrl_DESC';
 
 export type Entry = {
   contentfulMetadata: ContentfulMetadata;
@@ -416,67 +551,127 @@ export type EntryOrder =
   | 'sys_publishedVersion_DESC';
 
 export type ImageFormat =
+  /** AVIF image format. */
   | 'AVIF'
+  /** JPG image format. */
   | 'JPG'
+  /**
+   * Progressive JPG format stores multiple passes of an image in progressively higher detail.
+   *         When a progressive image is loading, the viewer will first see a lower quality pixelated version which
+   *         will gradually improve in detail, until the image is fully downloaded. This is to display an image as
+   *         early as possible to make the layout look as designed.
+   */
   | 'JPG_PROGRESSIVE'
+  /** PNG image format */
   | 'PNG'
+  /**
+   * 8-bit PNG images support up to 256 colors and weigh less than the standard 24-bit PNG equivalent.
+   *         The 8-bit PNG format is mostly used for simple images, such as icons or logos.
+   */
   | 'PNG8'
+  /** WebP image format. */
   | 'WEBP';
 
 export type ImageResizeFocus =
+  /** Focus the resizing on the bottom. */
   | 'BOTTOM'
+  /** Focus the resizing on the bottom left. */
   | 'BOTTOM_LEFT'
+  /** Focus the resizing on the bottom right. */
   | 'BOTTOM_RIGHT'
+  /** Focus the resizing on the center. */
   | 'CENTER'
+  /** Focus the resizing on the largest face. */
   | 'FACE'
+  /** Focus the resizing on the area containing all the faces. */
   | 'FACES'
+  /** Focus the resizing on the left. */
   | 'LEFT'
+  /** Focus the resizing on the right. */
   | 'RIGHT'
+  /** Focus the resizing on the top. */
   | 'TOP'
+  /** Focus the resizing on the top left. */
   | 'TOP_LEFT'
+  /** Focus the resizing on the top right. */
   | 'TOP_RIGHT';
 
 export type ImageResizeStrategy =
+  /** Crops a part of the original image to fit into the specified dimensions. */
   | 'CROP'
+  /** Resizes the image to the specified dimensions, cropping the image if needed. */
   | 'FILL'
+  /** Resizes the image to fit into the specified dimensions. */
   | 'FIT'
+  /**
+   * Resizes the image to the specified dimensions, padding the image if needed.
+   *         Uses desired background color as padding color.
+   */
   | 'PAD'
+  /** Resizes the image to the specified dimensions, changing the original aspect ratio if needed. */
   | 'SCALE'
+  /** Creates a thumbnail from the image. */
   | 'THUMB';
 
 export type ImageTransformOptions = {
+  /**
+   * Desired background color, used with corner radius or `PAD` resize strategy.
+   *         Defaults to transparent (for `PNG`, `PNG8` and `WEBP`) or white (for `JPG` and `JPG_PROGRESSIVE`).
+   */
   backgroundColor?: InputMaybe<Scalars['HexColor']['input']>;
+  /**
+   * Desired corner radius in pixels.
+   *         Results in an image with rounded corners (pass `-1` for a full circle/ellipse).
+   *         Defaults to `0`. Uses desired background color as padding color,
+   *         unless the format is `JPG` or `JPG_PROGRESSIVE` and resize strategy is `PAD`, then defaults to white.
+   */
   cornerRadius?: InputMaybe<Scalars['Int']['input']>;
+  /** Desired image format. Defaults to the original image format. */
   format?: InputMaybe<ImageFormat>;
+  /** Desired height in pixels. Defaults to the original image height. */
   height?: InputMaybe<Scalars['Dimension']['input']>;
+  /**
+   * Desired quality of the image in percents.
+   *         Used for `PNG8`, `JPG`, `JPG_PROGRESSIVE` and `WEBP` formats.
+   */
   quality?: InputMaybe<Scalars['Quality']['input']>;
+  /** Desired resize focus area. Defaults to `CENTER`. */
   resizeFocus?: InputMaybe<ImageResizeFocus>;
+  /** Desired resize strategy. Defaults to `FIT`. */
   resizeStrategy?: InputMaybe<ImageResizeStrategy>;
+  /** Desired width in pixels. Defaults to the original image width. */
   width?: InputMaybe<Scalars['Dimension']['input']>;
 };
 
-export type OnTheWeb = Entry & {
-  __typename?: 'OnTheWeb';
-  contentfulMetadata: ContentfulMetadata;
-  description?: Maybe<Scalars['String']['output']>;
-  linkText?: Maybe<Scalars['String']['output']>;
-  linkedFrom?: Maybe<OnTheWebLinkingCollections>;
-  sys: Sys;
-  url?: Maybe<Scalars['String']['output']>;
-};
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/onTheWeb) */
+export type OnTheWeb = Entry &
+  _Node & {
+    __typename?: 'OnTheWeb';
+    _id: Scalars['ID']['output'];
+    contentfulMetadata: ContentfulMetadata;
+    description?: Maybe<Scalars['String']['output']>;
+    linkText?: Maybe<Scalars['String']['output']>;
+    linkedFrom?: Maybe<OnTheWebLinkingCollections>;
+    sys: Sys;
+    url?: Maybe<Scalars['String']['output']>;
+  };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/onTheWeb) */
 export type OnTheWebDescriptionArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/onTheWeb) */
 export type OnTheWebLinkTextArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/onTheWeb) */
 export type OnTheWebLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/onTheWeb) */
 export type OnTheWebUrlArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
@@ -528,6 +723,9 @@ export type OnTheWebLinkingCollections = {
 export type OnTheWebLinkingCollectionsCvCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<
+    Array<InputMaybe<OnTheWebLinkingCollectionsCvCollectionOrder>>
+  >;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
@@ -538,6 +736,18 @@ export type OnTheWebLinkingCollectionsEntryCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
+
+export type OnTheWebLinkingCollectionsCvCollectionOrder =
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'sys_firstPublishedAt_ASC'
+  | 'sys_firstPublishedAt_DESC'
+  | 'sys_id_ASC'
+  | 'sys_id_DESC'
+  | 'sys_publishedAt_ASC'
+  | 'sys_publishedAt_DESC'
+  | 'sys_publishedVersion_ASC'
+  | 'sys_publishedVersion_DESC';
 
 export type OnTheWebOrder =
   | 'description_ASC'
@@ -555,18 +765,23 @@ export type OnTheWebOrder =
   | 'url_ASC'
   | 'url_DESC';
 
-export type Paragraph = Entry & {
-  __typename?: 'Paragraph';
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<ParagraphLinkingCollections>;
-  para?: Maybe<Scalars['String']['output']>;
-  sys: Sys;
-};
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/paragraph) */
+export type Paragraph = Entry &
+  _Node & {
+    __typename?: 'Paragraph';
+    _id: Scalars['ID']['output'];
+    contentfulMetadata: ContentfulMetadata;
+    linkedFrom?: Maybe<ParagraphLinkingCollections>;
+    para?: Maybe<Scalars['String']['output']>;
+    sys: Sys;
+  };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/paragraph) */
 export type ParagraphLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/paragraph) */
 export type ParagraphParaArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
@@ -603,6 +818,9 @@ export type ParagraphLinkingCollections = {
 export type ParagraphLinkingCollectionsCvCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<
+    Array<InputMaybe<ParagraphLinkingCollectionsCvCollectionOrder>>
+  >;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
@@ -617,9 +835,50 @@ export type ParagraphLinkingCollectionsEntryCollectionArgs = {
 export type ParagraphLinkingCollectionsWorkHistoryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<
+    Array<InputMaybe<ParagraphLinkingCollectionsWorkHistoryCollectionOrder>>
+  >;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
+
+export type ParagraphLinkingCollectionsCvCollectionOrder =
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'sys_firstPublishedAt_ASC'
+  | 'sys_firstPublishedAt_DESC'
+  | 'sys_id_ASC'
+  | 'sys_id_DESC'
+  | 'sys_publishedAt_ASC'
+  | 'sys_publishedAt_DESC'
+  | 'sys_publishedVersion_ASC'
+  | 'sys_publishedVersion_DESC';
+
+export type ParagraphLinkingCollectionsWorkHistoryCollectionOrder =
+  | 'dateFrom_ASC'
+  | 'dateFrom_DESC'
+  | 'dateTo_ASC'
+  | 'dateTo_DESC'
+  | 'employerName_ASC'
+  | 'employerName_DESC'
+  | 'employerUrl_ASC'
+  | 'employerUrl_DESC'
+  | 'location_ASC'
+  | 'location_DESC'
+  | 'roleTitle_ASC'
+  | 'roleTitle_DESC'
+  | 'sys_firstPublishedAt_ASC'
+  | 'sys_firstPublishedAt_DESC'
+  | 'sys_id_ASC'
+  | 'sys_id_DESC'
+  | 'sys_publishedAt_ASC'
+  | 'sys_publishedAt_DESC'
+  | 'sys_publishedVersion_ASC'
+  | 'sys_publishedVersion_DESC'
+  | 'viaEmployerName_ASC'
+  | 'viaEmployerName_DESC'
+  | 'viaEmployerUrl_ASC'
+  | 'viaEmployerUrl_DESC';
 
 export type ParagraphOrder =
   | 'para_ASC'
@@ -635,6 +894,8 @@ export type ParagraphOrder =
 
 export type Query = {
   __typename?: 'Query';
+  _node?: Maybe<_Node>;
+  _nodes: Array<Maybe<_Node>>;
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
   cv?: Maybe<Cv>;
@@ -646,6 +907,18 @@ export type Query = {
   paragraphCollection?: Maybe<ParagraphCollection>;
   workHistory?: Maybe<WorkHistory>;
   workHistoryCollection?: Maybe<WorkHistoryCollection>;
+};
+
+export type Query_NodeArgs = {
+  id: Scalars['ID']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type Query_NodesArgs = {
+  ids: Array<Scalars['ID']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type QueryAssetArgs = {
@@ -737,6 +1010,8 @@ export type Sys = {
   environmentId: Scalars['String']['output'];
   firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
   id: Scalars['String']['output'];
+  /** The locale that was requested. */
+  locale?: Maybe<Scalars['String']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   publishedVersion?: Maybe<Scalars['Int']['output']>;
   spaceId: Scalars['String']['output'];
@@ -789,66 +1064,93 @@ export type SysFilter = {
   >;
 };
 
-export type WorkHistory = Entry & {
-  __typename?: 'WorkHistory';
-  contentfulMetadata: ContentfulMetadata;
-  dateFrom?: Maybe<Scalars['String']['output']>;
-  dateTo?: Maybe<Scalars['String']['output']>;
-  employerName?: Maybe<Scalars['String']['output']>;
-  employerUrl?: Maybe<Scalars['String']['output']>;
-  linkedFrom?: Maybe<WorkHistoryLinkingCollections>;
-  location?: Maybe<Scalars['String']['output']>;
-  responsibilitiesCollection?: Maybe<WorkHistoryResponsibilitiesCollection>;
-  roleTitle?: Maybe<Scalars['String']['output']>;
-  skillSummary?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  sys: Sys;
-  viaEmployerName?: Maybe<Scalars['String']['output']>;
-  viaEmployerUrl?: Maybe<Scalars['String']['output']>;
+/**
+ * Represents a taxonomy concept entity for finding and organizing content easily.
+ *         Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-concepts
+ */
+export type TaxonomyConcept = {
+  __typename?: 'TaxonomyConcept';
+  id?: Maybe<Scalars['String']['output']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
+export type WorkHistory = Entry &
+  _Node & {
+    __typename?: 'WorkHistory';
+    _id: Scalars['ID']['output'];
+    contentfulMetadata: ContentfulMetadata;
+    dateFrom?: Maybe<Scalars['String']['output']>;
+    dateTo?: Maybe<Scalars['String']['output']>;
+    employerName?: Maybe<Scalars['String']['output']>;
+    employerUrl?: Maybe<Scalars['String']['output']>;
+    linkedFrom?: Maybe<WorkHistoryLinkingCollections>;
+    location?: Maybe<Scalars['String']['output']>;
+    responsibilitiesCollection?: Maybe<WorkHistoryResponsibilitiesCollection>;
+    roleTitle?: Maybe<Scalars['String']['output']>;
+    skillSummary?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+    sys: Sys;
+    viaEmployerName?: Maybe<Scalars['String']['output']>;
+    viaEmployerUrl?: Maybe<Scalars['String']['output']>;
+  };
+
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryDateFromArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryDateToArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryEmployerNameArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryEmployerUrlArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryLocationArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryResponsibilitiesCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<
+    Array<InputMaybe<WorkHistoryResponsibilitiesCollectionOrder>>
+  >;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ParagraphFilter>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryRoleTitleArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistorySkillSummaryArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryViaEmployerNameArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryViaEmployerUrlArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
@@ -864,6 +1166,220 @@ export type WorkHistoryCollection = {
 export type WorkHistoryFilter = {
   AND?: InputMaybe<Array<InputMaybe<WorkHistoryFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<WorkHistoryFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  dateFrom?: InputMaybe<Scalars['String']['input']>;
+  dateFrom_contains?: InputMaybe<Scalars['String']['input']>;
+  dateFrom_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  dateFrom_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateFrom_not?: InputMaybe<Scalars['String']['input']>;
+  dateFrom_not_contains?: InputMaybe<Scalars['String']['input']>;
+  dateFrom_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateTo?: InputMaybe<Scalars['String']['input']>;
+  dateTo_contains?: InputMaybe<Scalars['String']['input']>;
+  dateTo_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  dateTo_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateTo_not?: InputMaybe<Scalars['String']['input']>;
+  dateTo_not_contains?: InputMaybe<Scalars['String']['input']>;
+  dateTo_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  employerName?: InputMaybe<Scalars['String']['input']>;
+  employerName_contains?: InputMaybe<Scalars['String']['input']>;
+  employerName_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  employerName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  employerName_not?: InputMaybe<Scalars['String']['input']>;
+  employerName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  employerName_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  employerUrl?: InputMaybe<Scalars['String']['input']>;
+  employerUrl_contains?: InputMaybe<Scalars['String']['input']>;
+  employerUrl_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  employerUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  employerUrl_not?: InputMaybe<Scalars['String']['input']>;
+  employerUrl_not_contains?: InputMaybe<Scalars['String']['input']>;
+  employerUrl_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  location?: InputMaybe<Scalars['String']['input']>;
+  location_contains?: InputMaybe<Scalars['String']['input']>;
+  location_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  location_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  location_not?: InputMaybe<Scalars['String']['input']>;
+  location_not_contains?: InputMaybe<Scalars['String']['input']>;
+  location_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  responsibilities?: InputMaybe<CfParagraphNestedFilter>;
+  responsibilitiesCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  roleTitle?: InputMaybe<Scalars['String']['input']>;
+  roleTitle_contains?: InputMaybe<Scalars['String']['input']>;
+  roleTitle_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  roleTitle_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  roleTitle_not?: InputMaybe<Scalars['String']['input']>;
+  roleTitle_not_contains?: InputMaybe<Scalars['String']['input']>;
+  roleTitle_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  skillSummary_contains_all?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  skillSummary_contains_none?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  skillSummary_contains_some?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  skillSummary_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  sys?: InputMaybe<SysFilter>;
+  viaEmployerName?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerName_contains?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerName_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  viaEmployerName_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  viaEmployerName_not?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerName_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  viaEmployerUrl?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerUrl_contains?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerUrl_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  viaEmployerUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  viaEmployerUrl_not?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerUrl_not_contains?: InputMaybe<Scalars['String']['input']>;
+  viaEmployerUrl_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+};
+
+export type WorkHistoryLinkingCollections = {
+  __typename?: 'WorkHistoryLinkingCollections';
+  cvCollection?: Maybe<CvCollection>;
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+export type WorkHistoryLinkingCollectionsCvCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<
+    Array<InputMaybe<WorkHistoryLinkingCollectionsCvCollectionOrder>>
+  >;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type WorkHistoryLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type WorkHistoryLinkingCollectionsCvCollectionOrder =
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'sys_firstPublishedAt_ASC'
+  | 'sys_firstPublishedAt_DESC'
+  | 'sys_id_ASC'
+  | 'sys_id_DESC'
+  | 'sys_publishedAt_ASC'
+  | 'sys_publishedAt_DESC'
+  | 'sys_publishedVersion_ASC'
+  | 'sys_publishedVersion_DESC';
+
+export type WorkHistoryOrder =
+  | 'dateFrom_ASC'
+  | 'dateFrom_DESC'
+  | 'dateTo_ASC'
+  | 'dateTo_DESC'
+  | 'employerName_ASC'
+  | 'employerName_DESC'
+  | 'employerUrl_ASC'
+  | 'employerUrl_DESC'
+  | 'location_ASC'
+  | 'location_DESC'
+  | 'roleTitle_ASC'
+  | 'roleTitle_DESC'
+  | 'sys_firstPublishedAt_ASC'
+  | 'sys_firstPublishedAt_DESC'
+  | 'sys_id_ASC'
+  | 'sys_id_DESC'
+  | 'sys_publishedAt_ASC'
+  | 'sys_publishedAt_DESC'
+  | 'sys_publishedVersion_ASC'
+  | 'sys_publishedVersion_DESC'
+  | 'viaEmployerName_ASC'
+  | 'viaEmployerName_DESC'
+  | 'viaEmployerUrl_ASC'
+  | 'viaEmployerUrl_DESC';
+
+export type WorkHistoryResponsibilitiesCollection = {
+  __typename?: 'WorkHistoryResponsibilitiesCollection';
+  items: Array<Maybe<Paragraph>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type WorkHistoryResponsibilitiesCollectionOrder =
+  | 'para_ASC'
+  | 'para_DESC'
+  | 'sys_firstPublishedAt_ASC'
+  | 'sys_firstPublishedAt_DESC'
+  | 'sys_id_ASC'
+  | 'sys_id_DESC'
+  | 'sys_publishedAt_ASC'
+  | 'sys_publishedAt_DESC'
+  | 'sys_publishedVersion_ASC'
+  | 'sys_publishedVersion_DESC';
+
+export type _Node = {
+  _id: Scalars['ID']['output'];
+};
+
+export type CfOnTheWebNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfOnTheWebNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfOnTheWebNestedFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_contains?: InputMaybe<Scalars['String']['input']>;
+  description_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  description_not?: InputMaybe<Scalars['String']['input']>;
+  description_not_contains?: InputMaybe<Scalars['String']['input']>;
+  description_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  linkText?: InputMaybe<Scalars['String']['input']>;
+  linkText_contains?: InputMaybe<Scalars['String']['input']>;
+  linkText_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  linkText_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  linkText_not?: InputMaybe<Scalars['String']['input']>;
+  linkText_not_contains?: InputMaybe<Scalars['String']['input']>;
+  linkText_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sys?: InputMaybe<SysFilter>;
+  url?: InputMaybe<Scalars['String']['input']>;
+  url_contains?: InputMaybe<Scalars['String']['input']>;
+  url_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url_not?: InputMaybe<Scalars['String']['input']>;
+  url_not_contains?: InputMaybe<Scalars['String']['input']>;
+  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type CfParagraphNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfParagraphNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfParagraphNestedFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  para?: InputMaybe<Scalars['String']['input']>;
+  para_contains?: InputMaybe<Scalars['String']['input']>;
+  para_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  para_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  para_not?: InputMaybe<Scalars['String']['input']>;
+  para_not_contains?: InputMaybe<Scalars['String']['input']>;
+  para_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sys?: InputMaybe<SysFilter>;
+};
+
+export type CfWorkHistoryNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfWorkHistoryNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfWorkHistoryNestedFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   dateFrom?: InputMaybe<Scalars['String']['input']>;
   dateFrom_contains?: InputMaybe<Scalars['String']['input']>;
@@ -943,60 +1459,6 @@ export type WorkHistoryFilter = {
   viaEmployerUrl_not_in?: InputMaybe<
     Array<InputMaybe<Scalars['String']['input']>>
   >;
-};
-
-export type WorkHistoryLinkingCollections = {
-  __typename?: 'WorkHistoryLinkingCollections';
-  cvCollection?: Maybe<CvCollection>;
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-export type WorkHistoryLinkingCollectionsCvCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  locale?: InputMaybe<Scalars['String']['input']>;
-  preview?: InputMaybe<Scalars['Boolean']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-};
-
-export type WorkHistoryLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  locale?: InputMaybe<Scalars['String']['input']>;
-  preview?: InputMaybe<Scalars['Boolean']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-};
-
-export type WorkHistoryOrder =
-  | 'dateFrom_ASC'
-  | 'dateFrom_DESC'
-  | 'dateTo_ASC'
-  | 'dateTo_DESC'
-  | 'employerName_ASC'
-  | 'employerName_DESC'
-  | 'employerUrl_ASC'
-  | 'employerUrl_DESC'
-  | 'location_ASC'
-  | 'location_DESC'
-  | 'roleTitle_ASC'
-  | 'roleTitle_DESC'
-  | 'sys_firstPublishedAt_ASC'
-  | 'sys_firstPublishedAt_DESC'
-  | 'sys_id_ASC'
-  | 'sys_id_DESC'
-  | 'sys_publishedAt_ASC'
-  | 'sys_publishedAt_DESC'
-  | 'sys_publishedVersion_ASC'
-  | 'sys_publishedVersion_DESC'
-  | 'viaEmployerName_ASC'
-  | 'viaEmployerName_DESC'
-  | 'viaEmployerUrl_ASC'
-  | 'viaEmployerUrl_DESC';
-
-export type WorkHistoryResponsibilitiesCollection = {
-  __typename?: 'WorkHistoryResponsibilitiesCollection';
-  items: Array<Maybe<Paragraph>>;
-  limit: Scalars['Int']['output'];
-  skip: Scalars['Int']['output'];
-  total: Scalars['Int']['output'];
 };
 
 export type CvFragment = {
