@@ -11,32 +11,37 @@ jobs:
     steps:
       - uses: actions/checkout@v5.0.0
 
-      - name: Set variables
-        id: vars
+      - name: Get node version
+        id: get-node-version
         run: |
-          NVMRC=$(cat .nvmrc)
-          echo "NVMRC=${NVMRC}"
-          echo "node_version=${NVMRC}" >> $GITHUB_OUTPUT
+          NODE_VERSION=$(cat .nvmrc)
+          echo "NODE_VERSION=${NODE_VERSION}"
+          echo "node-version=${NODE_VERSION}" >> $GITHUB_OUTPUT
 
-      - name: Set up node ${{steps.vars.outputs.node_version}}
+      - name: Set up node ${{ steps.get-node-version.outputs.node-version }}
         uses: actions/setup-node@v4.4.0
         with:
-          node-version: ${{steps.vars.outputs.node_version}}
+          node-version: ${{ steps.get-node-version.outputs.node-version }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.1.0
+        with:
+          version: 9.12.2
 
       - name: Install
-        run: yarn install
+        run: pnpm install
 
       - name: Compile
-        run: yarn compile
+        run: pnpm compile
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
 
-      - name: Prettier
-        run: yarn prettier
+      - name: Format
+        run: pnpm format
 
       - name: Test
-        run: yarn test
+        run: pnpm test

@@ -3,6 +3,10 @@
   "trailingComma": "all",
   "overrides": [
     {
+      "files": ["*.{js,ts}", "src/**/*.{js,jsx,ts,tsx}"],
+      "options": {}
+    },
+    {
       "files": ["*.spec.ts", "*.spec.tsx"],
       "options": {
         "printWidth": 140

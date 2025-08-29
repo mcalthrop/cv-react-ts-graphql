@@ -1,5 +1,5 @@
-yarn compile
-yarn build
-yarn lint
-yarn prettier
-yarn test
+pnpm compile
+pnpm build
+pnpm lint
+pnpm format
+pnpm test

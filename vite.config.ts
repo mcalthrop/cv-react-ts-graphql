@@ -39,7 +39,6 @@ const viteConfig = defineConfig({
         '**/*.d.ts',
         '**/*.config.*',
         '**/node_modules/**',
-        '**/.yarn/**',
         'src/setupTestsAfterEnv.ts',
         'src/components/chakra/**',
         'src/mocks/**',
