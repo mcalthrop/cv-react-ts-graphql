@@ -1,6 +1,6 @@
-import { render, screen } from 'src/testUtils';
+import { render, screen } from '@/testUtils';
 import { Overview } from './Overview';
-import type { ParagraphFragment } from 'src/graphql-types';
+import type { ParagraphFragment } from '@/graphql-types';
 
 const mockItems: ParagraphFragment[] = [
   {

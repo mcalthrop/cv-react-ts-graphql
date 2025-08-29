@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const RootLayout = ({ children }: PropsWithChildren): React.JSX.Element => (
-  <html lang={'en'}>
+  <html lang={'en'} suppressHydrationWarning>
     <head>
       <link
         href={

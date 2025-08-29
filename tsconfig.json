@@ -7,7 +7,7 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "src/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "types": ["vitest/globals"],
     "noEmit": true,

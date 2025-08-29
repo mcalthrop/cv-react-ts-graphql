@@ -1,6 +1,6 @@
-import { render, screen } from 'src/testUtils';
+import { render, screen } from '@/testUtils';
 import { OnTheWeb } from './OnTheWeb';
-import type { OnTheWebFragment } from 'src/graphql-types';
+import type { OnTheWebFragment } from '@/graphql-types';
 
 const mockItems: OnTheWebFragment[] = [
   {

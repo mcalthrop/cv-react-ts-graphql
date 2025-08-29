@@ -1,5 +1,5 @@
 import { Heading } from '@chakra-ui/react';
-import type { CvFragment } from 'src/graphql-types';
+import type { CvFragment } from '@/graphql-types';
 import { Education } from '../Education';
 import { Footer } from '../Footer';
 import { Interests } from '../Interests';

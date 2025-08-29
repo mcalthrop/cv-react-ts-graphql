@@ -1,11 +1,11 @@
-import { render, screen, waitFor } from 'src/testUtils';
-import { useGetCvQuery } from 'src/graphql-types';
+import { render, screen, waitFor } from '@/testUtils';
+import { useGetCvQuery } from '@/graphql-types';
 import { CvContainer } from './CvContainer';
-import { mockCvData } from 'src/mocks/graphql';
+import { mockCvData } from '@/mocks/graphql';
 import { vi } from 'vitest';
 
-vi.mock('src/graphql-types', async () => {
-  const actual = await vi.importActual('src/graphql-types');
+vi.mock('@/graphql-types', async () => {
+  const actual = await vi.importActual('@/graphql-types');
   return {
     ...actual,
     useGetCvQuery: vi.fn(),

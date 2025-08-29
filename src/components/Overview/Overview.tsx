@@ -1,5 +1,5 @@
 import { HStack, Image, Text, VStack } from '@chakra-ui/react';
-import type { Maybe, ParagraphFragment } from 'src/graphql-types';
+import type { Maybe, ParagraphFragment } from '@/graphql-types';
 
 export type OverviewProps = {
   image?: string;

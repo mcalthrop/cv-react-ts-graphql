@@ -1,4 +1,4 @@
-import { render } from 'src/testUtils';
+import { render } from '@/testUtils';
 import { vi } from 'vitest';
 import RootLayout, { metadata } from './layout';
 import type { PropsWithChildren } from 'react';
