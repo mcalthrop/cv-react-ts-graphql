@@ -17,6 +17,7 @@ export default defineConfig({
         functions: 100,
       },
       exclude: [
+        '.next',
         'coverage/**',
         '**/*.d.ts',
         '**/*.config.*',
