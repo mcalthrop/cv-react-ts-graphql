@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import type { CvFragment } from 'src/graphql-types';
-import { useGetCvQuery } from 'src/graphql-types';
+import type { CvFragment } from '@/graphql-types';
+import { useGetCvQuery } from '@/graphql-types';
 import { CvComponent } from './CvComponent';
 
 export const CvContainer = (): React.JSX.Element => {

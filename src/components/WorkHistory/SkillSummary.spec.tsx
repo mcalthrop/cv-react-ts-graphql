@@ -1,6 +1,6 @@
-import { render, screen } from 'src/testUtils';
+import { render, screen } from '@/testUtils';
 import { SkillSummary } from './SkillSummary';
-import type { WorkHistoryFragment } from 'src/graphql-types';
+import type { WorkHistoryFragment } from '@/graphql-types';
 
 describe('SkillSummary', () => {
   it('renders single skill without bullet', () => {

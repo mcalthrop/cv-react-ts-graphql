@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { HttpLink } from '@apollo/client/link/http';
-import { createContentfulGraphQlUri } from 'src/contentful';
+import { createContentfulGraphQlUri } from '@/contentful';
 
 export const createApolloClient = (): ApolloClient => {
   const uri = createContentfulGraphQlUri();

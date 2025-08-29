@@ -1,5 +1,5 @@
 import { Link } from '@chakra-ui/react';
-import type { Maybe, OnTheWebFragment } from 'src/graphql-types';
+import type { Maybe, OnTheWebFragment } from '@/graphql-types';
 import { SectionHeading } from '../SectionHeading';
 
 export type OnTheWebProps = {

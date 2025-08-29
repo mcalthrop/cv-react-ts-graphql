@@ -1,6 +1,6 @@
-import { render, screen } from 'src/testUtils';
+import { render, screen } from '@/testUtils';
 import { EmployerLink } from './EmployerLink';
-import type { WorkHistoryFragment } from 'src/graphql-types';
+import type { WorkHistoryFragment } from '@/graphql-types';
 
 const createMockItem = (overrides: Partial<WorkHistoryFragment> = {}): WorkHistoryFragment => ({
   __typename: 'WorkHistory',

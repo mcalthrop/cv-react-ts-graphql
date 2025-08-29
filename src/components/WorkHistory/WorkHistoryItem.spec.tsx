@@ -1,6 +1,6 @@
-import { render, screen } from 'src/testUtils';
+import { render, screen } from '@/testUtils';
 import { WorkHistoryItem } from './WorkHistoryItem';
-import type { WorkHistoryFragment } from 'src/graphql-types';
+import type { WorkHistoryFragment } from '@/graphql-types';
 
 const mockItem: WorkHistoryFragment = {
   __typename: 'WorkHistory',

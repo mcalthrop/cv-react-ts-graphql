@@ -1,4 +1,4 @@
-import { render, screen } from 'src/testUtils';
+import { render, screen } from '@/testUtils';
 import { RoleTitle } from './RoleTitle';
 
 describe('RoleTitle', () => {

@@ -1,4 +1,4 @@
-import { render, screen } from 'src/testUtils';
+import { render, screen } from '@/testUtils';
 import { vi } from 'vitest';
 import Page from './page';
 
