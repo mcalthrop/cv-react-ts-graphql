@@ -10,7 +10,3 @@
 
 # macOS
 .DS_Store
-
-# yarn logs
-yarn-debug.log*
-yarn-error.log*

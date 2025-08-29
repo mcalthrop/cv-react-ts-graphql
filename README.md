@@ -11,7 +11,7 @@ It uses the following features:
 - [React](https://reactjs.org/) and [TypeScript](https://www.typescriptlang.org/) for building the UI
 - [Chakra](https://chakra-ui.com/) for the design framework
 - [Contentful](https://www.contentful.com/) for hosting the content, and providing the GraphQL schema
-- [Yarn](https://yarnpkg.com/en/) for dependency management
+- [pnpm](https://pnpm.io/) for dependency management
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io/) for code formatting
 - [Husky](https://github.com/typicode/husky) to leverage git hooks
@@ -34,18 +34,18 @@ Then download and install the correct version of `node`:
 nvm install
 ```
 
-### Install yarn
+### Install pnpm
 
 Follow the instructions here:
 
-[yarnpkg.com/en/docs/install](https://yarnpkg.com/en/docs/install)
+[pnpm.io/installation](https://pnpm.io/installation)
 
 ### Install NodeJS packages
 
 Install the NodeJS packages:
 
 ```sh
-yarn
+pnpm install
 ```
 
 ## Running the app
@@ -53,7 +53,7 @@ yarn
 ### During development
 
 ```sh
-yarn start:dev
+pnpm start:dev
 ```
 
 This will open a web browser at this URL:
@@ -67,7 +67,7 @@ This will open a web browser at this URL:
 To run all tests:
 
 ```sh
-yarn test
+pnpm test
 ```
 
 ### Linting
@@ -77,13 +77,13 @@ yarn test
 To run the linter:
 
 ```sh
-yarn lint
+pnpm lint
 ```
 
 And to auto-correct any errors that can be corrected:
 
 ```sh
-yarn lint:fix
+pnpm lint:fix
 ```
 
 ### Code formatting
@@ -93,13 +93,13 @@ yarn lint:fix
 To check the TypeScript formatting:
 
 ```sh
-yarn prettier
+pnpm format
 ```
 
 And to auto-correct any errors that can be corrected:
 
 ```sh
-yarn prettier:fix
+pnpm format:fix
 ```
 
 ## License
