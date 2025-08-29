@@ -1,3 +1,4 @@
+pnpm graphql:types
 pnpm compile
 pnpm build
 pnpm lint
