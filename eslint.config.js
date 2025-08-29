@@ -1,6 +1,7 @@
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import react from 'eslint-plugin-react';
+import next from '@next/eslint-plugin-next';
 import reactHooks from 'eslint-plugin-react-hooks';
 import jestDom from 'eslint-plugin-jest-dom';
 import unusedImports from 'eslint-plugin-unused-imports';
@@ -18,7 +19,8 @@ export default [
       },
     },
     plugins: {
-      react: react,
+      react,
+      next,
       'react-hooks': reactHooks,
       'jest-dom': jestDom,
       'unused-imports': unusedImports,
@@ -60,6 +62,8 @@ export default [
   },
   {
     ignores: [
+      '.next',
+      'next-env.d.ts',
       'dist/**',
       'coverage/**',
       'src/components/chakra/**',

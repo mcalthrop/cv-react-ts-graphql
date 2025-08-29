@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import type { CvFragment } from 'src/graphql-types';
 import { useGetCvQuery } from 'src/graphql-types';
