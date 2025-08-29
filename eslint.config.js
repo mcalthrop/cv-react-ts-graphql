@@ -18,7 +18,7 @@ export default [
       },
     },
     plugins: {
-      'react': react,
+      react: react,
       'react-hooks': reactHooks,
       'jest-dom': jestDom,
       'unused-imports': unusedImports,
