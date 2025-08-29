@@ -1,11 +1,11 @@
 import { Container } from '@chakra-ui/react';
 import { CvContainer } from '../components/Cv';
-import './App.css';
+import './page.css';
 
-export default function Page(): React.JSX.Element {
-  return (
-    <Container maxWidth={'4xl'}>
-      <CvContainer />
-    </Container>
-  );
-}
+const Page = (): React.JSX.Element => (
+  <Container maxWidth={'4xl'}>
+    <CvContainer />
+  </Container>
+);
+
+export default Page;
