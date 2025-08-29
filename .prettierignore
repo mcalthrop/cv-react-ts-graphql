@@ -1,2 +1,4 @@
-# Generated files
-src/envVars.ts
+# Ignore artifacts:
+coverage
+dist
+pnpm-lock.yaml
