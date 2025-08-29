@@ -1,5 +1,5 @@
 import { render, screen } from 'src/testUtils';
-import { useApolloClient } from '@apollo/client';
+import { useApolloClient } from '@apollo/client/react';
 import { ApolloWrapper } from './apollo-wrapper';
 
 describe('ApolloWrapper', () => {

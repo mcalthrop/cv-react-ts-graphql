@@ -9,3 +9,9 @@ export const createContentfulGraphQlUri = (): string => {
 
   return `https://graphql.contentful.com/content/v1/spaces/${space}?access_token=${accessToken}`;
 };
+
+export const createContentfulGraphQlSchemaUri = (): string => {
+  const { space, accessToken } = ContentfulConfig;
+
+  return `https://graphql.contentful.com/content/v1/spaces/${space}/environments/master?access_token=${accessToken}`;
+};

@@ -7,7 +7,7 @@ export type SkillSummaryProps = {
 
 export const SkillSummary = ({
   skillSummary,
-}: SkillSummaryProps): JSX.Element => (
+}: SkillSummaryProps): React.JSX.Element => (
   <Box
     lineHeight={'110%'}
     marginTop={2}

@@ -1,10 +1,10 @@
-import type { NormalizedCacheObject } from '@apollo/client';
-import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { HttpLink } from '@apollo/client/link/http';
 import { createContentfulGraphQlUri } from 'src/contentful';
 
-export const createApolloClient = (): ApolloClient<NormalizedCacheObject> => {
+export const createApolloClient = (): ApolloClient => {
   const uri = createContentfulGraphQlUri();
-  const link = createHttpLink({ uri });
+  const link = new HttpLink({ uri });
   const cache = new InMemoryCache();
 
   return new ApolloClient({ link, cache });

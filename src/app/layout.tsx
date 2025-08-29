@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: PropsWithChildren): JSX.Element {
+}: PropsWithChildren): React.JSX.Element {
   return (
     <html lang={'en'}>
       <head>
