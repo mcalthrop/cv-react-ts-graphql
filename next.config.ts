@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     dirs: ['src'],
   },
   experimental: {
-    optimizePackageImports: ['@chakra-ui/react'],
+    optimizePackageImports: ['@chakra-ui/react', 'react-icons'],
   },
 };
 

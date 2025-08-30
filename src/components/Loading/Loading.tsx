@@ -1,7 +1,12 @@
-import { Text } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
+import { PiSpinnerThin } from 'react-icons/pi';
 
 export const Loading = (): React.JSX.Element => (
-  <Text marginTop={10} marginBottom={6} fontSize={'xs'} color={'gray.400'}>
-    🌀 Loading...
-  </Text>
+  <Box marginY={10}>
+    <PiSpinnerThin
+      size={'50px'}
+      role={'spinbutton'}
+      style={{ animation: 'spin 2s linear infinite' }}
+    />
+  </Box>
 );
