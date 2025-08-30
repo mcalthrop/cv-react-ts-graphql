@@ -8,7 +8,7 @@ This codebase contains the source for my online CV: [cv.mattcalthrop.com](https:
 
 It uses the following features:
 
-- [React](https://reactjs.org/) and [TypeScript](https://www.typescriptlang.org/) for building the UI
+- [React](https://reactjs.org/), [NextJS](https://nextjs.org/) and [TypeScript](https://www.typescriptlang.org/) for building the UI
 - [Chakra](https://chakra-ui.com/) for the design framework
 - [Contentful](https://www.contentful.com/) for hosting the content, and providing the GraphQL schema
 - [pnpm](https://pnpm.io/) for dependency management
@@ -16,7 +16,7 @@ It uses the following features:
 - [Prettier](https://prettier.io/) for code formatting
 - [Husky](https://github.com/typicode/husky) to leverage git hooks
 - [GitHub Actions](https://docs.github.com/en/actions) for CI workflow
-- [Netlify](https://www.netlify.com/blog/2016/10/27/a-step-by-step-guide-deploying-a-static-site-or-single-page-app/) for deployment and hosting
+- [Vercel](https://vercel.com/) for deployment and hosting
 
 You can fork this repo, and run it locally yourself. Following are instructions for setting it up and running it.
 
@@ -58,7 +58,7 @@ pnpm start:dev
 
 This will open a web browser at this URL:
 
-[http://localhost:5173/](http://localhost:5173/)
+[http://localhost:3000/](http://localhost:3000/)
 
 ## Tests
 
