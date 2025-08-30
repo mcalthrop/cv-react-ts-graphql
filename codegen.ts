@@ -1,9 +1,12 @@
 import type { CodegenConfig } from '@graphql-codegen/cli';
 import { createContentfulGraphQlSchemaUri } from './src/contentful';
 
+const schemaUri = createContentfulGraphQlSchemaUri();
+console.log('Using schema URI:', schemaUri);
+
 const codegenConfig: CodegenConfig = {
   overwrite: true,
-  schema: createContentfulGraphQlSchemaUri(),
+  schema: schemaUri,
   documents: 'src/graphql/*.{query,fragment}.graphql',
   generates: {
     './src/graphql-types.tsx': {

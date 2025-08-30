@@ -1,5 +1,5 @@
 import { Container } from '@chakra-ui/react';
-import { CvContainer } from '../components/Cv';
+import { CvContainer } from '@/components/Cv';
 import './page.css';
 
 const Page = (): React.JSX.Element => (

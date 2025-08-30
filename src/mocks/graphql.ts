@@ -1,5 +1,5 @@
 import { graphql, HttpResponse } from 'msw';
-import type { GetCvQuery } from '../graphql-types';
+import type { GetCvQuery } from '@/graphql-types';
 
 export const mockCvData: GetCvQuery = {
   cvCollection: {
@@ -96,9 +96,5 @@ export const mockCvData: GetCvQuery = {
 };
 
 export const graphqlHandlers = [
-  graphql.query('GetCv', () => {
-    return HttpResponse.json({
-      data: mockCvData,
-    });
-  }),
+  graphql.query('GetCv', () => HttpResponse.json({ data: mockCvData })),
 ];

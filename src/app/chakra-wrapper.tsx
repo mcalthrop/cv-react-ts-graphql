@@ -1,7 +1,7 @@
 'use client';
 
 import type { PropsWithChildren } from 'react';
-import { CustomChakraProvider } from '../components/chakra/provider';
+import { CustomChakraProvider } from '@/components/chakra/provider';
 
 export const ChakraWrapper = ({
   children,

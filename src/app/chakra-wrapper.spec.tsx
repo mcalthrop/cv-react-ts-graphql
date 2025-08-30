@@ -1,5 +1,5 @@
 import { render, screen } from '@/testUtils';
-import { ChakraWrapper } from './chakra-wrapper';
+import { ChakraWrapper } from '@/app/chakra-wrapper';
 
 describe('ChakraWrapper', () => {
   it('renders children within CustomChakraProvider', () => {

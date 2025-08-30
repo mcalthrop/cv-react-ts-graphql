@@ -1,6 +1,6 @@
 import { render, screen } from '@/testUtils';
 import { useApolloClient } from '@apollo/client/react';
-import { ApolloWrapper } from './apollo-wrapper';
+import { ApolloWrapper } from '@/app/apollo-wrapper';
 
 describe('ApolloWrapper', () => {
   it('renders children within ApolloProvider', () => {
