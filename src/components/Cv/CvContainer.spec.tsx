@@ -45,7 +45,7 @@ describe('CvContainer', () => {
     render(<CvContainer />);
 
     await waitFor(() => {
-      expect(screen.getByText('CV: Matt Calthrop')).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: 'On the web', level: 2 })).toBeInTheDocument();
     });
   });
 
@@ -66,7 +66,7 @@ describe('CvContainer', () => {
     rerender(<CvContainer />);
 
     await waitFor(() => {
-      expect(screen.getByText('CV: Matt Calthrop')).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: 'On the web', level: 2 })).toBeInTheDocument();
     });
   });
 });

@@ -24,7 +24,7 @@
     "lint": "eslint .",
     "lint:fix": "pnpm lint --fix --quiet",
     "prepare": "husky",
-    "start:dev": "pnpm graphql:types && next start",
+    "start:dev": "pnpm graphql:types && next dev",
     "start:prod": "pnpm build && next start",
     "test": "vitest run --coverage",
     "test:watch": "vitest",

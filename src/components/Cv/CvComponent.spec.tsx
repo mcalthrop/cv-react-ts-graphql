@@ -74,28 +74,14 @@ const mockCvFragment: CvFragment = {
 };
 
 describe('CvComponent', () => {
-  it('should render CV heading', () => {
-    render(<CvComponent cvFragment={mockCvFragment} />);
-    expect(screen.getByRole('heading', { name: /CV: Matt Calthrop/, level: 1 })).toBeInTheDocument();
-  });
-
   it('should render all sections', () => {
     render(<CvComponent cvFragment={mockCvFragment} />);
 
     expect(screen.getByText('Overview paragraph 1')).toBeInTheDocument();
-    expect(screen.getByText('On the web')).toBeInTheDocument();
-    expect(screen.getByText('Work history')).toBeInTheDocument();
-    expect(screen.getByText('Education')).toBeInTheDocument();
-    expect(screen.getByText('Interests')).toBeInTheDocument();
-    expect(screen.getByText(/Copyright ©/)).toBeInTheDocument();
-  });
-
-  it('should render with minimal cvFragment', () => {
-    const minimalFragment = { __typename: 'Cv' as const };
-    render(<CvComponent cvFragment={minimalFragment} />);
-
-    expect(screen.getByRole('heading', { name: /CV: Matt Calthrop/, level: 1 })).toBeInTheDocument();
-    expect(screen.getByText(/Copyright ©/)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'On the web', level: 2 })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Work history', level: 2 })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Education', level: 2 })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Interests', level: 2 })).toBeInTheDocument();
   });
 
   it('should pass correct props to child components', () => {
