@@ -31,9 +31,6 @@ jobs:
       - name: Install
         run: pnpm install
 
-      - name: Generate GraphQL types
-        run: pnpm graphql:types
-
       - name: Compile
         run: pnpm compile
 
