@@ -20,7 +20,7 @@
     "fix": "pnpm lint:fix && pnpm format:fix",
     "format": "pnpm prettier . --check",
     "format:fix": "pnpm prettier . --write",
-    "graphql:types": "graphql-codegen && scripts/fix-generated-graphql-types.sh",
+    "graphql:types": "graphql-codegen --verbose && scripts/fix-generated-graphql-types.sh",
     "lint": "eslint .",
     "lint:fix": "pnpm lint --fix --quiet",
     "prepare": "husky",

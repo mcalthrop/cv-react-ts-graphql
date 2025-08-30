@@ -1,7 +1,7 @@
 'use client';
 
 import { ApolloProvider } from '@apollo/client/react';
-import { createApolloClient } from '../graphql';
+import { createApolloClient } from '@/graphql';
 import type { PropsWithChildren } from 'react';
 
 const apolloClient = createApolloClient();

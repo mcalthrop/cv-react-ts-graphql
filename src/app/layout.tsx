@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { ApolloWrapper } from './apollo-wrapper';
-import { ChakraWrapper } from './chakra-wrapper';
+import { ApolloWrapper } from '@/app/apollo-wrapper';
+import { ChakraWrapper } from '@/app/chakra-wrapper';
 import type { PropsWithChildren } from 'react';
 
 export const metadata: Metadata = {

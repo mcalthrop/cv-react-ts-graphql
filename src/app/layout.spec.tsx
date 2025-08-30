@@ -1,13 +1,13 @@
 import { render } from '@/testUtils';
 import { vi } from 'vitest';
-import RootLayout, { metadata } from './layout';
+import RootLayout, { metadata } from '@/app/layout';
 import type { PropsWithChildren } from 'react';
 
-vi.mock('./apollo-wrapper', () => ({
+vi.mock('@/app/apollo-wrapper', () => ({
   ApolloWrapper: ({ children }: PropsWithChildren) => <div data-testid={'apollo-wrapper'}>{children}</div>,
 }));
 
-vi.mock('./chakra-wrapper', () => ({
+vi.mock('@/app/chakra-wrapper', () => ({
   ChakraWrapper: ({ children }: PropsWithChildren) => <div data-testid={'chakra-wrapper'}>{children}</div>,
 }));
 
