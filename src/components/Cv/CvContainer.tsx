@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import type { CvFragment } from '@/graphql-types';
 import { useGetCvQuery } from '@/graphql-types';
+import { Loading } from '@/components/Loading';
 import { CvComponent } from './CvComponent';
 
 export const CvContainer = (): React.JSX.Element => {
@@ -17,7 +18,7 @@ export const CvContainer = (): React.JSX.Element => {
   }, [data?.cvCollection]);
 
   if (cvFragment === undefined) {
-    return <>Loading...</>;
+    return <Loading />;
   }
 
   return <CvComponent cvFragment={cvFragment} />;
