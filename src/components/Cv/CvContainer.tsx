@@ -1,25 +1,27 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import type { CvFragment } from '@/graphql-types';
-import { useGetCvQuery } from '@/graphql-types';
-import { Loading } from '@/components/Loading';
+import { createApolloClient } from '@/graphql';
+import { GetCvDocument, type GetCvQuery } from '@/graphql-types';
 import { CvComponent } from './CvComponent';
 
-export const CvContainer = (): React.JSX.Element => {
-  const { data } = useGetCvQuery();
-  const [cvFragment, setCvFragment] = useState<CvFragment | undefined>();
+export const CvContainer = async (): Promise<React.JSX.Element> => {
+  const client = createApolloClient();
 
-  useEffect(() => {
+  try {
+    const { data } = await client.query<GetCvQuery>({
+      query: GetCvDocument,
+    });
+
     if (!data?.cvCollection || data.cvCollection.items.length < 1) {
-      return;
+      return <div>No CV data found</div>;
     }
-    setCvFragment(data.cvCollection.items[0]);
-  }, [data?.cvCollection]);
 
-  if (cvFragment === undefined) {
-    return <Loading />;
+    const [cvFragment] = data.cvCollection.items;
+    if (!cvFragment) {
+      return <div>No CV data found</div>;
+    }
+
+    return <CvComponent cvFragment={cvFragment} />;
+  } catch (error) {
+    console.error('Error fetching CV data:', error);
+    return <div>Error loading CV data</div>;
   }
-
-  return <CvComponent cvFragment={cvFragment} />;
 };

@@ -1,72 +1,39 @@
-import { render, screen, waitFor } from '@/testUtils';
-import { useGetCvQuery } from '@/graphql-types';
+import { render, screen } from '@/testUtils';
+import { graphql, HttpResponse } from 'msw';
+import { server } from '@/mocks/node';
 import { CvContainer } from './CvContainer';
 import { mockCvData } from '@/mocks/graphql';
-import { vi } from 'vitest';
-
-vi.mock('@/graphql-types', async () => {
-  const actual = await vi.importActual('@/graphql-types');
-  return {
-    ...actual,
-    useGetCvQuery: vi.fn(),
-  };
-});
-
-const mockUseGetCvQuery = useGetCvQuery as ReturnType<typeof vi.fn>;
 
 describe('CvContainer', () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
+  it('renders CvComponent when GraphQL returns data', async () => {
+    server.use(graphql.query('GetCv', () => HttpResponse.json({ data: mockCvData })));
+
+    render(await CvContainer());
+
+    expect(screen.getByRole('heading', { name: 'On the web', level: 2 })).toBeInTheDocument();
   });
 
-  it('displays loading when data is undefined', () => {
-    mockUseGetCvQuery.mockReturnValue({
-      data: undefined,
-    });
+  it('displays error when GraphQL returns empty data', async () => {
+    server.use(graphql.query('GetCv', () => HttpResponse.json({ data: { cvCollection: { items: [] } } })));
 
-    render(<CvContainer />);
-    expect(screen.getByText(/Loading.../)).toBeInTheDocument();
+    render(await CvContainer());
+
+    expect(screen.getByText('No CV data found')).toBeInTheDocument();
   });
 
-  it('displays loading when cvCollection is empty', () => {
-    mockUseGetCvQuery.mockReturnValue({
-      data: { cvCollection: { items: [] } },
-    });
+  it('displays error when GraphQL returns null cvFragment', async () => {
+    server.use(graphql.query('GetCv', () => HttpResponse.json({ data: { cvCollection: { items: [null] } } })));
 
-    render(<CvContainer />);
-    expect(screen.getByText(/Loading.../)).toBeInTheDocument();
+    render(await CvContainer());
+
+    expect(screen.getByText('No CV data found')).toBeInTheDocument();
   });
 
-  it('renders CvComponent when data is available', async () => {
-    mockUseGetCvQuery.mockReturnValue({
-      data: mockCvData,
-    });
+  it('displays error when GraphQL request fails', async () => {
+    server.use(graphql.query('GetCv', () => HttpResponse.json({ errors: [{ message: 'Server error' }] }, { status: 500 })));
 
-    render(<CvContainer />);
+    render(await CvContainer());
 
-    await waitFor(() => {
-      expect(screen.getByRole('heading', { name: 'On the web', level: 2 })).toBeInTheDocument();
-    });
-  });
-
-  it('updates cvFragment when data changes', async () => {
-    // First render with no data
-    mockUseGetCvQuery.mockReturnValue({
-      data: { cvCollection: { items: [] } },
-    });
-
-    const { rerender } = render(<CvContainer />);
-    expect(screen.getByText(/Loading.../)).toBeInTheDocument();
-
-    // Update with real data
-    mockUseGetCvQuery.mockReturnValue({
-      data: mockCvData,
-    });
-
-    rerender(<CvContainer />);
-
-    await waitFor(() => {
-      expect(screen.getByRole('heading', { name: 'On the web', level: 2 })).toBeInTheDocument();
-    });
+    expect(screen.getByText('Error loading CV data')).toBeInTheDocument();
   });
 });
