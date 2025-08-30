@@ -2,37 +2,24 @@ import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client/react';
 export type Maybe<T> = T | undefined;
 export type InputMaybe<T> = T | undefined;
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K];
-};
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]?: Maybe<T[SubKey]>;
-};
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]: Maybe<T[SubKey]>;
-};
-export type MakeEmpty<
-  T extends { [key: string]: unknown },
-  K extends keyof T,
-> = { [_ in K]?: never };
-export type Incremental<T> =
-  | T
-  | {
-      [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never;
-    };
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string };
-  String: { input: string; output: string };
-  Boolean: { input: boolean; output: boolean };
-  Int: { input: number; output: number };
-  Float: { input: number; output: number };
-  DateTime: { input: any; output: any };
-  Dimension: { input: any; output: any };
-  HexColor: { input: any; output: any };
-  JSON: { input: any; output: any };
-  Quality: { input: any; output: any };
+  ID: { input: string; output: string; }
+  String: { input: string; output: string; }
+  Boolean: { input: boolean; output: boolean; }
+  Int: { input: number; output: number; }
+  Float: { input: number; output: number; }
+  DateTime: { input: any; output: any; }
+  Dimension: { input: any; output: any; }
+  HexColor: { input: any; output: any; }
+  JSON: { input: any; output: any; }
+  Quality: { input: any; output: any; }
 };
 
 /** Represents a binary file in a space. An asset can be any file type. */
@@ -51,46 +38,55 @@ export type Asset = {
   width?: Maybe<Scalars['Int']['output']>;
 };
 
+
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetContentTypeArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetDescriptionArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetFileNameArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetHeightArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
+
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetSizeArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetTitleArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetUrlArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   transform?: InputMaybe<ImageTransformOptions>;
 };
+
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type AssetWidthArgs = {
@@ -114,9 +110,7 @@ export type AssetFilter = {
   contentType_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   contentType_not?: InputMaybe<Scalars['String']['input']>;
   contentType_not_contains?: InputMaybe<Scalars['String']['input']>;
-  contentType_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  contentType_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_contains?: InputMaybe<Scalars['String']['input']>;
@@ -124,9 +118,7 @@ export type AssetFilter = {
   description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   description_not?: InputMaybe<Scalars['String']['input']>;
   description_not_contains?: InputMaybe<Scalars['String']['input']>;
-  description_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fileName?: InputMaybe<Scalars['String']['input']>;
   fileName_contains?: InputMaybe<Scalars['String']['input']>;
   fileName_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -184,12 +176,14 @@ export type AssetLinkingCollections = {
   entryCollection?: Maybe<EntryCollection>;
 };
 
+
 export type AssetLinkingCollectionsCvCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
+
 
 export type AssetLinkingCollectionsEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -263,21 +257,21 @@ export type ContentfulTag = {
 };
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
-export type Cv = Entry &
-  _Node & {
-    __typename?: 'Cv';
-    _id: Scalars['ID']['output'];
-    contentfulMetadata: ContentfulMetadata;
-    educationCollection?: Maybe<CvEducationCollection>;
-    image?: Maybe<Asset>;
-    interestsCollection?: Maybe<CvInterestsCollection>;
-    linkedFrom?: Maybe<CvLinkingCollections>;
-    name?: Maybe<Scalars['String']['output']>;
-    onTheWebCollection?: Maybe<CvOnTheWebCollection>;
-    overviewCollection?: Maybe<CvOverviewCollection>;
-    sys: Sys;
-    workHistoryCollection?: Maybe<CvWorkHistoryCollection>;
-  };
+export type Cv = Entry & _Node & {
+  __typename?: 'Cv';
+  _id: Scalars['ID']['output'];
+  contentfulMetadata: ContentfulMetadata;
+  educationCollection?: Maybe<CvEducationCollection>;
+  image?: Maybe<Asset>;
+  interestsCollection?: Maybe<CvInterestsCollection>;
+  linkedFrom?: Maybe<CvLinkingCollections>;
+  name?: Maybe<Scalars['String']['output']>;
+  onTheWebCollection?: Maybe<CvOnTheWebCollection>;
+  overviewCollection?: Maybe<CvOverviewCollection>;
+  sys: Sys;
+  workHistoryCollection?: Maybe<CvWorkHistoryCollection>;
+};
+
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvEducationCollectionArgs = {
@@ -289,11 +283,13 @@ export type CvEducationCollectionArgs = {
   where?: InputMaybe<ParagraphFilter>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvImageArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvInterestsCollectionArgs = {
@@ -305,15 +301,18 @@ export type CvInterestsCollectionArgs = {
   where?: InputMaybe<ParagraphFilter>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvNameArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvOnTheWebCollectionArgs = {
@@ -325,6 +324,7 @@ export type CvOnTheWebCollectionArgs = {
   where?: InputMaybe<OnTheWebFilter>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvOverviewCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -334,6 +334,7 @@ export type CvOverviewCollectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<ParagraphFilter>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/cv) */
 export type CvWorkHistoryCollectionArgs = {
@@ -422,6 +423,7 @@ export type CvLinkingCollections = {
   __typename?: 'CvLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
 };
+
 
 export type CvLinkingCollectionsEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -644,32 +646,35 @@ export type ImageTransformOptions = {
 };
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/onTheWeb) */
-export type OnTheWeb = Entry &
-  _Node & {
-    __typename?: 'OnTheWeb';
-    _id: Scalars['ID']['output'];
-    contentfulMetadata: ContentfulMetadata;
-    description?: Maybe<Scalars['String']['output']>;
-    linkText?: Maybe<Scalars['String']['output']>;
-    linkedFrom?: Maybe<OnTheWebLinkingCollections>;
-    sys: Sys;
-    url?: Maybe<Scalars['String']['output']>;
-  };
+export type OnTheWeb = Entry & _Node & {
+  __typename?: 'OnTheWeb';
+  _id: Scalars['ID']['output'];
+  contentfulMetadata: ContentfulMetadata;
+  description?: Maybe<Scalars['String']['output']>;
+  linkText?: Maybe<Scalars['String']['output']>;
+  linkedFrom?: Maybe<OnTheWebLinkingCollections>;
+  sys: Sys;
+  url?: Maybe<Scalars['String']['output']>;
+};
+
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/onTheWeb) */
 export type OnTheWebDescriptionArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/onTheWeb) */
 export type OnTheWebLinkTextArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/onTheWeb) */
 export type OnTheWebLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/onTheWeb) */
 export type OnTheWebUrlArgs = {
@@ -694,9 +699,7 @@ export type OnTheWebFilter = {
   description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   description_not?: InputMaybe<Scalars['String']['input']>;
   description_not_contains?: InputMaybe<Scalars['String']['input']>;
-  description_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   linkText?: InputMaybe<Scalars['String']['input']>;
   linkText_contains?: InputMaybe<Scalars['String']['input']>;
   linkText_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -720,15 +723,15 @@ export type OnTheWebLinkingCollections = {
   entryCollection?: Maybe<EntryCollection>;
 };
 
+
 export type OnTheWebLinkingCollectionsCvCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
-  order?: InputMaybe<
-    Array<InputMaybe<OnTheWebLinkingCollectionsCvCollectionOrder>>
-  >;
+  order?: InputMaybe<Array<InputMaybe<OnTheWebLinkingCollectionsCvCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
+
 
 export type OnTheWebLinkingCollectionsEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -766,20 +769,21 @@ export type OnTheWebOrder =
   | 'url_DESC';
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/paragraph) */
-export type Paragraph = Entry &
-  _Node & {
-    __typename?: 'Paragraph';
-    _id: Scalars['ID']['output'];
-    contentfulMetadata: ContentfulMetadata;
-    linkedFrom?: Maybe<ParagraphLinkingCollections>;
-    para?: Maybe<Scalars['String']['output']>;
-    sys: Sys;
-  };
+export type Paragraph = Entry & _Node & {
+  __typename?: 'Paragraph';
+  _id: Scalars['ID']['output'];
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<ParagraphLinkingCollections>;
+  para?: Maybe<Scalars['String']['output']>;
+  sys: Sys;
+};
+
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/paragraph) */
 export type ParagraphLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/paragraph) */
 export type ParagraphParaArgs = {
@@ -815,15 +819,15 @@ export type ParagraphLinkingCollections = {
   workHistoryCollection?: Maybe<WorkHistoryCollection>;
 };
 
+
 export type ParagraphLinkingCollectionsCvCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
-  order?: InputMaybe<
-    Array<InputMaybe<ParagraphLinkingCollectionsCvCollectionOrder>>
-  >;
+  order?: InputMaybe<Array<InputMaybe<ParagraphLinkingCollectionsCvCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
+
 
 export type ParagraphLinkingCollectionsEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -832,12 +836,11 @@ export type ParagraphLinkingCollectionsEntryCollectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 export type ParagraphLinkingCollectionsWorkHistoryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
-  order?: InputMaybe<
-    Array<InputMaybe<ParagraphLinkingCollectionsWorkHistoryCollectionOrder>>
-  >;
+  order?: InputMaybe<Array<InputMaybe<ParagraphLinkingCollectionsWorkHistoryCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
@@ -909,11 +912,13 @@ export type Query = {
   workHistoryCollection?: Maybe<WorkHistoryCollection>;
 };
 
+
 export type Query_NodeArgs = {
   id: Scalars['ID']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
 
 export type Query_NodesArgs = {
   ids: Array<Scalars['ID']['input']>;
@@ -921,11 +926,13 @@ export type Query_NodesArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+
 export type QueryAssetArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
 
 export type QueryAssetCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -936,11 +943,13 @@ export type QueryAssetCollectionArgs = {
   where?: InputMaybe<AssetFilter>;
 };
 
+
 export type QueryCvArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
 
 export type QueryCvCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -951,6 +960,7 @@ export type QueryCvCollectionArgs = {
   where?: InputMaybe<CvFilter>;
 };
 
+
 export type QueryEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
@@ -960,11 +970,13 @@ export type QueryEntryCollectionArgs = {
   where?: InputMaybe<EntryFilter>;
 };
 
+
 export type QueryOnTheWebArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
 
 export type QueryOnTheWebCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -975,11 +987,13 @@ export type QueryOnTheWebCollectionArgs = {
   where?: InputMaybe<OnTheWebFilter>;
 };
 
+
 export type QueryParagraphArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
 
 export type QueryParagraphCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -990,11 +1004,13 @@ export type QueryParagraphCollectionArgs = {
   where?: InputMaybe<ParagraphFilter>;
 };
 
+
 export type QueryWorkHistoryArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
 
 export type QueryWorkHistoryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -1022,15 +1038,11 @@ export type SysFilter = {
   firstPublishedAt_exists?: InputMaybe<Scalars['Boolean']['input']>;
   firstPublishedAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
   firstPublishedAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
-  firstPublishedAt_in?: InputMaybe<
-    Array<InputMaybe<Scalars['DateTime']['input']>>
-  >;
+  firstPublishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   firstPublishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
   firstPublishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
   firstPublishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
-  firstPublishedAt_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['DateTime']['input']>>
-  >;
+  firstPublishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   id?: InputMaybe<Scalars['String']['input']>;
   id_contains?: InputMaybe<Scalars['String']['input']>;
   id_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1046,22 +1058,16 @@ export type SysFilter = {
   publishedAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
   publishedAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
   publishedAt_not?: InputMaybe<Scalars['DateTime']['input']>;
-  publishedAt_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['DateTime']['input']>>
-  >;
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   publishedVersion?: InputMaybe<Scalars['Float']['input']>;
   publishedVersion_exists?: InputMaybe<Scalars['Boolean']['input']>;
   publishedVersion_gt?: InputMaybe<Scalars['Float']['input']>;
   publishedVersion_gte?: InputMaybe<Scalars['Float']['input']>;
-  publishedVersion_in?: InputMaybe<
-    Array<InputMaybe<Scalars['Float']['input']>>
-  >;
+  publishedVersion_in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
   publishedVersion_lt?: InputMaybe<Scalars['Float']['input']>;
   publishedVersion_lte?: InputMaybe<Scalars['Float']['input']>;
   publishedVersion_not?: InputMaybe<Scalars['Float']['input']>;
-  publishedVersion_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['Float']['input']>>
-  >;
+  publishedVersion_not_in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
 /**
@@ -1074,81 +1080,89 @@ export type TaxonomyConcept = {
 };
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
-export type WorkHistory = Entry &
-  _Node & {
-    __typename?: 'WorkHistory';
-    _id: Scalars['ID']['output'];
-    contentfulMetadata: ContentfulMetadata;
-    dateFrom?: Maybe<Scalars['String']['output']>;
-    dateTo?: Maybe<Scalars['String']['output']>;
-    employerName?: Maybe<Scalars['String']['output']>;
-    employerUrl?: Maybe<Scalars['String']['output']>;
-    linkedFrom?: Maybe<WorkHistoryLinkingCollections>;
-    location?: Maybe<Scalars['String']['output']>;
-    responsibilitiesCollection?: Maybe<WorkHistoryResponsibilitiesCollection>;
-    roleTitle?: Maybe<Scalars['String']['output']>;
-    skillSummary?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-    sys: Sys;
-    viaEmployerName?: Maybe<Scalars['String']['output']>;
-    viaEmployerUrl?: Maybe<Scalars['String']['output']>;
-  };
+export type WorkHistory = Entry & _Node & {
+  __typename?: 'WorkHistory';
+  _id: Scalars['ID']['output'];
+  contentfulMetadata: ContentfulMetadata;
+  dateFrom?: Maybe<Scalars['String']['output']>;
+  dateTo?: Maybe<Scalars['String']['output']>;
+  employerName?: Maybe<Scalars['String']['output']>;
+  employerUrl?: Maybe<Scalars['String']['output']>;
+  linkedFrom?: Maybe<WorkHistoryLinkingCollections>;
+  location?: Maybe<Scalars['String']['output']>;
+  responsibilitiesCollection?: Maybe<WorkHistoryResponsibilitiesCollection>;
+  roleTitle?: Maybe<Scalars['String']['output']>;
+  skillSummary?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  sys: Sys;
+  viaEmployerName?: Maybe<Scalars['String']['output']>;
+  viaEmployerUrl?: Maybe<Scalars['String']['output']>;
+};
+
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryDateFromArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryDateToArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryEmployerNameArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryEmployerUrlArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryLocationArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryResponsibilitiesCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
-  order?: InputMaybe<
-    Array<InputMaybe<WorkHistoryResponsibilitiesCollectionOrder>>
-  >;
+  order?: InputMaybe<Array<InputMaybe<WorkHistoryResponsibilitiesCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<ParagraphFilter>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryRoleTitleArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistorySkillSummaryArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
+
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryViaEmployerNameArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
+
 
 /** [See type definition](https://app.contentful.com/spaces/8nmbnmef5jq7/content_types/workHistory) */
 export type WorkHistoryViaEmployerUrlArgs = {
@@ -1187,18 +1201,14 @@ export type WorkHistoryFilter = {
   employerName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   employerName_not?: InputMaybe<Scalars['String']['input']>;
   employerName_not_contains?: InputMaybe<Scalars['String']['input']>;
-  employerName_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  employerName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   employerUrl?: InputMaybe<Scalars['String']['input']>;
   employerUrl_contains?: InputMaybe<Scalars['String']['input']>;
   employerUrl_exists?: InputMaybe<Scalars['Boolean']['input']>;
   employerUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   employerUrl_not?: InputMaybe<Scalars['String']['input']>;
   employerUrl_not_contains?: InputMaybe<Scalars['String']['input']>;
-  employerUrl_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  employerUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   location?: InputMaybe<Scalars['String']['input']>;
   location_contains?: InputMaybe<Scalars['String']['input']>;
   location_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1215,37 +1225,25 @@ export type WorkHistoryFilter = {
   roleTitle_not?: InputMaybe<Scalars['String']['input']>;
   roleTitle_not_contains?: InputMaybe<Scalars['String']['input']>;
   roleTitle_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  skillSummary_contains_all?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
-  skillSummary_contains_none?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
-  skillSummary_contains_some?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  skillSummary_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  skillSummary_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  skillSummary_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   skillSummary_exists?: InputMaybe<Scalars['Boolean']['input']>;
   sys?: InputMaybe<SysFilter>;
   viaEmployerName?: InputMaybe<Scalars['String']['input']>;
   viaEmployerName_contains?: InputMaybe<Scalars['String']['input']>;
   viaEmployerName_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  viaEmployerName_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  viaEmployerName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   viaEmployerName_not?: InputMaybe<Scalars['String']['input']>;
   viaEmployerName_not_contains?: InputMaybe<Scalars['String']['input']>;
-  viaEmployerName_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  viaEmployerName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   viaEmployerUrl?: InputMaybe<Scalars['String']['input']>;
   viaEmployerUrl_contains?: InputMaybe<Scalars['String']['input']>;
   viaEmployerUrl_exists?: InputMaybe<Scalars['Boolean']['input']>;
   viaEmployerUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   viaEmployerUrl_not?: InputMaybe<Scalars['String']['input']>;
   viaEmployerUrl_not_contains?: InputMaybe<Scalars['String']['input']>;
-  viaEmployerUrl_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  viaEmployerUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type WorkHistoryLinkingCollections = {
@@ -1254,15 +1252,15 @@ export type WorkHistoryLinkingCollections = {
   entryCollection?: Maybe<EntryCollection>;
 };
 
+
 export type WorkHistoryLinkingCollectionsCvCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
-  order?: InputMaybe<
-    Array<InputMaybe<WorkHistoryLinkingCollectionsCvCollectionOrder>>
-  >;
+  order?: InputMaybe<Array<InputMaybe<WorkHistoryLinkingCollectionsCvCollectionOrder>>>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
 };
+
 
 export type WorkHistoryLinkingCollectionsEntryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -1343,9 +1341,7 @@ export type CfOnTheWebNestedFilter = {
   description_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   description_not?: InputMaybe<Scalars['String']['input']>;
   description_not_contains?: InputMaybe<Scalars['String']['input']>;
-  description_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  description_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   linkText?: InputMaybe<Scalars['String']['input']>;
   linkText_contains?: InputMaybe<Scalars['String']['input']>;
   linkText_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1401,18 +1397,14 @@ export type CfWorkHistoryNestedFilter = {
   employerName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   employerName_not?: InputMaybe<Scalars['String']['input']>;
   employerName_not_contains?: InputMaybe<Scalars['String']['input']>;
-  employerName_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  employerName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   employerUrl?: InputMaybe<Scalars['String']['input']>;
   employerUrl_contains?: InputMaybe<Scalars['String']['input']>;
   employerUrl_exists?: InputMaybe<Scalars['Boolean']['input']>;
   employerUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   employerUrl_not?: InputMaybe<Scalars['String']['input']>;
   employerUrl_not_contains?: InputMaybe<Scalars['String']['input']>;
-  employerUrl_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  employerUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   location?: InputMaybe<Scalars['String']['input']>;
   location_contains?: InputMaybe<Scalars['String']['input']>;
   location_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1428,309 +1420,112 @@ export type CfWorkHistoryNestedFilter = {
   roleTitle_not?: InputMaybe<Scalars['String']['input']>;
   roleTitle_not_contains?: InputMaybe<Scalars['String']['input']>;
   roleTitle_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  skillSummary_contains_all?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
-  skillSummary_contains_none?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
-  skillSummary_contains_some?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  skillSummary_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  skillSummary_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  skillSummary_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   skillSummary_exists?: InputMaybe<Scalars['Boolean']['input']>;
   sys?: InputMaybe<SysFilter>;
   viaEmployerName?: InputMaybe<Scalars['String']['input']>;
   viaEmployerName_contains?: InputMaybe<Scalars['String']['input']>;
   viaEmployerName_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  viaEmployerName_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  viaEmployerName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   viaEmployerName_not?: InputMaybe<Scalars['String']['input']>;
   viaEmployerName_not_contains?: InputMaybe<Scalars['String']['input']>;
-  viaEmployerName_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  viaEmployerName_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   viaEmployerUrl?: InputMaybe<Scalars['String']['input']>;
   viaEmployerUrl_contains?: InputMaybe<Scalars['String']['input']>;
   viaEmployerUrl_exists?: InputMaybe<Scalars['Boolean']['input']>;
   viaEmployerUrl_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   viaEmployerUrl_not?: InputMaybe<Scalars['String']['input']>;
   viaEmployerUrl_not_contains?: InputMaybe<Scalars['String']['input']>;
-  viaEmployerUrl_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
+  viaEmployerUrl_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type CvFragment = {
-  __typename?: 'Cv';
-  image?: { __typename?: 'Asset'; url?: string | undefined } | undefined;
-  overviewCollection?:
-    | {
-        __typename?: 'CvOverviewCollection';
-        items: Array<
-          { __typename?: 'Paragraph'; para?: string | undefined } | undefined
-        >;
-      }
-    | undefined;
-  onTheWebCollection?:
-    | {
-        __typename?: 'CvOnTheWebCollection';
-        items: Array<
-          | {
-              __typename?: 'OnTheWeb';
-              linkText?: string | undefined;
-              url?: string | undefined;
-            }
-          | undefined
-        >;
-      }
-    | undefined;
-  workHistoryCollection?:
-    | {
-        __typename?: 'CvWorkHistoryCollection';
-        items: Array<
-          | {
-              __typename?: 'WorkHistory';
-              roleTitle?: string | undefined;
-              employerName?: string | undefined;
-              employerUrl?: string | undefined;
-              viaEmployerName?: string | undefined;
-              viaEmployerUrl?: string | undefined;
-              location?: string | undefined;
-              dateFrom?: string | undefined;
-              dateTo?: string | undefined;
-              skillSummary?: Array<string | undefined> | undefined;
-              responsibilitiesCollection?:
-                | {
-                    __typename?: 'WorkHistoryResponsibilitiesCollection';
-                    items: Array<
-                      | { __typename?: 'Paragraph'; para?: string | undefined }
-                      | undefined
-                    >;
-                  }
-                | undefined;
-            }
-          | undefined
-        >;
-      }
-    | undefined;
-  interestsCollection?:
-    | {
-        __typename?: 'CvInterestsCollection';
-        items: Array<
-          { __typename?: 'Paragraph'; para?: string | undefined } | undefined
-        >;
-      }
-    | undefined;
-  educationCollection?:
-    | {
-        __typename?: 'CvEducationCollection';
-        items: Array<
-          { __typename?: 'Paragraph'; para?: string | undefined } | undefined
-        >;
-      }
-    | undefined;
-};
+export type CvFragment = { __typename?: 'Cv', image?: { __typename?: 'Asset', url?: string | undefined } | undefined, overviewCollection?: { __typename?: 'CvOverviewCollection', items: Array<{ __typename?: 'Paragraph', para?: string | undefined } | undefined> } | undefined, onTheWebCollection?: { __typename?: 'CvOnTheWebCollection', items: Array<{ __typename?: 'OnTheWeb', linkText?: string | undefined, url?: string | undefined } | undefined> } | undefined, workHistoryCollection?: { __typename?: 'CvWorkHistoryCollection', items: Array<{ __typename?: 'WorkHistory', roleTitle?: string | undefined, employerName?: string | undefined, employerUrl?: string | undefined, viaEmployerName?: string | undefined, viaEmployerUrl?: string | undefined, location?: string | undefined, dateFrom?: string | undefined, dateTo?: string | undefined, skillSummary?: Array<string | undefined> | undefined, responsibilitiesCollection?: { __typename?: 'WorkHistoryResponsibilitiesCollection', items: Array<{ __typename?: 'Paragraph', para?: string | undefined } | undefined> } | undefined } | undefined> } | undefined, interestsCollection?: { __typename?: 'CvInterestsCollection', items: Array<{ __typename?: 'Paragraph', para?: string | undefined } | undefined> } | undefined, educationCollection?: { __typename?: 'CvEducationCollection', items: Array<{ __typename?: 'Paragraph', para?: string | undefined } | undefined> } | undefined };
 
-export type GetCvQueryVariables = Exact<{ [key: string]: never }>;
+export type GetCvQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type GetCvQuery = {
-  __typename?: 'Query';
-  cvCollection?:
-    | {
-        __typename?: 'CvCollection';
-        items: Array<
-          | {
-              __typename?: 'Cv';
-              image?:
-                | { __typename?: 'Asset'; url?: string | undefined }
-                | undefined;
-              overviewCollection?:
-                | {
-                    __typename?: 'CvOverviewCollection';
-                    items: Array<
-                      | { __typename?: 'Paragraph'; para?: string | undefined }
-                      | undefined
-                    >;
-                  }
-                | undefined;
-              onTheWebCollection?:
-                | {
-                    __typename?: 'CvOnTheWebCollection';
-                    items: Array<
-                      | {
-                          __typename?: 'OnTheWeb';
-                          linkText?: string | undefined;
-                          url?: string | undefined;
-                        }
-                      | undefined
-                    >;
-                  }
-                | undefined;
-              workHistoryCollection?:
-                | {
-                    __typename?: 'CvWorkHistoryCollection';
-                    items: Array<
-                      | {
-                          __typename?: 'WorkHistory';
-                          roleTitle?: string | undefined;
-                          employerName?: string | undefined;
-                          employerUrl?: string | undefined;
-                          viaEmployerName?: string | undefined;
-                          viaEmployerUrl?: string | undefined;
-                          location?: string | undefined;
-                          dateFrom?: string | undefined;
-                          dateTo?: string | undefined;
-                          skillSummary?: Array<string | undefined> | undefined;
-                          responsibilitiesCollection?:
-                            | {
-                                __typename?: 'WorkHistoryResponsibilitiesCollection';
-                                items: Array<
-                                  | {
-                                      __typename?: 'Paragraph';
-                                      para?: string | undefined;
-                                    }
-                                  | undefined
-                                >;
-                              }
-                            | undefined;
-                        }
-                      | undefined
-                    >;
-                  }
-                | undefined;
-              interestsCollection?:
-                | {
-                    __typename?: 'CvInterestsCollection';
-                    items: Array<
-                      | { __typename?: 'Paragraph'; para?: string | undefined }
-                      | undefined
-                    >;
-                  }
-                | undefined;
-              educationCollection?:
-                | {
-                    __typename?: 'CvEducationCollection';
-                    items: Array<
-                      | { __typename?: 'Paragraph'; para?: string | undefined }
-                      | undefined
-                    >;
-                  }
-                | undefined;
-            }
-          | undefined
-        >;
-      }
-    | undefined;
-};
 
-export type OnTheWebFragment = {
-  __typename?: 'OnTheWeb';
-  linkText?: string | undefined;
-  url?: string | undefined;
-};
+export type GetCvQuery = { __typename?: 'Query', cvCollection?: { __typename?: 'CvCollection', items: Array<{ __typename?: 'Cv', image?: { __typename?: 'Asset', url?: string | undefined } | undefined, overviewCollection?: { __typename?: 'CvOverviewCollection', items: Array<{ __typename?: 'Paragraph', para?: string | undefined } | undefined> } | undefined, onTheWebCollection?: { __typename?: 'CvOnTheWebCollection', items: Array<{ __typename?: 'OnTheWeb', linkText?: string | undefined, url?: string | undefined } | undefined> } | undefined, workHistoryCollection?: { __typename?: 'CvWorkHistoryCollection', items: Array<{ __typename?: 'WorkHistory', roleTitle?: string | undefined, employerName?: string | undefined, employerUrl?: string | undefined, viaEmployerName?: string | undefined, viaEmployerUrl?: string | undefined, location?: string | undefined, dateFrom?: string | undefined, dateTo?: string | undefined, skillSummary?: Array<string | undefined> | undefined, responsibilitiesCollection?: { __typename?: 'WorkHistoryResponsibilitiesCollection', items: Array<{ __typename?: 'Paragraph', para?: string | undefined } | undefined> } | undefined } | undefined> } | undefined, interestsCollection?: { __typename?: 'CvInterestsCollection', items: Array<{ __typename?: 'Paragraph', para?: string | undefined } | undefined> } | undefined, educationCollection?: { __typename?: 'CvEducationCollection', items: Array<{ __typename?: 'Paragraph', para?: string | undefined } | undefined> } | undefined } | undefined> } | undefined };
 
-export type ParagraphFragment = {
-  __typename?: 'Paragraph';
-  para?: string | undefined;
-};
+export type OnTheWebFragment = { __typename?: 'OnTheWeb', linkText?: string | undefined, url?: string | undefined };
 
-export type WorkHistoryFragment = {
-  __typename?: 'WorkHistory';
-  roleTitle?: string | undefined;
-  employerName?: string | undefined;
-  employerUrl?: string | undefined;
-  viaEmployerName?: string | undefined;
-  viaEmployerUrl?: string | undefined;
-  location?: string | undefined;
-  dateFrom?: string | undefined;
-  dateTo?: string | undefined;
-  skillSummary?: Array<string | undefined> | undefined;
-  responsibilitiesCollection?:
-    | {
-        __typename?: 'WorkHistoryResponsibilitiesCollection';
-        items: Array<
-          { __typename?: 'Paragraph'; para?: string | undefined } | undefined
-        >;
-      }
-    | undefined;
-};
+export type ParagraphFragment = { __typename?: 'Paragraph', para?: string | undefined };
+
+export type WorkHistoryFragment = { __typename?: 'WorkHistory', roleTitle?: string | undefined, employerName?: string | undefined, employerUrl?: string | undefined, viaEmployerName?: string | undefined, viaEmployerUrl?: string | undefined, location?: string | undefined, dateFrom?: string | undefined, dateTo?: string | undefined, skillSummary?: Array<string | undefined> | undefined, responsibilitiesCollection?: { __typename?: 'WorkHistoryResponsibilitiesCollection', items: Array<{ __typename?: 'Paragraph', para?: string | undefined } | undefined> } | undefined };
 
 export const ParagraphFragmentDoc = gql`
-  fragment Paragraph on Paragraph {
-    para
-  }
-`;
+    fragment Paragraph on Paragraph {
+  para
+}
+    `;
 export const OnTheWebFragmentDoc = gql`
-  fragment OnTheWeb on OnTheWeb {
-    linkText
+    fragment OnTheWeb on OnTheWeb {
+  linkText
+  url
+}
+    `;
+export const WorkHistoryFragmentDoc = gql`
+    fragment WorkHistory on WorkHistory {
+  roleTitle
+  employerName
+  employerUrl
+  viaEmployerName
+  viaEmployerUrl
+  location
+  dateFrom
+  dateTo
+  responsibilitiesCollection {
+    items {
+      ...Paragraph
+    }
+  }
+  skillSummary
+}
+    ${ParagraphFragmentDoc}`;
+export const CvFragmentDoc = gql`
+    fragment Cv on Cv {
+  image {
     url
   }
-`;
-export const WorkHistoryFragmentDoc = gql`
-  fragment WorkHistory on WorkHistory {
-    roleTitle
-    employerName
-    employerUrl
-    viaEmployerName
-    viaEmployerUrl
-    location
-    dateFrom
-    dateTo
-    responsibilitiesCollection {
-      items {
-        ...Paragraph
-      }
-    }
-    skillSummary
-  }
-  ${ParagraphFragmentDoc}
-`;
-export const CvFragmentDoc = gql`
-  fragment Cv on Cv {
-    image {
-      url
-    }
-    overviewCollection {
-      items {
-        ...Paragraph
-      }
-    }
-    onTheWebCollection {
-      items {
-        ...OnTheWeb
-      }
-    }
-    workHistoryCollection {
-      items {
-        ...WorkHistory
-      }
-    }
-    interestsCollection {
-      items {
-        ...Paragraph
-      }
-    }
-    educationCollection {
-      items {
-        ...Paragraph
-      }
+  overviewCollection {
+    items {
+      ...Paragraph
     }
   }
-  ${ParagraphFragmentDoc}
-  ${OnTheWebFragmentDoc}
-  ${WorkHistoryFragmentDoc}
-`;
+  onTheWebCollection {
+    items {
+      ...OnTheWeb
+    }
+  }
+  workHistoryCollection {
+    items {
+      ...WorkHistory
+    }
+  }
+  interestsCollection {
+    items {
+      ...Paragraph
+    }
+  }
+  educationCollection {
+    items {
+      ...Paragraph
+    }
+  }
+}
+    ${ParagraphFragmentDoc}
+${OnTheWebFragmentDoc}
+${WorkHistoryFragmentDoc}`;
 export const GetCvDocument = gql`
-  query GetCv {
-    cvCollection(limit: 1, where: { name: "Matt Calthrop" }) {
-      items {
-        ...Cv
-      }
+    query GetCv {
+  cvCollection(limit: 1, where: {name: "Matt Calthrop"}) {
+    items {
+      ...Cv
     }
   }
-  ${CvFragmentDoc}
-`;
+}
+    ${CvFragmentDoc}`;
 
 /**
  * __useGetCvQuery__
@@ -1747,44 +1542,19 @@ export const GetCvDocument = gql`
  *   },
  * });
  */
-export function useGetCvQuery(
-  baseOptions?: Apollo.QueryHookOptions<GetCvQuery, GetCvQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetCvQuery, GetCvQueryVariables>(
-    GetCvDocument,
-    options,
-  );
-}
-export function useGetCvLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<GetCvQuery, GetCvQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetCvQuery, GetCvQueryVariables>(
-    GetCvDocument,
-    options,
-  );
-}
-export function useGetCvSuspenseQuery(
-  baseOptions?:
-    | Apollo.SkipToken
-    | Apollo.SuspenseQueryHookOptions<GetCvQuery, GetCvQueryVariables>,
-) {
-  const options =
-    baseOptions === Apollo.skipToken
-      ? baseOptions
-      : { ...defaultOptions, ...baseOptions };
-  return Apollo.useSuspenseQuery<GetCvQuery, GetCvQueryVariables>(
-    GetCvDocument,
-    options,
-  );
-}
+export function useGetCvQuery(baseOptions?: Apollo.QueryHookOptions<GetCvQuery, GetCvQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetCvQuery, GetCvQueryVariables>(GetCvDocument, options);
+      }
+export function useGetCvLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetCvQuery, GetCvQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetCvQuery, GetCvQueryVariables>(GetCvDocument, options);
+        }
+export function useGetCvSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GetCvQuery, GetCvQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetCvQuery, GetCvQueryVariables>(GetCvDocument, options);
+        }
 export type GetCvQueryHookResult = ReturnType<typeof useGetCvQuery>;
 export type GetCvLazyQueryHookResult = ReturnType<typeof useGetCvLazyQuery>;
-export type GetCvSuspenseQueryHookResult = ReturnType<
-  typeof useGetCvSuspenseQuery
->;
-export type GetCvQueryResult = Apollo.QueryResult<
-  GetCvQuery,
-  GetCvQueryVariables
->;
+export type GetCvSuspenseQueryHookResult = ReturnType<typeof useGetCvSuspenseQuery>;
+export type GetCvQueryResult = Apollo.QueryResult<GetCvQuery, GetCvQueryVariables>;
