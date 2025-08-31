@@ -1,20 +1,11 @@
 import { render, screen } from '@/testUtils';
 import { Responsibilities } from './Responsibilities';
-import type { ParagraphFragment } from '@/graphql-types';
+import type { ParagraphFragment } from '@/graphql/generated/graphql';
 
 const mockItems: ParagraphFragment[] = [
-  {
-    __typename: 'Paragraph',
-    para: 'Led development of React applications using TypeScript',
-  },
-  {
-    __typename: 'Paragraph',
-    para: 'Mentored junior developers and conducted code reviews',
-  },
-  {
-    __typename: 'Paragraph',
-    para: 'Collaborated with product team on feature requirements',
-  },
+  { para: 'Led development of React applications using TypeScript' },
+  { para: 'Mentored junior developers and conducted code reviews' },
+  { para: 'Collaborated with product team on feature requirements' },
 ];
 
 describe('Responsibilities', () => {
@@ -39,17 +30,7 @@ describe('Responsibilities', () => {
   });
 
   it('filters out null items', () => {
-    const itemsWithNull = [
-      {
-        __typename: 'Paragraph' as const,
-        para: 'Valid responsibility',
-      },
-      undefined,
-      {
-        __typename: 'Paragraph' as const,
-        para: 'Another valid responsibility',
-      },
-    ];
+    const itemsWithNull = [{ para: 'Valid responsibility' }, null, { para: 'Another valid responsibility' }];
 
     render(<Responsibilities items={itemsWithNull} />);
 
@@ -75,7 +56,6 @@ describe('Responsibilities', () => {
   it('handles long responsibility text', () => {
     const longResponsibility = [
       {
-        __typename: 'Paragraph' as const,
         para: 'This is a very long responsibility description that might wrap across multiple lines and should still be rendered correctly with proper styling and formatting maintained throughout the entire text block',
       },
     ];

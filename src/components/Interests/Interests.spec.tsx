@@ -1,17 +1,8 @@
 import { render, screen } from '@/testUtils';
 import { Interests } from './Interests';
-import type { ParagraphFragment } from '@/graphql-types';
+import type { ParagraphFragment } from '@/graphql/generated/graphql';
 
-const mockItems: ParagraphFragment[] = [
-  {
-    __typename: 'Paragraph',
-    para: 'Photography and travel',
-  },
-  {
-    __typename: 'Paragraph',
-    para: 'Open source contributions',
-  },
-];
+const mockItems: ParagraphFragment[] = [{ para: 'Photography and travel' }, { para: 'Open source contributions' }];
 
 describe('Interests', () => {
   it('renders section heading', () => {
@@ -42,17 +33,7 @@ describe('Interests', () => {
   });
 
   it('filters out null items', () => {
-    const itemsWithNull = [
-      {
-        __typename: 'Paragraph' as const,
-        para: 'Valid interest',
-      },
-      undefined,
-      {
-        __typename: 'Paragraph' as const,
-        para: 'Another valid interest',
-      },
-    ];
+    const itemsWithNull = [{ para: 'Valid interest' }, null, { para: 'Another valid interest' }];
 
     render(<Interests items={itemsWithNull} />);
 

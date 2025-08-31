@@ -1,9 +1,8 @@
 import { render, screen } from '@/testUtils';
 import { WorkHistoryItem } from './WorkHistoryItem';
-import type { WorkHistoryFragment } from '@/graphql-types';
+import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 
 const mockItem: WorkHistoryFragment = {
-  __typename: 'WorkHistory',
   roleTitle: 'Senior Software Engineer',
   employerName: 'Test Company',
   employerUrl: 'https://testcompany.com',
@@ -13,14 +12,11 @@ const mockItem: WorkHistoryFragment = {
   dateFrom: '2020-01',
   dateTo: 'Present',
   responsibilitiesCollection: {
-    __typename: 'WorkHistoryResponsibilitiesCollection',
     items: [
       {
-        __typename: 'Paragraph',
         para: 'Led development of React applications',
       },
       {
-        __typename: 'Paragraph',
         para: 'Mentored junior developers',
       },
     ],
@@ -55,20 +51,13 @@ describe('WorkHistoryItem', () => {
   });
 
   it('handles null item', () => {
-    render(<WorkHistoryItem item={undefined} />);
-
-    expect(screen.queryByText(/Engineer/)).not.toBeInTheDocument();
-  });
-
-  it('handles undefined item', () => {
-    render(<WorkHistoryItem item={undefined} />);
+    render(<WorkHistoryItem item={null} />);
 
     expect(screen.queryByText(/Engineer/)).not.toBeInTheDocument();
   });
 
   it('renders with minimal data', () => {
     const minimalItem: WorkHistoryFragment = {
-      __typename: 'WorkHistory',
       roleTitle: 'Developer',
       employerName: undefined,
       employerUrl: undefined,
@@ -78,7 +67,6 @@ describe('WorkHistoryItem', () => {
       dateFrom: undefined,
       dateTo: undefined,
       responsibilitiesCollection: {
-        __typename: 'WorkHistoryResponsibilitiesCollection',
         items: [],
       },
       skillSummary: [],

@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import type { Maybe, WorkHistoryFragment } from '@/graphql-types';
+import type { Maybe, WorkHistoryFragment } from '@/graphql/generated/graphql';
 import { EmployerLink } from './EmployerLink';
 import { LocationDuration } from './LocationDuration';
 import { Responsibilities } from './Responsibilities';

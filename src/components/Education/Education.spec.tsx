@@ -1,16 +1,10 @@
 import { render, screen } from '@/testUtils';
 import { Education } from './Education';
-import type { ParagraphFragment } from '@/graphql-types';
+import type { ParagraphFragment } from '@/graphql/generated/graphql';
 
 const mockItems: ParagraphFragment[] = [
-  {
-    __typename: 'Paragraph',
-    para: 'BSc Computer Science, University of Test',
-  },
-  {
-    __typename: 'Paragraph',
-    para: 'MSc Software Engineering, Test Institute',
-  },
+  { para: 'BSc Computer Science, University of Test' },
+  { para: 'MSc Software Engineering, Test Institute' },
 ];
 
 describe('Education', () => {
@@ -42,17 +36,7 @@ describe('Education', () => {
   });
 
   it('filters out null items', () => {
-    const itemsWithNull = [
-      {
-        __typename: 'Paragraph' as const,
-        para: 'Valid education entry',
-      },
-      undefined,
-      {
-        __typename: 'Paragraph' as const,
-        para: 'Another valid education entry',
-      },
-    ];
+    const itemsWithNull = [{ para: 'Valid education entry' }, null, { para: 'Another valid education entry' }];
 
     render(<Education items={itemsWithNull} />);
 

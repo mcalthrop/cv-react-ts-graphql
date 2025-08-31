@@ -1,17 +1,8 @@
 import { render, screen } from '@/testUtils';
 import { Overview } from './Overview';
-import type { ParagraphFragment } from '@/graphql-types';
+import type { ParagraphFragment } from '@/graphql/generated/graphql';
 
-const mockItems: ParagraphFragment[] = [
-  {
-    __typename: 'Paragraph',
-    para: 'First overview paragraph',
-  },
-  {
-    __typename: 'Paragraph',
-    para: 'Second overview paragraph',
-  },
-];
+const mockItems: ParagraphFragment[] = [{ para: 'First overview paragraph' }, { para: 'Second overview paragraph' }];
 
 describe('Overview', () => {
   it('renders without image', () => {
@@ -46,17 +37,7 @@ describe('Overview', () => {
   });
 
   it('filters out null items', () => {
-    const itemsWithNull = [
-      {
-        __typename: 'Paragraph' as const,
-        para: 'Valid paragraph',
-      },
-      undefined,
-      {
-        __typename: 'Paragraph' as const,
-        para: 'Another valid paragraph',
-      },
-    ];
+    const itemsWithNull = [{ para: 'Valid paragraph' }, null, { para: 'Another valid paragraph' }];
 
     render(<Overview items={itemsWithNull} />);
 

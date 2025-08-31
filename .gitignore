@@ -14,4 +14,4 @@
 *.tsbuildinfo
 
 # Generated GQL types
-src/graphql-types.tsx
+src/graphql/generated

@@ -9,15 +9,14 @@ const codegenConfig: CodegenConfig = {
   schema: schemaUri,
   documents: 'src/graphql/*.{query,fragment}.graphql',
   generates: {
-    './src/graphql-types.tsx': {
-      plugins: [
-        'typescript',
-        'typescript-operations',
-        'typescript-react-apollo',
-      ],
-      config: {
+    './src/graphql/generated/': {
+      preset: 'client',
+      presetConfig: {
+        dedupeFragments: true,
         enumsAsTypes: true,
-        maybeValue: 'T | undefined',
+        fragmentMasking: false,
+        skipTypename: true,
+        useTypeImports: true,
       },
     },
   },

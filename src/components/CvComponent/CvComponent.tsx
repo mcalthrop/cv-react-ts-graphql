@@ -1,4 +1,4 @@
-import type { CvFragment } from '@/graphql-types';
+import type { CvFragment } from '@/graphql/generated/graphql';
 import { Education } from '../Education';
 import { Interests } from '../Interests';
 import { OnTheWeb } from '../OnTheWeb';

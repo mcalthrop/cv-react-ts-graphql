@@ -1,48 +1,29 @@
 import { graphql, HttpResponse } from 'msw';
-import type { GetCvQuery } from '@/graphql-types';
+import type { GetCvQuery } from '@/graphql/generated/graphql';
 
 export const mockCvData: GetCvQuery = {
   cvCollection: {
     items: [
       {
-        __typename: 'Cv',
-        image: {
-          __typename: 'Asset',
-          url: 'https://example.com/image.jpg',
-        },
+        image: { url: 'https://example.com/image.jpg' },
         overviewCollection: {
-          __typename: 'CvOverviewCollection',
           items: [
-            {
-              __typename: 'Paragraph',
-              para: 'Overview paragraph 1',
-            },
-            {
-              __typename: 'Paragraph',
-              para: 'Overview paragraph 2',
-            },
+            { para: 'Overview paragraph 1' },
+            { para: 'Overview paragraph 2' },
           ],
         },
         onTheWebCollection: {
-          __typename: 'CvOnTheWebCollection',
           items: [
+            { linkText: 'GitHub', url: 'https://github.com/mcalthrop' },
             {
-              __typename: 'OnTheWeb',
-              linkText: 'GitHub',
-              url: 'https://github.com/mcalthrop',
-            },
-            {
-              __typename: 'OnTheWeb',
               linkText: 'LinkedIn',
               url: 'https://linkedin.com/in/mattcalthrop',
             },
           ],
         },
         workHistoryCollection: {
-          __typename: 'CvWorkHistoryCollection',
           items: [
             {
-              __typename: 'WorkHistory',
               roleTitle: 'Senior Software Engineer',
               employerName: 'Test Company',
               employerUrl: 'https://testcompany.com',
@@ -52,16 +33,9 @@ export const mockCvData: GetCvQuery = {
               dateFrom: '2020-01',
               dateTo: 'Present',
               responsibilitiesCollection: {
-                __typename: 'WorkHistoryResponsibilitiesCollection',
                 items: [
-                  {
-                    __typename: 'Paragraph',
-                    para: 'Developed and maintained React applications',
-                  },
-                  {
-                    __typename: 'Paragraph',
-                    para: 'Led technical architecture decisions',
-                  },
+                  { para: 'Developed and maintained React applications' },
+                  { para: 'Led technical architecture decisions' },
                 ],
               },
               skillSummary: ['TypeScript', 'React', 'GraphQL', 'Node.js'],
@@ -69,26 +43,13 @@ export const mockCvData: GetCvQuery = {
           ],
         },
         interestsCollection: {
-          __typename: 'CvInterestsCollection',
           items: [
-            {
-              __typename: 'Paragraph',
-              para: 'Photography and travel',
-            },
-            {
-              __typename: 'Paragraph',
-              para: 'Open source contributions',
-            },
+            { para: 'Photography and travel' },
+            { para: 'Open source contributions' },
           ],
         },
         educationCollection: {
-          __typename: 'CvEducationCollection',
-          items: [
-            {
-              __typename: 'Paragraph',
-              para: 'BSc Computer Science, University of Test',
-            },
-          ],
+          items: [{ para: 'BSc Computer Science, University of Test' }],
         },
       },
     ],

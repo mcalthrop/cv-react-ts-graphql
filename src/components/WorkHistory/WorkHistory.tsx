@@ -1,5 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import type { Maybe, WorkHistoryFragment } from '@/graphql-types';
+import type { Maybe, WorkHistoryFragment } from '@/graphql/generated/graphql';
 import { SectionHeading } from '../SectionHeading';
 import { WorkHistoryItem } from './WorkHistoryItem';
 

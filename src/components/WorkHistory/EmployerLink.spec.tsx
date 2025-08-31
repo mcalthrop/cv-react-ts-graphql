@@ -1,9 +1,8 @@
 import { render, screen } from '@/testUtils';
 import { EmployerLink } from './EmployerLink';
-import type { WorkHistoryFragment } from '@/graphql-types';
+import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 
 const createMockItem = (overrides: Partial<WorkHistoryFragment> = {}): WorkHistoryFragment => ({
-  __typename: 'WorkHistory',
   roleTitle: 'Test Role',
   employerName: undefined,
   employerUrl: undefined,
@@ -12,10 +11,7 @@ const createMockItem = (overrides: Partial<WorkHistoryFragment> = {}): WorkHisto
   location: undefined,
   dateFrom: undefined,
   dateTo: undefined,
-  responsibilitiesCollection: {
-    __typename: 'WorkHistoryResponsibilitiesCollection',
-    items: [],
-  },
+  responsibilitiesCollection: { items: [] },
   skillSummary: [],
   ...overrides,
 });
@@ -120,13 +116,7 @@ describe('EmployerLink', () => {
   });
 
   it('handles null item', () => {
-    render(<EmployerLink item={undefined} />);
-
-    expect(screen.queryByText(/Company/)).not.toBeInTheDocument();
-  });
-
-  it('handles undefined item', () => {
-    render(<EmployerLink item={undefined} />);
+    render(<EmployerLink item={null} />);
 
     expect(screen.queryByText(/Company/)).not.toBeInTheDocument();
   });
