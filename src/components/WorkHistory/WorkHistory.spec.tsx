@@ -4,7 +4,6 @@ import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 
 const mockItems: WorkHistoryFragment[] = [
   {
-    __typename: 'WorkHistory',
     roleTitle: 'Senior Software Engineer',
     employerName: 'Test Company 1',
     employerUrl: 'https://test1.com',
@@ -14,18 +13,11 @@ const mockItems: WorkHistoryFragment[] = [
     dateFrom: '2020-01',
     dateTo: 'Present',
     responsibilitiesCollection: {
-      __typename: 'WorkHistoryResponsibilitiesCollection',
-      items: [
-        {
-          __typename: 'Paragraph',
-          para: 'Led development of React applications',
-        },
-      ],
+      items: [{ para: 'Led development of React applications' }],
     },
     skillSummary: ['React', 'TypeScript', 'GraphQL'],
   },
   {
-    __typename: 'WorkHistory',
     roleTitle: 'Software Engineer',
     employerName: 'Test Company 2',
     employerUrl: undefined,
@@ -35,13 +27,7 @@ const mockItems: WorkHistoryFragment[] = [
     dateFrom: '2018-06',
     dateTo: '2019-12',
     responsibilitiesCollection: {
-      __typename: 'WorkHistoryResponsibilitiesCollection',
-      items: [
-        {
-          __typename: 'Paragraph',
-          para: 'Developed web applications',
-        },
-      ],
+      items: [{ para: 'Developed web applications' }],
     },
     skillSummary: ['JavaScript', 'Node.js'],
   },

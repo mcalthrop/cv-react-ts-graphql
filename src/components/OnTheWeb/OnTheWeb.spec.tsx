@@ -3,16 +3,8 @@ import { OnTheWeb } from './OnTheWeb';
 import type { OnTheWebFragment } from '@/graphql/generated/graphql';
 
 const mockItems: OnTheWebFragment[] = [
-  {
-    __typename: 'OnTheWeb',
-    linkText: 'GitHub',
-    url: 'https://github.com/test',
-  },
-  {
-    __typename: 'OnTheWeb',
-    linkText: 'LinkedIn',
-    url: 'https://linkedin.com/in/test',
-  },
+  { linkText: 'GitHub', url: 'https://github.com/test' },
+  { linkText: 'LinkedIn', url: 'https://linkedin.com/in/test' },
 ];
 
 describe('OnTheWeb', () => {
@@ -49,19 +41,7 @@ describe('OnTheWeb', () => {
   });
 
   it('filters out null items', () => {
-    const itemsWithNull = [
-      {
-        __typename: 'OnTheWeb' as const,
-        linkText: 'Valid',
-        url: 'https://valid.com',
-      },
-      null,
-      {
-        __typename: 'OnTheWeb' as const,
-        linkText: 'Another',
-        url: 'https://another.com',
-      },
-    ];
+    const itemsWithNull = [{ linkText: 'Valid', url: 'https://valid.com' }, null, { linkText: 'Another', url: 'https://another.com' }];
 
     render(<OnTheWeb items={itemsWithNull} />);
 

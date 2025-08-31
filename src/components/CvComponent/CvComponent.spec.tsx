@@ -3,35 +3,16 @@ import type { CvFragment } from '@/graphql/generated/graphql';
 import { CvComponent } from './CvComponent';
 
 const mockCvFragment: CvFragment = {
-  __typename: 'Cv',
-  image: {
-    __typename: 'Asset',
-    url: 'https://example.com/image.jpg',
-  },
+  image: { url: 'https://example.com/image.jpg' },
   overviewCollection: {
-    __typename: 'CvOverviewCollection',
-    items: [
-      {
-        __typename: 'Paragraph',
-        para: 'Overview paragraph 1',
-      },
-    ],
+    items: [{ para: 'Overview paragraph 1' }],
   },
   onTheWebCollection: {
-    __typename: 'CvOnTheWebCollection',
-    items: [
-      {
-        __typename: 'OnTheWeb',
-        linkText: 'GitHub',
-        url: 'https://github.com/test',
-      },
-    ],
+    items: [{ linkText: 'GitHub', url: 'https://github.com/test' }],
   },
   workHistoryCollection: {
-    __typename: 'CvWorkHistoryCollection',
     items: [
       {
-        __typename: 'WorkHistory',
         roleTitle: 'Software Engineer',
         employerName: 'Test Company',
         employerUrl: 'https://test.com',
@@ -41,35 +22,17 @@ const mockCvFragment: CvFragment = {
         dateFrom: '2020-01',
         dateTo: 'Present',
         responsibilitiesCollection: {
-          __typename: 'WorkHistoryResponsibilitiesCollection',
-          items: [
-            {
-              __typename: 'Paragraph',
-              para: 'Test responsibility',
-            },
-          ],
+          items: [{ para: 'Test responsibility' }],
         },
         skillSummary: ['React', 'TypeScript'],
       },
     ],
   },
   educationCollection: {
-    __typename: 'CvEducationCollection',
-    items: [
-      {
-        __typename: 'Paragraph',
-        para: 'Test education',
-      },
-    ],
+    items: [{ para: 'Test education' }],
   },
   interestsCollection: {
-    __typename: 'CvInterestsCollection',
-    items: [
-      {
-        __typename: 'Paragraph',
-        para: 'Test interest',
-      },
-    ],
+    items: [{ para: 'Test interest' }],
   },
 };
 

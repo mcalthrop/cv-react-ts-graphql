@@ -3,7 +3,6 @@ import { EmployerLink } from './EmployerLink';
 import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 
 const createMockItem = (overrides: Partial<WorkHistoryFragment> = {}): WorkHistoryFragment => ({
-  __typename: 'WorkHistory',
   roleTitle: 'Test Role',
   employerName: undefined,
   employerUrl: undefined,
@@ -12,10 +11,7 @@ const createMockItem = (overrides: Partial<WorkHistoryFragment> = {}): WorkHisto
   location: undefined,
   dateFrom: undefined,
   dateTo: undefined,
-  responsibilitiesCollection: {
-    __typename: 'WorkHistoryResponsibilitiesCollection',
-    items: [],
-  },
+  responsibilitiesCollection: { items: [] },
   skillSummary: [],
   ...overrides,
 });
