@@ -36,15 +36,7 @@ describe('Education', () => {
   });
 
   it('filters out null items', () => {
-    const itemsWithNull = [
-      {
-        para: 'Valid education entry',
-      },
-      null,
-      {
-        para: 'Another valid education entry',
-      },
-    ];
+    const itemsWithNull = [{ para: 'Valid education entry' }, null, { para: 'Another valid education entry' }];
 
     render(<Education items={itemsWithNull} />);
 

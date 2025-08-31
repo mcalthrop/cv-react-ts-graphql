@@ -33,15 +33,7 @@ describe('Interests', () => {
   });
 
   it('filters out null items', () => {
-    const itemsWithNull = [
-      {
-        para: 'Valid interest',
-      },
-      null,
-      {
-        para: 'Another valid interest',
-      },
-    ];
+    const itemsWithNull = [{ para: 'Valid interest' }, null, { para: 'Another valid interest' }];
 
     render(<Interests items={itemsWithNull} />);
 

@@ -11,10 +11,6 @@ const codegenConfig: CodegenConfig = {
   generates: {
     './src/graphql/generated/': {
       preset: 'client',
-      config: {
-        maybeValue: 'T | null',
-        withHooks: false,
-      },
       presetConfig: {
         dedupeFragments: true,
         enumsAsTypes: true,
