@@ -36,10 +36,8 @@ const RootLayout = ({ children }: PropsWithChildren): React.JSX.Element => (
       />
     </head>
     <body>
-      <ChakraWrapper>
-        {children}
-        <SpeedInsights />
-      </ChakraWrapper>
+      <ChakraWrapper>{children}</ChakraWrapper>
+      <SpeedInsights />
     </body>
   </html>
 );
