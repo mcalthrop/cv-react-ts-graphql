@@ -1,6 +1,6 @@
 # cv-react-ts-graphql
 
-> Source code for my online CV: React, TypeScript, GraphQL, and Apollo Client
+> Source code for my online CV: React, TypeScript, and GraphQL
 
 ## Overview
 
