@@ -1,6 +1,6 @@
 # cv-react-ts-graphql
 
-> Source code for my online CV: React, TypeScript, and GraphQL
+> Source code for my online CV: React, TypeScript, GraphQL, and Apollo Client
 
 ## Overview
 
@@ -11,6 +11,7 @@ It uses the following features:
 - [React](https://reactjs.org/), [NextJS](https://nextjs.org/) and [TypeScript](https://www.typescriptlang.org/) for building the UI
 - [Chakra](https://chakra-ui.com/) for the design framework
 - [Contentful](https://www.contentful.com/) for hosting the content, and providing the GraphQL schema
+- [Apollo Client](https://www.apollographql.com/docs/react/) for fetching the data from Contentful
 - [pnpm](https://pnpm.io/) for dependency management
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io/) for code formatting
@@ -72,7 +73,7 @@ pnpm test
 
 ### Linting
 
-> Check `.eslintrc.js` for the eslint rules.
+> Check `eslint.config.js` for the eslint rules.
 
 To run the linter:
 
