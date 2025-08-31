@@ -1,13 +1,10 @@
-import { MockedProvider as ApolloProvider } from '@apollo/client/testing/react';
 import type { RenderOptions } from '@testing-library/react';
 import { render } from '@testing-library/react';
 import type { FC, ReactElement, ReactNode } from 'react';
 import { CustomChakraProvider } from '@/components/chakra/provider';
 
 export const AllTheProviders: FC = ({ children }: { children?: ReactNode }) => (
-  <ApolloProvider>
-    <CustomChakraProvider>{children}</CustomChakraProvider>
-  </ApolloProvider>
+  <CustomChakraProvider>{children}</CustomChakraProvider>
 );
 
 const customRender = (

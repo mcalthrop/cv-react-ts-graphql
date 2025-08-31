@@ -3,21 +3,13 @@ import { vi } from 'vitest';
 import RootLayout, { metadata } from '@/app/layout';
 import type { PropsWithChildren } from 'react';
 
-vi.mock('@/app/apollo-wrapper', () => ({
-  ApolloWrapper: ({ children }: PropsWithChildren) => <div data-testid={'apollo-wrapper'}>{children}</div>,
-}));
-
 vi.mock('@/app/chakra-wrapper', () => ({
   ChakraWrapper: ({ children }: PropsWithChildren) => <div data-testid={'chakra-wrapper'}>{children}</div>,
 }));
 
 // Create a test wrapper that renders just the body content to avoid HTML structure issues.
 // Extract just the body content from the layout to test in isolation.
-const TestLayoutContent = ({ children }: PropsWithChildren) => (
-  <div data-testid={'apollo-wrapper'}>
-    <div data-testid={'chakra-wrapper'}>{children}</div>
-  </div>
-);
+const TestLayoutContent = ({ children }: PropsWithChildren) => <div data-testid={'chakra-wrapper'}>{children}</div>;
 
 describe('RootLayout', () => {
   it('layout structure can be rendered without HTML conflicts', () => {
@@ -38,7 +30,6 @@ describe('RootLayout', () => {
       </TestLayoutContent>,
     );
 
-    expect(container.querySelector('[data-testid="apollo-wrapper"]')).toBeInTheDocument();
     expect(container.querySelector('[data-testid="chakra-wrapper"]')).toBeInTheDocument();
     expect(container.querySelector('[data-testid="page-content"]')).toBeInTheDocument();
   });

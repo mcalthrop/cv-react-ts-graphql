@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { ApolloWrapper } from '@/app/apollo-wrapper';
 import { ChakraWrapper } from '@/app/chakra-wrapper';
 import type { PropsWithChildren } from 'react';
 
@@ -36,9 +35,7 @@ const RootLayout = ({ children }: PropsWithChildren): React.JSX.Element => (
       />
     </head>
     <body>
-      <ApolloWrapper>
-        <ChakraWrapper>{children}</ChakraWrapper>
-      </ApolloWrapper>
+      <ChakraWrapper>{children}</ChakraWrapper>
     </body>
   </html>
 );
