@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { ChakraWrapper } from '@/app/chakra-wrapper';
 import type { PropsWithChildren } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: 'CV: Matt Calthrop',
@@ -36,6 +37,7 @@ const RootLayout = ({ children }: PropsWithChildren): React.JSX.Element => (
     </head>
     <body>
       <ChakraWrapper>{children}</ChakraWrapper>
+      <SpeedInsights />
     </body>
   </html>
 );
