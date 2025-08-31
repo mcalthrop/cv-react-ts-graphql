@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 import { render, screen } from '@/testUtils';
 import { graphql, HttpResponse } from 'msw';
 import { server } from '@/mocks/node';

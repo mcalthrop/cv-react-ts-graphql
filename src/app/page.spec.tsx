@@ -3,7 +3,7 @@ import { vi } from 'vitest';
 import Page from '@/app/page';
 
 // Mock the CvContainer component since it has complex dependencies
-vi.mock('@/components/Cv', () => ({
+vi.mock('@/components/CvContainer', () => ({
   CvContainer: () => <div data-testid={'cv-container'}>Mocked CV Container</div>,
 }));
 

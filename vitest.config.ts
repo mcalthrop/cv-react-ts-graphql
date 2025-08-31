@@ -27,6 +27,7 @@ export default defineConfig({
         'src/mocks/**',
         'src/graphql-types.tsx',
         'src/index.tsx',
+        'src/components/CvContainer/CvContainer.tsx', // Can't test server components with vitest 🤷‍♂️
         '**/index.ts',
         '**/index.tsx',
         'src/graphql/**',

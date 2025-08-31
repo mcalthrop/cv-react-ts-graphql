@@ -1,5 +1,5 @@
 import { Container } from '@chakra-ui/react';
-import { CvContainer } from '@/components/Cv';
+import { CvContainer } from '@/components/CvContainer';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { Loading } from '@/components/Loading';
