@@ -21,7 +21,6 @@ export default defineConfig({
         'coverage/**',
         '**/*.d.ts',
         '**/*.config.*',
-        '**/node_modules/**',
         'src/setupTestsAfterEnv.ts',
         'src/components/chakra/**',
         'src/mocks/**',
@@ -29,8 +28,6 @@ export default defineConfig({
         'src/components/CvContainer/CvContainer.tsx', // Can't test server components with vitest 🤷‍♂️
         '**/index.ts',
         'src/graphql/**',
-        'src/chakra/**',
-        '.eslintrc.js',
         'codegen.ts',
       ],
     },
