@@ -1,5 +1,5 @@
 import { graphql, HttpResponse } from 'msw';
-import type { GetCvQuery } from '@/graphql-types';
+import type { GetCvQuery } from '@/graphql/generated/graphql';
 
 export const mockCvData: GetCvQuery = {
   cvCollection: {

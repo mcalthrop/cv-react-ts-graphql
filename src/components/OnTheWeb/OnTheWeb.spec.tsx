@@ -1,6 +1,6 @@
 import { render, screen } from '@/testUtils';
 import { OnTheWeb } from './OnTheWeb';
-import type { OnTheWebFragment } from '@/graphql-types';
+import type { OnTheWebFragment } from '@/graphql/generated/graphql';
 
 const mockItems: OnTheWebFragment[] = [
   {
@@ -55,7 +55,7 @@ describe('OnTheWeb', () => {
         linkText: 'Valid',
         url: 'https://valid.com',
       },
-      undefined,
+      null,
       {
         __typename: 'OnTheWeb' as const,
         linkText: 'Another',

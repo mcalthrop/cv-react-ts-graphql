@@ -1,6 +1,6 @@
 import { render, screen } from '@/testUtils';
 import { WorkHistoryItem } from './WorkHistoryItem';
-import type { WorkHistoryFragment } from '@/graphql-types';
+import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 
 const mockItem: WorkHistoryFragment = {
   __typename: 'WorkHistory',
@@ -55,13 +55,7 @@ describe('WorkHistoryItem', () => {
   });
 
   it('handles null item', () => {
-    render(<WorkHistoryItem item={undefined} />);
-
-    expect(screen.queryByText(/Engineer/)).not.toBeInTheDocument();
-  });
-
-  it('handles undefined item', () => {
-    render(<WorkHistoryItem item={undefined} />);
+    render(<WorkHistoryItem item={null} />);
 
     expect(screen.queryByText(/Engineer/)).not.toBeInTheDocument();
   });

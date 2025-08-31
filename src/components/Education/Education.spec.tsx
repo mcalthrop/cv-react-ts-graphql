@@ -1,6 +1,6 @@
 import { render, screen } from '@/testUtils';
 import { Education } from './Education';
-import type { ParagraphFragment } from '@/graphql-types';
+import type { ParagraphFragment } from '@/graphql/generated/graphql';
 
 const mockItems: ParagraphFragment[] = [
   {
@@ -47,7 +47,7 @@ describe('Education', () => {
         __typename: 'Paragraph' as const,
         para: 'Valid education entry',
       },
-      undefined,
+      null,
       {
         __typename: 'Paragraph' as const,
         para: 'Another valid education entry',

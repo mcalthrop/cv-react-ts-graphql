@@ -1,6 +1,6 @@
 import { render, screen } from '@/testUtils';
 import { WorkHistory } from './WorkHistory';
-import type { WorkHistoryFragment } from '@/graphql-types';
+import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 
 const mockItems: WorkHistoryFragment[] = [
   {
@@ -78,7 +78,7 @@ describe('WorkHistory', () => {
   });
 
   it('filters out null items', () => {
-    const itemsWithNull = [mockItems[0], undefined, mockItems[1]];
+    const itemsWithNull = [mockItems[0], null, mockItems[1]];
 
     render(<WorkHistory items={itemsWithNull} />);
 

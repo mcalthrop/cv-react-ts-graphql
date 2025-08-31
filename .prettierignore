@@ -3,4 +3,4 @@
 coverage
 dist
 pnpm-lock.yaml
-src/graphql-types.tsx
+src/graphql/generated

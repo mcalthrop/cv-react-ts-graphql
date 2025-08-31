@@ -1,5 +1,5 @@
 import { render, screen } from '@/testUtils';
-import type { CvFragment } from '@/graphql-types';
+import type { CvFragment } from '@/graphql/generated/graphql';
 import { CvComponent } from './CvComponent';
 
 const mockCvFragment: CvFragment = {

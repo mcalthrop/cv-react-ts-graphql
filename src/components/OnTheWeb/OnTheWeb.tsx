@@ -1,5 +1,5 @@
 import { Link } from '@chakra-ui/react';
-import type { Maybe, OnTheWebFragment } from '@/graphql-types';
+import type { Maybe, OnTheWebFragment } from '@/graphql/generated/graphql';
 import { SectionHeading } from '../SectionHeading';
 
 export type OnTheWebProps = {
@@ -13,7 +13,7 @@ export const OnTheWeb = ({ items }: OnTheWebProps): React.JSX.Element => (
       {items?.map((item, idx) => (
         <li key={idx}>
           <Link
-            href={item?.url}
+            href={item?.url ?? undefined}
             target={'_blank'}
             fontSize={'sm'}
             lineHeight={'110%'}

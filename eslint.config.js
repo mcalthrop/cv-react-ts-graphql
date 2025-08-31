@@ -67,7 +67,7 @@ export default [
       'dist/**',
       'coverage/**',
       'src/components/chakra/**',
-      'src/graphql-types.tsx',
+      'src/graphql/generated/**',
     ],
   },
 ];

@@ -1,5 +1,5 @@
 import { query } from '@/graphql';
-import { GetCvDocument, type GetCvQuery } from '@/graphql-types';
+import { GetCvDocument, type GetCvQuery } from '@/graphql/generated/graphql';
 import { CvComponent } from '@/components/CvComponent';
 
 export const CvContainer = async (): Promise<React.JSX.Element> => {

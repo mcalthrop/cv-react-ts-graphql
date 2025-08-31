@@ -1,7 +1,8 @@
 import { Text } from '@chakra-ui/react';
+import type { Maybe } from '@/graphql/generated/graphql';
 
 export type RoleTitleProps = {
-  roleTitle: string | undefined;
+  roleTitle?: Maybe<string>;
 };
 
 export const RoleTitle = ({ roleTitle }: RoleTitleProps): React.JSX.Element => (

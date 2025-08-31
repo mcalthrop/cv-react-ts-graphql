@@ -1,6 +1,6 @@
 import { render, screen } from '@/testUtils';
 import { EmployerLink } from './EmployerLink';
-import type { WorkHistoryFragment } from '@/graphql-types';
+import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 
 const createMockItem = (overrides: Partial<WorkHistoryFragment> = {}): WorkHistoryFragment => ({
   __typename: 'WorkHistory',
@@ -120,13 +120,7 @@ describe('EmployerLink', () => {
   });
 
   it('handles null item', () => {
-    render(<EmployerLink item={undefined} />);
-
-    expect(screen.queryByText(/Company/)).not.toBeInTheDocument();
-  });
-
-  it('handles undefined item', () => {
-    render(<EmployerLink item={undefined} />);
+    render(<EmployerLink item={null} />);
 
     expect(screen.queryByText(/Company/)).not.toBeInTheDocument();
   });
