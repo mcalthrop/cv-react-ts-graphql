@@ -18,10 +18,5 @@ export const PublicationData = ({
     document.body.setAttribute('data-published-at', publishedAt);
   }, [publishedAt, publishedVersion]);
 
-  return (
-    <span
-      data-published-at={publishedAt}
-      data-published-version={publishedVersion}
-    />
-  );
+  return <></>;
 };
