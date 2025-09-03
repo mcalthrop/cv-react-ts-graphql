@@ -11,11 +11,11 @@ export const PublicationData = ({
   sys: { publishedAt, publishedVersion },
 }: PublicationDataProps): React.JSX.Element => {
   useEffect(() => {
-    document.body.setAttribute('data-published-at', publishedAt);
     document.body.setAttribute(
       'data-published-version',
       String(publishedVersion),
     );
+    document.body.setAttribute('data-published-at', publishedAt);
   }, [publishedAt, publishedVersion]);
 
   return (
