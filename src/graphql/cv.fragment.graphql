@@ -1,4 +1,8 @@
 fragment Cv on Cv {
+  sys {
+    publishedAt
+    publishedVersion
+  }
   image {
     url
   }

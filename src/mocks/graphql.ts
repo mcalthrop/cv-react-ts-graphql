@@ -51,6 +51,7 @@ export const mockCvData: GetCvQuery = {
         educationCollection: {
           items: [{ para: 'BSc Computer Science, University of Test' }],
         },
+        sys: {},
       },
     ],
   },

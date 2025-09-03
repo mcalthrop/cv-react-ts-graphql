@@ -4,6 +4,7 @@ import { Interests } from '../Interests';
 import { OnTheWeb } from '../OnTheWeb';
 import { Overview } from '../Overview';
 import { WorkHistory } from '../WorkHistory';
+import { PublicationData } from '../PublicationData';
 
 export type CvComponentProps = {
   cvFragment: CvFragment;
@@ -13,6 +14,7 @@ export const CvComponent = ({
   cvFragment,
 }: CvComponentProps): React.JSX.Element => (
   <>
+    <PublicationData sys={cvFragment.sys} />
     <Overview
       image={cvFragment.image?.url}
       items={cvFragment.overviewCollection?.items}

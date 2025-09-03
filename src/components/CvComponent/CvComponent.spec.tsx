@@ -3,6 +3,10 @@ import type { CvFragment } from '@/graphql/generated/graphql';
 import { CvComponent } from './CvComponent';
 
 const mockCvFragment: CvFragment = {
+  sys: {
+    publishedAt: '2025-09-03T11:42:29.382Z',
+    publishedVersion: 42,
+  },
   image: { url: 'https://example.com/image.jpg' },
   overviewCollection: {
     items: [{ para: 'Overview paragraph 1' }],
