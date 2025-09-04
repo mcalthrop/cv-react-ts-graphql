@@ -25,7 +25,7 @@ export default defineConfig({
         'src/components/chakra/**',
         'src/mocks/**',
         'src/index.tsx',
-        'src/components/CvContainer/CvContainer.tsx', // Can't test server components with vitest 🤷‍♂️
+        'src/components/CvContainer/**', // Can't test server components with vitest: https://nextjs.org/docs/app/guides/testing/vitest
         '**/index.ts',
         'src/graphql/**',
         'codegen.ts',
