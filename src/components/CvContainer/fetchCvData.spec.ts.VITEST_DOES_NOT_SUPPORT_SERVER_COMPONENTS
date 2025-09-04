@@ -1,0 +1,104 @@
+// @vitest-environment node
+
+import { fetchCvData } from './fetchCvData';
+import type { GetCvQuery } from '@/graphql/generated/graphql';
+import { graphql, HttpResponse } from 'msw';
+import { server } from '@/mocks/node';
+import { mockCvData } from '@/mocks/graphql';
+
+describe('fetchCvData', () => {
+  afterEach(() => {
+    server.resetHandlers();
+  });
+
+  it('should return CV fragment when data is available', async () => {
+    server.use(graphql.query('GetCv', () => HttpResponse.json({ data: mockCvData })));
+
+    const result = await fetchCvData();
+
+    expect(result).toEqual(mockCvData.cvCollection?.items[0]);
+  });
+
+  it('should throw error when cvCollection is null', async () => {
+    const mockData: GetCvQuery = {
+      cvCollection: null,
+    };
+
+    server.use(graphql.query('GetCv', () => HttpResponse.json({ data: mockData })));
+
+    await expect(fetchCvData()).rejects.toThrow('No CVs found');
+  });
+
+  it('should throw error when cvCollection is undefined', async () => {
+    const mockData: GetCvQuery = {
+      cvCollection: undefined,
+    };
+
+    server.use(graphql.query('GetCv', () => HttpResponse.json({ data: mockData })));
+
+    await expect(fetchCvData()).rejects.toThrow('No CVs found');
+  });
+
+  it('should throw error when cvCollection items is empty', async () => {
+    const mockData: GetCvQuery = {
+      cvCollection: {
+        items: [],
+      },
+    };
+
+    server.use(graphql.query('GetCv', () => HttpResponse.json({ data: mockData })));
+
+    await expect(fetchCvData()).rejects.toThrow('No CVs found');
+  });
+
+  it('should throw error when first CV item is null', async () => {
+    const mockData: GetCvQuery = {
+      cvCollection: {
+        items: [null],
+      },
+    };
+
+    server.use(graphql.query('GetCv', () => HttpResponse.json({ data: mockData })));
+
+    await expect(fetchCvData()).rejects.toThrow('Empty CV data');
+  });
+
+  it('should return first CV item when multiple items exist', async () => {
+    const mockDataWithMultipleItems: GetCvQuery = {
+      cvCollection: {
+        items: [
+          mockCvData.cvCollection?.items[0],
+          {
+            ...mockCvData.cvCollection?.items[0],
+            sys: { publishedAt: '2023-10-16T14:30:00.000Z', publishedVersion: 43 },
+            overviewCollection: { items: [{ para: 'Second CV overview' }] },
+          },
+        ],
+      },
+    };
+
+    server.use(graphql.query('GetCv', () => HttpResponse.json({ data: mockDataWithMultipleItems })));
+
+    const result = await fetchCvData();
+
+    expect(result).toEqual(mockDataWithMultipleItems.cvCollection?.items[0]);
+  });
+
+  it('should throw error when GraphQL query fails', async () => {
+    server.use(graphql.query('GetCv', () => HttpResponse.json({ errors: [{ message: 'GraphQL query failed' }] }, { status: 500 })));
+
+    await expect(fetchCvData()).rejects.toThrow();
+  });
+
+  it('should throw error when data is null', async () => {
+    server.use(graphql.query('GetCv', () => HttpResponse.json({ data: null })));
+
+    await expect(fetchCvData()).rejects.toThrow('No CVs found');
+  });
+
+  it('should throw error when data is undefined', async () => {
+    server.use(graphql.query('GetCv', () => HttpResponse.json({ data: undefined })));
+
+    await expect(fetchCvData()).rejects.toThrow('No CVs found');
+  });
+});
