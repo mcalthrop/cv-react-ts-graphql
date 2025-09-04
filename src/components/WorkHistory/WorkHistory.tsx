@@ -1,3 +1,5 @@
+'use client';
+
 import { Flex } from '@chakra-ui/react';
 import type { Maybe, WorkHistoryFragment } from '@/graphql/generated/graphql';
 import { SectionHeading } from '../SectionHeading';

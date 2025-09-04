@@ -1,3 +1,5 @@
+'use client';
+
 import { Text, VStack } from '@chakra-ui/react';
 import type { Maybe, ParagraphFragment } from '@/graphql/generated/graphql';
 import { SectionHeading } from '../SectionHeading';
