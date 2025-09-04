@@ -20,7 +20,7 @@ export const { getClient, query, PreloadQuery } = registerApolloClient(
           // you can pass additional options that should be passed to `fetch` here,
           // e.g. Next.js-related `fetch` options regarding caching and revalidation
           // see https://nextjs.org/docs/app/api-reference/functions/fetch#fetchurl-options
-          cache: 'no-store',
+          next: { revalidate: 60 },
         },
       }),
     }),
