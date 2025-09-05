@@ -6,22 +6,23 @@
 
 This codebase contains the source for my online CV: [cv.mattcalthrop.com](https://cv.mattcalthrop.com/).
 
-It uses the following features:
+The application follows a modern React/Next.js architecture with a content-driven approach:
 
-- [React](https://reactjs.org/), [NextJS](https://nextjs.org/) and [TypeScript](https://www.typescriptlang.org/) for building the UI
-- [Chakra](https://chakra-ui.com/) for the design framework
-- [Contentful](https://www.contentful.com/) for hosting the content, and providing the GraphQL schema
-- [Apollo Client](https://www.apollographql.com/docs/react/) for fetching the data from Contentful
-- [pnpm](https://pnpm.io/) for dependency management
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io/) for code formatting
-- [Husky](https://github.com/typicode/husky) to leverage git hooks
-- [GitHub Actions](https://docs.github.com/en/actions) for CI workflow
-- [Vercel](https://vercel.com/) for deployment and hosting
-
-You can fork this repo, and run it locally yourself. Following are instructions for setting it up and running it.
+- **Frontend Framework**: Built with [Next.js](https://nextjs.org/) using [React Server Components](https://react.dev/reference/rsc/server-components) for optimal performance
+- **Content Management**: [Contentful CMS](https://www.contentful.com/) serves as a headless CMS, allowing changes to content without redeploying the application
+- **Data Layer**: [Apollo Client](https://www.apollographql.com/docs/react/) handles data fetching and caching via Contentful's GraphQL API
+- **Component Structure**: Modular component architecture using the [Chakra UI](https://chakra-ui.com/) component library
+- **Data Flow**: Server-side data fetching via `fetchCvData()` function that queries Contentful's GraphQL API
+- **Type Safety**: Full [TypeScript](https://www.typescriptlang.org/) integration with generated GraphQL types for end-to-end type safety
+- **Styling**: Chakra UI component library provides responsive design and theming capabilities
+- **Testing**: Unit tests with [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- **Linting & Formatting**: [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) for code quality and consistency
+- **CI/CD**: [GitHub Actions](https://docs.github.com/en/actions) workflow for linting, testing, and deploying the application
+- **Deployment**: Statically generated site deployed on [Vercel](https://vercel.com/) with automated deployments via GitHub
 
 ## Setup
+
+You can fork this repo, and run it locally yourself. Following are instructions for setting it up and running it.
 
 ### Install nvm
 

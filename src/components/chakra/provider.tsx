@@ -8,6 +8,6 @@ export const CustomChakraProvider = (
   props: ColorModeProviderProps,
 ): React.JSX.Element => (
   <ChakraProvider value={chakraTheme}>
-    <ColorModeProvider {...props} />
+    <ColorModeProvider enableSystem={false} {...props} />
   </ChakraProvider>
 );

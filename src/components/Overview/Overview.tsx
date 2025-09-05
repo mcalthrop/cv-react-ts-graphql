@@ -13,13 +13,15 @@ export const Overview = ({
   items,
 }: OverviewProps): React.JSX.Element => (
   <HStack maxWidth={520} alignItems={'start'}>
-    <Image src={image!} width={100} />
+    {image ? <Image src={image} width={100} /> : null}
     <VStack alignItems={'start'}>
-      {items?.map((item, idx) => (
-        <Text key={idx} fontSize={'sm'}>
-          {item?.para}
-        </Text>
-      ))}
+      {items?.map((item, idx) =>
+        item ? (
+          <Text key={idx} fontSize={'sm'}>
+            {item.para}
+          </Text>
+        ) : null,
+      )}
     </VStack>
   </HStack>
 );
