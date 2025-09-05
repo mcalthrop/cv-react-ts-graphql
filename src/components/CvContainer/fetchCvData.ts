@@ -9,6 +9,9 @@ export const fetchCvData = async (): Promise<CvFragment> => {
     query: GetCvDocument,
   });
 
+  // Insert artificial delay to demonstrate loading state
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   if (!data?.cvCollection || data.cvCollection.items.length < 1) {
     throw Error('No CVs found');
   }

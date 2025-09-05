@@ -11,8 +11,7 @@ describe('Overview', () => {
     expect(screen.getByText('First overview paragraph')).toBeInTheDocument();
     expect(screen.getByText('Second overview paragraph')).toBeInTheDocument();
 
-    const img = screen.getByRole('img');
-    expect(img).not.toHaveAttribute('src');
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
   });
 
   it('renders with image', () => {
