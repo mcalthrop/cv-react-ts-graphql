@@ -1,12 +1,13 @@
 'use client';
 
 import type { CvFragment } from '@/graphql/generated/graphql';
-import { Education } from '../Education';
-import { Interests } from '../Interests';
-import { OnTheWeb } from '../OnTheWeb';
-import { Overview } from '../Overview';
-import { WorkHistory } from '../WorkHistory';
-import { PublicationData } from '../PublicationData';
+import { Education } from '@/components/Education';
+import { Interests } from '@/components/Interests';
+import { OnTheWeb } from '@/components/OnTheWeb';
+import { Overview } from '@/components/Overview';
+import { WorkHistory } from '@/components/WorkHistory';
+import { PublicationData } from '@/components/PublicationData';
+import { VStack } from '@chakra-ui/react';
 
 export type CvComponentProps = {
   cvFragment: CvFragment;
@@ -15,8 +16,7 @@ export type CvComponentProps = {
 export const CvComponent = ({
   cvFragment,
 }: CvComponentProps): React.JSX.Element => (
-  <>
-    <PublicationData sys={cvFragment.sys} />
+  <VStack gap={4} alignItems={'start'}>
     <Overview
       image={cvFragment.image?.url}
       items={cvFragment.overviewCollection?.items}
@@ -25,5 +25,6 @@ export const CvComponent = ({
     <WorkHistory items={cvFragment.workHistoryCollection?.items} />
     <Education items={cvFragment.educationCollection?.items} />
     <Interests items={cvFragment.interestsCollection?.items} />
-  </>
+    <PublicationData sys={cvFragment.sys} />
+  </VStack>
 );

@@ -1,10 +1,10 @@
-import { Box } from '@chakra-ui/react';
 import type { Maybe, WorkHistoryFragment } from '@/graphql/generated/graphql';
 import { EmployerLink } from './EmployerLink';
 import { LocationDuration } from './LocationDuration';
 import { Responsibilities } from './Responsibilities';
 import { RoleTitle } from './RoleTitle';
 import { SkillSummary } from './SkillSummary';
+import { VStack } from '@chakra-ui/react';
 
 export type WorkHistoryItemProps = {
   item: Maybe<WorkHistoryFragment>;
@@ -13,7 +13,7 @@ export type WorkHistoryItemProps = {
 export const WorkHistoryItem = ({
   item,
 }: WorkHistoryItemProps): React.JSX.Element => (
-  <Box marginBottom={2}>
+  <VStack as={'section'} alignItems={'start'} gap={1}>
     <EmployerLink item={item} />
     <RoleTitle roleTitle={item?.roleTitle} />
     <LocationDuration
@@ -23,5 +23,5 @@ export const WorkHistoryItem = ({
     />
     <Responsibilities items={item?.responsibilitiesCollection?.items} />
     <SkillSummary skillSummary={item?.skillSummary} />
-  </Box>
+  </VStack>
 );

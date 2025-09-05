@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react';
+import { VStack, Text } from '@chakra-ui/react';
 import type { Maybe, ParagraphFragment } from '@/graphql/generated/graphql';
 
 export type ResponsibilitiesProps = {
@@ -8,11 +8,11 @@ export type ResponsibilitiesProps = {
 export const Responsibilities = ({
   items,
 }: ResponsibilitiesProps): React.JSX.Element => (
-  <Box>
+  <VStack alignItems={'start'} gap={0.5}>
     {items?.map((item, idx) => (
-      <Text key={idx} fontSize={'sm'} marginTop={0.5} letterSpacing={-0.25}>
+      <Text key={idx} fontSize={'sm'} letterSpacing={-0.5} lineHeight={'100%'}>
         {item?.para}
       </Text>
     ))}
-  </Box>
+  </VStack>
 );

@@ -6,7 +6,7 @@ export type RoleTitleProps = {
 };
 
 export const RoleTitle = ({ roleTitle }: RoleTitleProps): React.JSX.Element => (
-  <Text fontSize={'sm'} fontWeight={600}>
+  <Text fontSize={'sm'} fontWeight={'semibold'}>
     {roleTitle}
   </Text>
 );
