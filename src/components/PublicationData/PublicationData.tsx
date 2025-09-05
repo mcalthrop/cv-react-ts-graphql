@@ -23,7 +23,7 @@ export const PublicationData = ({
   return (
     <Section>
       <Text fontSize={'xs'} color={'fg.subtle'}>
-        v{publishedVersion} published on{' '}
+        Contentful CMS data v{publishedVersion} published on{' '}
         {publishedAt.replace('T', ' at ').replace('Z', '').slice(0, -4)} GMT
       </Text>
     </Section>
