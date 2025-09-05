@@ -3,7 +3,7 @@ import { PublicationData } from './PublicationData';
 import type { PublicationDataProps } from './PublicationData';
 
 const mockSys: PublicationDataProps['sys'] = {
-  publishedAt: '2023-12-25T10:30:00Z',
+  publishedAt: '2023-12-25T10:30:00.314Z',
   publishedVersion: 42,
 };
 
@@ -18,6 +18,6 @@ describe('PublicationData', () => {
     render(<PublicationData sys={mockSys} />);
 
     expect(document.body).toHaveAttribute('data-published-version', '42');
-    expect(document.body).toHaveAttribute('data-published-at', '2023-12-25T10:30:00Z');
+    expect(document.body).toHaveAttribute('data-published-at', '2023-12-25T10:30:00.314Z');
   });
 });

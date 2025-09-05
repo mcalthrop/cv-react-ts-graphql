@@ -24,7 +24,7 @@ export const PublicationData = ({
     <Section>
       <Text fontSize={'xs'} color={'fg.subtle'}>
         v{publishedVersion} published on{' '}
-        {publishedAt.replace('T', ' at ').replace('Z', '')}
+        {publishedAt.replace('T', ' at ').replace('Z', '').slice(0, -4)}
       </Text>
     </Section>
   );
