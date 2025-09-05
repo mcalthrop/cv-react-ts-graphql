@@ -11,7 +11,7 @@ describe('PublicationData', () => {
   it('renders publication version and date correctly', () => {
     render(<PublicationData sys={mockSys} />);
 
-    expect(screen.getByText('v42 published on 2023-12-25 at 10:30:00')).toBeInTheDocument();
+    expect(screen.getByText('v42 published on 2023-12-25 at 10:30:00 GMT')).toBeInTheDocument();
   });
 
   it('sets data attributes on document body', () => {
