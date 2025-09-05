@@ -2,15 +2,14 @@
 
 import { Link } from '@chakra-ui/react';
 import type { Maybe, OnTheWebFragment } from '@/graphql/generated/graphql';
-import { SectionHeading } from '../SectionHeading';
+import { Section } from '@/components/Section';
 
 export type OnTheWebProps = {
   items?: Array<Maybe<OnTheWebFragment>>;
 };
 
 export const OnTheWeb = ({ items }: OnTheWebProps): React.JSX.Element => (
-  <>
-    <SectionHeading heading={'On the web'} />
+  <Section heading={'On the web'}>
     <ul>
       {items?.map((item, idx) => (
         <li key={idx}>
@@ -25,5 +24,5 @@ export const OnTheWeb = ({ items }: OnTheWebProps): React.JSX.Element => (
         </li>
       ))}
     </ul>
-  </>
+  </Section>
 );

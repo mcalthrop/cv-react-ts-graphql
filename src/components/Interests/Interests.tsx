@@ -2,15 +2,14 @@
 
 import { Text, VStack } from '@chakra-ui/react';
 import type { Maybe, ParagraphFragment } from '@/graphql/generated/graphql';
-import { SectionHeading } from '../SectionHeading';
+import { Section } from '@/components/Section';
 
 export type InterestsProps = {
   items?: Array<Maybe<ParagraphFragment>>;
 };
 
 export const Interests = ({ items }: InterestsProps): React.JSX.Element => (
-  <>
-    <SectionHeading heading={'Interests'} />
+  <Section heading={'Interests'}>
     <VStack alignItems={'start'}>
       {items?.map((item, idx) => (
         <Text key={idx} fontSize={'sm'}>
@@ -18,5 +17,5 @@ export const Interests = ({ items }: InterestsProps): React.JSX.Element => (
         </Text>
       ))}
     </VStack>
-  </>
+  </Section>
 );

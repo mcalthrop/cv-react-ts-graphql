@@ -5,7 +5,7 @@ export const Footer = (): React.JSX.Element => {
   const currentYear = currentDate.getFullYear();
 
   return (
-    <Text marginTop={10} marginBottom={6} fontSize={'xs'} color={'gray.400'}>
+    <Text fontSize={'sm'} color={'fg.muted'}>
       Copyright &copy; Matt Calthrop 2018-{currentYear}
     </Text>
   );

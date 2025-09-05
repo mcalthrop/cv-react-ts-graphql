@@ -2,15 +2,14 @@
 
 import { Text, VStack } from '@chakra-ui/react';
 import type { Maybe, ParagraphFragment } from '@/graphql/generated/graphql';
-import { SectionHeading } from '../SectionHeading';
+import { Section } from '@/components/Section';
 
 export type EducationProps = {
   items?: Array<Maybe<ParagraphFragment>>;
 };
 
 export const Education = ({ items }: EducationProps): React.JSX.Element => (
-  <>
-    <SectionHeading heading={'Education'} />
+  <Section heading={'Education'}>
     <VStack alignItems={'start'}>
       {items?.map((item, idx) => (
         <Text key={idx} fontSize={'sm'}>
@@ -18,5 +17,5 @@ export const Education = ({ items }: EducationProps): React.JSX.Element => (
         </Text>
       ))}
     </VStack>
-  </>
+  </Section>
 );

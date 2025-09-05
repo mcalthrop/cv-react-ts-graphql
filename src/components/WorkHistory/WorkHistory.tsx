@@ -2,7 +2,7 @@
 
 import { Flex } from '@chakra-ui/react';
 import type { Maybe, WorkHistoryFragment } from '@/graphql/generated/graphql';
-import { SectionHeading } from '../SectionHeading';
+import { Section } from '@/components/Section';
 import { WorkHistoryItem } from './WorkHistoryItem';
 
 export type WorkHistoryProps = {
@@ -10,12 +10,11 @@ export type WorkHistoryProps = {
 };
 
 export const WorkHistory = ({ items }: WorkHistoryProps): React.JSX.Element => (
-  <>
-    <SectionHeading heading={'Work history'} />
+  <Section heading={'Work history'}>
     <Flex gap={2} direction={'column'}>
       {items?.map((item, idx) => (
         <WorkHistoryItem key={idx} item={item} />
       ))}
     </Flex>
-  </>
+  </Section>
 );

@@ -10,7 +10,6 @@ export const SkillSummary = ({
 }: SkillSummaryProps): React.JSX.Element => (
   <Box
     lineHeight={'110%'}
-    marginTop={2}
     fontSize={'xs'}
     color={'fg.subtle'}
     letterSpacing={-0.5}
