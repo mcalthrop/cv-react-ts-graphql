@@ -1,9 +1,8 @@
 import { render } from '@/testUtils';
-import { vi } from 'vitest';
 import RootLayout, { metadata } from '@/app/layout';
 import type { PropsWithChildren } from 'react';
 
-vi.mock('@/app/chakra-wrapper', () => ({
+jest.mock('@/app/chakra-wrapper', () => ({
   ChakraWrapper: ({ children }: PropsWithChildren) => <div data-testid={'chakra-wrapper'}>{children}</div>,
 }));
 

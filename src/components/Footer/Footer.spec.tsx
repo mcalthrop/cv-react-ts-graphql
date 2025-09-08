@@ -1,15 +1,14 @@
 import { render, screen } from '@/testUtils';
 import { Footer } from './Footer';
-import { vi } from 'vitest';
 
 describe('Footer', () => {
   beforeAll(() => {
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date('2024-01-01'));
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date('2024-01-01'));
   });
 
   afterAll(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it('renders copyright text with current year', () => {
@@ -19,7 +18,7 @@ describe('Footer', () => {
   });
 
   it('uses current year dynamically', () => {
-    vi.setSystemTime(new Date('2027-06-15'));
+    jest.setSystemTime(new Date('2027-06-15'));
     render(<Footer />);
 
     expect(screen.getByText('Copyright © Matt Calthrop 2018-2027')).toBeInTheDocument();
