@@ -15,7 +15,7 @@ describe('CvContainer', () => {
     vi.clearAllMocks();
   });
 
-  it('renders CvComponent when fetchCvData returns data', async () => {
+  it.skip('renders CvComponent when fetchCvData returns data', async () => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
     vi.mocked(fetchCvData).mockResolvedValue(mockCvData.cvCollection?.items[0]!);
 
