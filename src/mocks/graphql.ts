@@ -5,6 +5,10 @@ export const mockCvData: GetCvQuery = {
   cvCollection: {
     items: [
       {
+        sys: {
+          publishedAt: '2025-09-03T11:42:29.382Z',
+          publishedVersion: 42,
+        },
         image: { url: 'https://example.com/image.jpg' },
         overviewCollection: {
           items: [
@@ -51,7 +55,6 @@ export const mockCvData: GetCvQuery = {
         educationCollection: {
           items: [{ para: 'BSc Computer Science, University of Test' }],
         },
-        sys: {},
       },
     ],
   },
