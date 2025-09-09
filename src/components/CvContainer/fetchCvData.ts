@@ -1,5 +1,3 @@
-'use server';
-
 import { query } from '@/graphql';
 import type { CvFragment } from '@/graphql/generated/graphql';
 import { GetCvDocument, type GetCvQuery } from '@/graphql/generated/graphql';

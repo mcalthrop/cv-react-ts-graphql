@@ -4,8 +4,6 @@ import type { PropsWithChildren } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'CV: Matt Calthrop',
   description: 'Online CV for Matt Calthrop, using React, TypeScript & GraphQL',
