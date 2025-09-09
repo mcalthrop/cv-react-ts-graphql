@@ -1,5 +1,3 @@
-// @vitest-environment node
-
 import { fetchCvData } from './fetchCvData';
 import type { GetCvQuery } from '@/graphql/generated/graphql';
 import { graphql, HttpResponse } from 'msw';
