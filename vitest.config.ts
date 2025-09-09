@@ -1,11 +1,21 @@
 import { defineConfig } from 'vitest/config';
+import { vitestPluginRSC } from 'vitest-plugin-rsc';
+import { vitestPluginNext } from 'vitest-plugin-rsc/nextjs/plugin';
+import react from '@vitejs/plugin-react';
 import path from 'path';
 
 export default defineConfig({
+  plugins: [react(), vitestPluginRSC(), vitestPluginNext()],
   test: {
+    browser: {
+      enabled: true,
+      provider: 'playwright',
+      instances: [{ browser: 'chromium' }],
+    },
     globals: true,
     environment: 'jsdom',
-    setupFiles: ['./src/setupTestsAfterEnv.ts'],
+    // setupFiles: ['./src/setupTestsAfterEnv.ts'],
+    setupFiles: ['./src/vitest.setup.ts'],
     css: true,
     coverage: {
       provider: 'v8',

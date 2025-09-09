@@ -1,3 +1,4 @@
+import { renderServer, NextRouter } from 'vitest-plugin-rsc/nextjs/testing-library';
 import { fetchCvData } from './fetchCvData';
 import type { GetCvQuery } from '@/graphql/generated/graphql';
 import { graphql, HttpResponse } from 'msw';
@@ -12,6 +13,7 @@ describe('fetchCvData', () => {
   it('should return CV fragment when data is available', async () => {
     server.use(graphql.query('GetCv', () => HttpResponse.json({ data: mockCvData })));
 
+    await renderServer(NextRouter({ url: '/', children: '' }));
     const result = await fetchCvData();
 
     expect(result).toEqual(mockCvData.cvCollection?.items[0]);
