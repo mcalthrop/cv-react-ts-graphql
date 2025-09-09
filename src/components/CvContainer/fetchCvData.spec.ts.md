@@ -13,10 +13,10 @@ TypeError: (0 , registerApolloClient) is not a function
      13|   () =>
      14|     new ApolloClient({
  ❯ src/graphql/index.ts:1:1
- ```
+```
 
- This is the command I'm using to run just that test:
- 
+This is the command I'm using to run just that test:
+
 ```sh
 pnpm test fetchCvData.spec
 ```
@@ -33,9 +33,10 @@ Which led me to this:
 I have followed the instructions in the README, but I'm still getting the same error. I'm not sure what I'm missing.
 
 This is the error I'm seeing:
+
 ```
  FAIL   chromium  src/components/CvContainer/fetchCvData.spec.ts [ src/components/CvContainer/fetchCvData.spec.ts ]
 Error: Failed to import test file /Users/mattcalthrop/Code/mcalthrop/cv-react-ts-graphql/src/vitest.setup.ts
 Caused by: ReferenceError: require is not defined
  ❯ node_modules/.pnpm/@vitejs+plugin-rsc@0.4.16_react-dom@19.1.1_react@19.1.1__react@19.1.1_vite@7.1.3_@types+node@_3bd2fvcudktgreyumvi43qqiuq/node_modules/@vitejs/plugin-rsc/dist/vendor/react-server-dom/server.edge.js:7:2
- ```
+```
