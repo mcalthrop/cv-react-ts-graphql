@@ -7,8 +7,6 @@ const config: KnipConfig = {
     'src/graphql/generated/**',
     'coverage/**',
     '.next/**',
-    // 'src/components/chakra/toaster.tsx',
-    // 'src/components/chakra/tooltip.tsx',
   ],
   ignoreDependencies: [
     // Used in codegen config files implicitly
