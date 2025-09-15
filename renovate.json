@@ -1,19 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    ":enablePreCommit"
-  ],
-  "schedule": [
-    "before 6am on Monday"
-  ],
+  "extends": ["config:recommended", ":enablePreCommit"],
+  "schedule": ["before 6am on Monday"],
   "timezone": "Europe/London",
-  "labels": [
-    "dependencies"
-  ],
-  "assignees": [
-    "mcalthrop"
-  ],
+  "labels": ["dependencies"],
+  "assignees": ["mcalthrop"],
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
@@ -56,10 +47,7 @@
     },
     {
       "groupName": "TypeScript ecosystem",
-      "matchPackageNames": [
-        "typescript",
-        "@types/node"
-      ]
+      "matchPackageNames": ["typescript", "@types/node"]
     },
     {
       "groupName": "Linting and formatting",
@@ -87,8 +75,6 @@
   },
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": [
-      "before 6am on the first day of the month"
-    ]
+    "schedule": ["before 6am on the first day of the month"]
   }
 }
