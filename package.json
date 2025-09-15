@@ -20,6 +20,7 @@
     "format": "pnpm prettier . --check",
     "format:fix": "pnpm prettier . --write",
     "graphql:types": "graphql-codegen --verbose && scripts/fix-generated-graphql-types.sh",
+    "knip": "pnpm graphql:types && knip",
     "lint": "oxlint . --type-aware --deny-warnings",
     "lint:fix": "pnpm lint --fix",
     "prepare": "husky",
