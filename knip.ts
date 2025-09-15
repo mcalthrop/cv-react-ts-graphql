@@ -3,11 +3,7 @@ import type { KnipConfig } from 'knip';
 const config: KnipConfig = {
   entry: [],
   project: ['src/**'],
-  ignore: [
-    'src/graphql/generated/**',
-    'coverage/**',
-    '.next/**',
-  ],
+  ignore: ['src/graphql/generated/**', 'coverage/**', '.next/**'],
   ignoreDependencies: [
     // Used in codegen config files implicitly
     '@graphql-typed-document-node/core',
