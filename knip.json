@@ -1,6 +1,10 @@
 {
   "$schema": "https://unpkg.com/knip@latest/schema.json",
-  "project": ["src/**/*.{ts,tsx}", "!src/**/*.spec.{ts,tsx}", "!src/testUtils.tsx"],
+  "project": [
+    "src/**/*.{ts,tsx}",
+    "!src/**/*.spec.{ts,tsx}",
+    "!src/testUtils.tsx"
+  ],
   "ignore": [
     "src/graphql/generated/**",
     "coverage/**",
@@ -8,9 +12,7 @@
     "src/components/chakra/toaster.tsx",
     "src/components/chakra/tooltip.tsx"
   ],
-  "ignoreBinaries": [
-    "scripts/fix-generated-graphql-types.sh"
-  ],
+  "ignoreBinaries": ["scripts/fix-generated-graphql-types.sh"],
   "ignoreDependencies": [
     "@graphql-typed-document-node/core",
     "@mswjs/http-middleware",
