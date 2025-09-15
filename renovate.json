@@ -1,0 +1,94 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":enablePreCommit"
+  ],
+  "schedule": [
+    "before 6am on Monday"
+  ],
+  "timezone": "Europe/London",
+  "labels": [
+    "dependencies"
+  ],
+  "assignees": [
+    "mcalthrop"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "groupName": "React ecosystem",
+      "matchPackageNames": [
+        "react",
+        "react-dom",
+        "@types/react",
+        "@types/react-dom"
+      ]
+    },
+    {
+      "groupName": "Apollo GraphQL",
+      "matchPackageNames": [
+        "@apollo/client",
+        "@apollo/client-integration-nextjs",
+        "graphql",
+        "@graphql-codegen/cli",
+        "@graphql-codegen/client-preset",
+        "@graphql-typed-document-node/core"
+      ]
+    },
+    {
+      "groupName": "Testing utilities",
+      "matchPackageNames": [
+        "vitest",
+        "@vitest/coverage-v8",
+        "@vitest/ui",
+        "@testing-library/dom",
+        "@testing-library/jest-dom",
+        "@testing-library/react",
+        "@testing-library/user-event",
+        "msw",
+        "@mswjs/http-middleware",
+        "jsdom"
+      ]
+    },
+    {
+      "groupName": "TypeScript ecosystem",
+      "matchPackageNames": [
+        "typescript",
+        "@types/node"
+      ]
+    },
+    {
+      "groupName": "Linting and formatting",
+      "matchPackageNames": [
+        "oxlint",
+        "oxlint-tsgolint",
+        "prettier",
+        "prettier-plugin-organize-imports"
+      ]
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true,
+      "automergeType": "pr"
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": [
+      "before 6am on the first day of the month"
+    ]
+  }
+}
