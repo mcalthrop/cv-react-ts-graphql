@@ -5,7 +5,7 @@ const config: KnipConfig = {
   project: ['src/**'],
   ignore: ['src/graphql/generated/**', 'coverage/**', '.next/**'],
   ignoreDependencies: [
-    // Used in codegen config files implicitly
+    // Used by files created by codegen
     '@graphql-typed-document-node/core',
   ],
   ignoreBinaries: ['scripts/fix-generated-graphql-types.sh'],
