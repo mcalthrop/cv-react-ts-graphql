@@ -1,6 +1,6 @@
-pnpm knip
 pnpm compile
 pnpm build
+pnpm knip
 pnpm lint
 pnpm format
 pnpm test
