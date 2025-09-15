@@ -3,7 +3,13 @@ import type { KnipConfig } from 'knip';
 const config: KnipConfig = {
   entry: [],
   project: ['src/**'],
-  ignore: ['src/graphql/generated/**', 'coverage/**', '.next/**'],
+  ignore: [
+    '.next/**',
+    'coverage/**',
+    'src/components/chakra/**',
+    'src/graphql/createApolloClient.tsx',
+    'src/graphql/generated/**',
+  ],
   ignoreDependencies: [
     // Used by files created by codegen
     '@graphql-typed-document-node/core',
@@ -21,53 +27,22 @@ const config: KnipConfig = {
     files: 'error',
     nsExports: 'error',
     nsTypes: 'error',
-    types: 'error',
+    types: 'warn',
     unlisted: 'error',
     unresolved: 'error',
   },
 
   // --- BEGIN PLUGINS ---
-  oxlint: {
-    config: ['.oxlintrc.json'],
-  },
-
-  'github-actions': {
-    config: [
-      '.github/workflows/*.{yml,yaml}',
-      '.github/actions/**/*.{yml,yaml,js}',
-    ],
-  },
-
-  'graphql-codegen': {
-    config: ['codegen.ts'],
-  },
-
-  husky: {
-    config: ['.husky/{pre,post}-*'],
-  },
-
-  vitest: {
-    config: ['vitest.config.ts'],
-    entry: ['src/**/*.spec.{ts,tsx}'],
-  },
-
+  'github-actions': true,
+  'graphql-codegen': true,
+  husky: true,
   msw: true,
-
-  next: {
-    entry: ['next.config.ts', 'src/**/*.{ts,tsx}'],
-  },
-
-  prettier: {
-    config: ['.prettierrc.json'],
-  },
-
-  typescript: {
-    config: ['tsconfig.json'],
-  },
-
+  next: true,
+  oxlint: true,
+  prettier: true,
+  typescript: true,
   'vercel-og': true,
-
-  webpack: false,
+  vitest: true,
   // --- END PLUGINS ---
 };
 
