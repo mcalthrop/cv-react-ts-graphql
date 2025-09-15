@@ -31,6 +31,9 @@ jobs:
       - name: Install
         run: pnpm install
 
+      - name: Knip
+        run: pnpm knip
+
       - name: Compile
         run: pnpm compile
 
@@ -42,9 +45,6 @@ jobs:
 
       - name: Format
         run: pnpm format
-
-      - name: Knip
-        run: pnpm knip
 
       - name: Test
         run: pnpm test

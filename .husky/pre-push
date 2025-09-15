@@ -1,3 +1,4 @@
+pnpm knip
 pnpm compile
 pnpm build
 pnpm lint
