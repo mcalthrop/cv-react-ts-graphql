@@ -104,6 +104,26 @@ And to auto-correct any errors that can be corrected:
 pnpm format:fix
 ```
 
+## Building & compilation
+
+To build the app:
+
+```sh
+pnpm build
+```
+
+With bundle analysis:
+
+```sh
+ANALYZE=true pnpm build
+```
+
+To check the TypeScript compilation:
+
+```sh
+pnpm compile
+```
+
 ## License
 
 [MIT](LICENSE)
