@@ -43,5 +43,8 @@ jobs:
       - name: Format
         run: pnpm format
 
+      - name: Knip
+        run: pnpm knip
+
       - name: Test
         run: pnpm test
