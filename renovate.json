@@ -39,9 +39,7 @@
         "@testing-library/dom",
         "@testing-library/jest-dom",
         "@testing-library/react",
-        "@testing-library/user-event",
         "msw",
-        "@mswjs/http-middleware",
         "jsdom"
       ]
     },
@@ -51,12 +49,7 @@
     },
     {
       "groupName": "Linting and formatting",
-      "matchPackageNames": [
-        "oxlint",
-        "oxlint-tsgolint",
-        "prettier",
-        "prettier-plugin-organize-imports"
-      ]
+      "matchPackageNames": ["oxlint", "oxlint-tsgolint", "prettier"]
     },
     {
       "matchManagers": ["github-actions"],

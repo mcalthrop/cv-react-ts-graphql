@@ -29,6 +29,7 @@ export default defineConfig({
         '**/index.ts',
         'src/graphql/**',
         'codegen.ts',
+        'knip.ts',
       ],
     },
   },

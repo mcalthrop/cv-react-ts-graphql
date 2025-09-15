@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import type { FC, ReactElement, ReactNode } from 'react';
 import { CustomChakraProvider } from '@/components/chakra/provider';
 
-export const AllTheProviders: FC = ({ children }: { children?: ReactNode }) => (
+const AllTheProviders: FC = ({ children }: { children?: ReactNode }) => (
   <CustomChakraProvider>{children}</CustomChakraProvider>
 );
 
