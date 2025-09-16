@@ -16,3 +16,4 @@ This is a React TypeScript GraphQL CV application.
 - ALWAYS prefer editing an existing file to creating a new one.
 - NEVER proactively create documentation files (\*.md) or README files. Only create documentation files if explicitly requested by the User.
 - ALWAYS create pull requests in draft mode using the --draft flag with `gh pr create`.
+- ALWAYS use British English.
