@@ -9,7 +9,7 @@ import { WorkHistory } from '@/components/WorkHistory';
 import { PublicationData } from '@/components/PublicationData';
 import { VStack } from '@chakra-ui/react';
 
-export type CvComponentProps = {
+type CvComponentProps = {
   cvFragment: CvFragment;
 };
 

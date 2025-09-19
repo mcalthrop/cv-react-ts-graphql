@@ -4,7 +4,7 @@ import { Text, VStack } from '@chakra-ui/react';
 import type { Maybe, ParagraphFragment } from '@/graphql/generated/graphql';
 import { Section } from '@/components/Section';
 
-export type InterestsProps = {
+type InterestsProps = {
   items?: Array<Maybe<ParagraphFragment>>;
 };
 

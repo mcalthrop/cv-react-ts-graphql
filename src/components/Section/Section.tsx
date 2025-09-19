@@ -2,7 +2,7 @@
 
 import { Box, Heading, VStack } from '@chakra-ui/react';
 
-export type SectionProps = React.PropsWithChildren & {
+type SectionProps = React.PropsWithChildren & {
   heading?: string;
 };
 

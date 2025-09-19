@@ -4,7 +4,7 @@ import { Link } from '@chakra-ui/react';
 import type { Maybe, OnTheWebFragment } from '@/graphql/generated/graphql';
 import { Section } from '@/components/Section';
 
-export type OnTheWebProps = {
+type OnTheWebProps = {
   items?: Array<Maybe<OnTheWebFragment>>;
 };
 

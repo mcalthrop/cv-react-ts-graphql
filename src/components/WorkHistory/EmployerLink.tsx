@@ -2,7 +2,7 @@ import { Heading, Link } from '@chakra-ui/react';
 import { useMemo } from 'react';
 import type { Maybe, WorkHistoryFragment } from '@/graphql/generated/graphql';
 
-export type EmployerLinkProps = {
+type EmployerLinkProps = {
   item: Maybe<WorkHistoryFragment>;
 };
 
