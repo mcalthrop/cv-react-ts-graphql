@@ -14,7 +14,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4.1.0
         with:
-          version: 9.12.2
+          version: 10.17.0
 
       - name: Get node version
         id: get-node-version
