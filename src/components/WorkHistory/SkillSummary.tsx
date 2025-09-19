@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 
-export type SkillSummaryProps = {
+type SkillSummaryProps = {
   skillSummary: WorkHistoryFragment['skillSummary'];
 };
 

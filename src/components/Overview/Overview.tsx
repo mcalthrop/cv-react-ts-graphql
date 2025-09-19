@@ -4,7 +4,7 @@ import { HStack, Image, Text, VStack } from '@chakra-ui/react';
 import type { Maybe, ParagraphFragment } from '@/graphql/generated/graphql';
 import { Section } from '@/components/Section';
 
-export type OverviewProps = {
+type OverviewProps = {
   image?: Maybe<string>;
   items?: Array<Maybe<ParagraphFragment>>;
 };

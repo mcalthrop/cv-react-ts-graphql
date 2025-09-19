@@ -5,7 +5,7 @@ import type { Maybe, WorkHistoryFragment } from '@/graphql/generated/graphql';
 import { Section } from '@/components/Section';
 import { WorkHistoryItem } from './WorkHistoryItem';
 
-export type WorkHistoryProps = {
+type WorkHistoryProps = {
   items?: Array<Maybe<WorkHistoryFragment>>;
 };
 

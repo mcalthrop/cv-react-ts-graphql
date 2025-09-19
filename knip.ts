@@ -27,7 +27,7 @@ const config: KnipConfig = {
     files: 'error',
     nsExports: 'error',
     nsTypes: 'error',
-    types: 'warn',
+    types: 'error',
     unlisted: 'error',
     unresolved: 'error',
   },

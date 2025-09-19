@@ -6,7 +6,7 @@ import { RoleTitle } from './RoleTitle';
 import { SkillSummary } from './SkillSummary';
 import { VStack } from '@chakra-ui/react';
 
-export type WorkHistoryItemProps = {
+type WorkHistoryItemProps = {
   item: Maybe<WorkHistoryFragment>;
 };
 
