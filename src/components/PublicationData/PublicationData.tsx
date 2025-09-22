@@ -1,5 +1,3 @@
-'use client';
-
 import type { CvFragment } from '@/graphql/generated/graphql';
 import { Text } from '@chakra-ui/react';
 import { useEffect } from 'react';

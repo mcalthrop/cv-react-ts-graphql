@@ -1,5 +1,3 @@
-'use client';
-
 import { Link } from '@chakra-ui/react';
 import type { Maybe, OnTheWebFragment } from '@/graphql/generated/graphql';
 import { Section } from '@/components/Section';

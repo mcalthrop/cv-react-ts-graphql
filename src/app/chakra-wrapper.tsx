@@ -1,5 +1,3 @@
-'use client';
-
 import type { PropsWithChildren } from 'react';
 import { CustomChakraProvider } from '@/components/chakra/provider';
 
