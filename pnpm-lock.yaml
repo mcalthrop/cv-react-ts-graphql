@@ -15,8 +15,8 @@ importers:
         specifier: 0.13.2
         version: 0.13.2(@apollo/client@4.0.7(graphql-ws@6.0.6(graphql@16.11.0)(ws@8.18.3))(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2))(@types/react@19.2.1)(graphql@16.11.0)(next@15.5.4(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2)
       '@chakra-ui/react':
-        specifier: 3.27.0
-        version: 3.27.0(@emotion/react@11.14.0(@types/react@19.2.1)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: 3.27.1
+        version: 3.27.1(@emotion/react@11.14.0(@types/react@19.2.1)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/react':
         specifier: 11.14.0
         version: 11.14.0(@types/react@19.2.1)(react@19.2.0)
@@ -269,8 +269,8 @@ packages:
   '@bundled-es-modules/statuses@1.0.1':
     resolution: {integrity: sha512-yn7BklA5acgcBr+7w064fGV+SGIFySjCKpqjcWgBAIfrAkY+4GQTJJHQMeT3V/sgz23VTEVV8TtOmkvJAhFVfg==}
 
-  '@chakra-ui/react@3.27.0':
-    resolution: {integrity: sha512-M1WTAErI2cYM/PB4h5Kf5CCAg70g3HCzVvTEhcf5ty8QrG6QybPf3RdWSpBlIy7qpjuEnQYpHLxM0jnFLArBgA==}
+  '@chakra-ui/react@3.27.1':
+    resolution: {integrity: sha512-cjvowtELfber0OKDWt2Udl/I4SVKnA89pFZA+I1EG6uwlUZRpgOdwQZVEQceMmc4iVRFbUJudoAuqWhQIl/Irw==}
     peerDependencies:
       '@emotion/react': '>=11'
       react: '>=18'
@@ -3738,7 +3738,7 @@ snapshots:
     dependencies:
       statuses: 2.0.2
 
-  '@chakra-ui/react@3.27.0(@emotion/react@11.14.0(@types/react@19.2.1)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@chakra-ui/react@3.27.1(@emotion/react@11.14.0(@types/react@19.2.1)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@ark-ui/react': 5.25.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@emotion/is-prop-valid': 1.4.0
