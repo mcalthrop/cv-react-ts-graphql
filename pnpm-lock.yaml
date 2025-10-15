@@ -12,8 +12,8 @@ importers:
         specifier: 4.0.7
         version: 4.0.7(graphql-ws@6.0.6(graphql@16.11.0)(ws@8.18.3))(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2)
       '@apollo/client-integration-nextjs':
-        specifier: 0.13.2
-        version: 0.13.2(@apollo/client@4.0.7(graphql-ws@6.0.6(graphql@16.11.0)(ws@8.18.3))(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2))(@types/react@19.2.2)(graphql@16.11.0)(next@15.5.5(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2)
+        specifier: 0.14.0
+        version: 0.14.0(@apollo/client@4.0.7(graphql-ws@6.0.6(graphql@16.11.0)(ws@8.18.3))(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2))(@types/react@19.2.2)(graphql@16.11.0)(next@15.5.5(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2)
       '@chakra-ui/react':
         specifier: 3.27.1
         version: 3.27.1(@emotion/react@11.14.0(@types/react@19.2.2)(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -121,16 +121,16 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@apollo/client-integration-nextjs@0.13.2':
-    resolution: {integrity: sha512-lKgEPYkwL9vXiq1HABna3YL9i6M5mi8mBhH3n05SELCDBX3YdHyQ40MEgQhjUXV+R0uzO8c5xrnAE6AzTVP8Ig==}
+  '@apollo/client-integration-nextjs@0.14.0':
+    resolution: {integrity: sha512-I1gygG09TvJDpgR5NrSgh1hCBUYTbk2JA3S6K7TH/r4A/3MzVDCF0QvCH8028zL0kx03yYoth1cdz/G+EGSfVg==}
     peerDependencies:
       '@apollo/client': ^4.0.0
       next: ^15.2.3
       react: ^19
       rxjs: ^7.3.0
 
-  '@apollo/client-react-streaming@0.13.2':
-    resolution: {integrity: sha512-9JFvStc2dxoGoxRatQmYtAFkSLRy28vSnGYEMqoIQAHuJisnsKwKqwDWzbsSxR4Gaqembb/pgGcbVfaip5wt3Q==}
+  '@apollo/client-react-streaming@0.14.0':
+    resolution: {integrity: sha512-CaKhL/RFQMLZdJYE3JHiBLnDzc6aIcIPKD+bjMVaKY805mE1uIhHrjdxDmassKr3WlLL3AK4x4TAUeaxK8EhmA==}
     peerDependencies:
       '@apollo/client': ^4.0.0
       graphql: ^16 || >=17.0.0-alpha.2
@@ -3472,10 +3472,10 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
 
-  '@apollo/client-integration-nextjs@0.13.2(@apollo/client@4.0.7(graphql-ws@6.0.6(graphql@16.11.0)(ws@8.18.3))(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2))(@types/react@19.2.2)(graphql@16.11.0)(next@15.5.5(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2)':
+  '@apollo/client-integration-nextjs@0.14.0(@apollo/client@4.0.7(graphql-ws@6.0.6(graphql@16.11.0)(ws@8.18.3))(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2))(@types/react@19.2.2)(graphql@16.11.0)(next@15.5.5(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2)':
     dependencies:
       '@apollo/client': 4.0.7(graphql-ws@6.0.6(graphql@16.11.0)(ws@8.18.3))(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2)
-      '@apollo/client-react-streaming': 0.13.2(@apollo/client@4.0.7(graphql-ws@6.0.6(graphql@16.11.0)(ws@8.18.3))(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2))(@types/react@19.2.2)(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2)
+      '@apollo/client-react-streaming': 0.14.0(@apollo/client@4.0.7(graphql-ws@6.0.6(graphql@16.11.0)(ws@8.18.3))(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2))(@types/react@19.2.2)(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2)
       next: 15.5.5(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
       rxjs: 7.8.2
@@ -3484,7 +3484,7 @@ snapshots:
       - graphql
       - react-dom
 
-  '@apollo/client-react-streaming@0.13.2(@apollo/client@4.0.7(graphql-ws@6.0.6(graphql@16.11.0)(ws@8.18.3))(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2))(@types/react@19.2.2)(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2)':
+  '@apollo/client-react-streaming@0.14.0(@apollo/client@4.0.7(graphql-ws@6.0.6(graphql@16.11.0)(ws@8.18.3))(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2))(@types/react@19.2.2)(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2)':
     dependencies:
       '@apollo/client': 4.0.7(graphql-ws@6.0.6(graphql@16.11.0)(ws@8.18.3))(graphql@16.11.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rxjs@7.8.2)
       '@types/react-dom': 19.2.2(@types/react@19.2.2)
