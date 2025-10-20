@@ -60,7 +60,7 @@
     "@vitest/ui": "3.2.4",
     "husky": "9.1.7",
     "jsdom": "27.0.1",
-    "knip": "5.66.0",
+    "knip": "5.66.1",
     "msw": "2.11.5",
     "oxlint": "1.23.0",
     "oxlint-tsgolint": "0.2.0",
