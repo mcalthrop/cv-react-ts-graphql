@@ -2,7 +2,13 @@ import { defineConfig } from 'vitest/config';
 import path from 'path';
 
 export default defineConfig({
+  esbuild: {
+    jsxInject: "import React from 'react'",
+  },
   test: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/setupTestsAfterEnv.ts'],
@@ -32,13 +38,5 @@ export default defineConfig({
         'knip.ts',
       ],
     },
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
-  esbuild: {
-    jsxInject: "import React from 'react'",
   },
 });
