@@ -62,9 +62,9 @@
     "jsdom": "27.2.0",
     "knip": "5.71.0",
     "msw": "2.12.4",
-    "oxlint": "1.24.0",
-    "oxlint-tsgolint": "0.3.0",
-    "prettier": "3.6.2",
+    "oxlint": "1.31.0",
+    "oxlint-tsgolint": "0.8.3",
+    "prettier": "3.7.4",
     "typescript": "5.9.3",
     "vitest": "4.0.15"
   }
