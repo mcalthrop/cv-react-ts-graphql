@@ -91,8 +91,8 @@ importers:
         specifier: 27.3.0
         version: 27.3.0(postcss@8.5.6)
       knip:
-        specifier: 5.77.0
-        version: 5.77.0(@types/node@24.10.4)(typescript@5.9.3)
+        specifier: 5.77.1
+        version: 5.77.1(@types/node@24.10.4)(typescript@5.9.3)
       msw:
         specifier: 2.12.4
         version: 2.12.4(@types/node@24.10.4)(typescript@5.9.3)
@@ -2566,8 +2566,8 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  knip@5.77.0:
-    resolution: {integrity: sha512-+J+YupbivNvdeNNeMhxJKX+i5Npaq8ZPMeTbmlor/Kdab+gcWwFXTi+0OvRJHBY+Y+UCzvUfR+OSVp+bAEfNXg==}
+  knip@5.77.1:
+    resolution: {integrity: sha512-+yA/vfQUDEFUOcR0XRn/dOZmNEsS10pIMztS5JbKUhk9zvQiAFvr3Mcc3zC7Dn9gBG8LeImhaXA6/D3uhzwZvg==}
     engines: {node: '>=18.18.0'}
     hasBin: true
     peerDependencies:
@@ -6308,7 +6308,7 @@ snapshots:
 
   json5@2.2.3: {}
 
-  knip@5.77.0(@types/node@24.10.4)(typescript@5.9.3):
+  knip@5.77.1(@types/node@24.10.4)(typescript@5.9.3):
     dependencies:
       '@nodelib/fs.walk': 1.2.8
       '@types/node': 24.10.4
