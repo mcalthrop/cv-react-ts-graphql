@@ -3,8 +3,12 @@ import bundleAnalyzer from '@next/bundle-analyzer';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  eslint: {
-    dirs: ['src'],
+  logging: {
+    fetches: {
+      fullUrl: true,
+      hmrRefreshes: true,
+    },
+    incomingRequests: true,
   },
   experimental: {
     optimizePackageImports: ['@chakra-ui/react', 'react-icons'],

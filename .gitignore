@@ -9,6 +9,7 @@
 
 # NextJS
 .next
+next-env.d.ts
 
 # TypeScript
 *.tsbuildinfo
