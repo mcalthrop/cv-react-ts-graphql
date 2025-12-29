@@ -16,13 +16,13 @@
   "scripts": {
     "build": "pnpm graphql:types && next build",
     "compile": "pnpm graphql:types && tsc",
-    "fix": "pnpm lint:fix && pnpm format:fix",
-    "format": "pnpm prettier . --check",
-    "format:fix": "pnpm prettier . --write",
+    "fix": "biome check --write",
+    "format": "biome format",
+    "format:fix": "biome format --write",
     "graphql:types": "graphql-codegen --verbose && scripts/fix-generated-graphql-types.sh",
     "knip": "pnpm graphql:types && knip",
-    "lint": "oxlint . --type-aware --deny-warnings",
-    "lint:fix": "pnpm lint --fix",
+    "lint": "biome lint",
+    "lint:fix": "biome lint --write",
     "prepare": "husky",
     "start:dev": "pnpm graphql:types && next dev",
     "start:prod": "pnpm build && next start",
@@ -46,6 +46,7 @@
     "rxjs": "7.8.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.3.10",
     "@graphql-codegen/cli": "6.1.0",
     "@graphql-codegen/client-preset": "5.2.2",
     "@graphql-typed-document-node/core": "3.2.0",
@@ -62,9 +63,6 @@
     "jsdom": "27.4.0",
     "knip": "5.78.0",
     "msw": "2.12.7",
-    "oxlint": "1.35.0",
-    "oxlint-tsgolint": "0.10.0",
-    "prettier": "3.7.4",
     "typescript": "5.9.3",
     "vitest": "4.0.16"
   }

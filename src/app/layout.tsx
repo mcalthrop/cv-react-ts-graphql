@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
-import { ChakraWrapper } from '@/app/chakra-wrapper';
-import type { PropsWithChildren } from 'react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import type { Metadata } from 'next';
+import type { PropsWithChildren } from 'react';
+import { ChakraWrapper } from '@/app/chakra-wrapper';
 
 export const metadata: Metadata = {
   title: 'CV: Matt Calthrop',
@@ -26,6 +26,7 @@ const RootLayout = ({ children }: PropsWithChildren): React.JSX.Element => (
         src={'https://www.googletagmanager.com/gtag/js?id=G-9QDZHSX0GQ'}
       />
       <script
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: only way to add Google analytics
         dangerouslySetInnerHTML={{
           __html: `
               window.dataLayer = window.dataLayer || [];

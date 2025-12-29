@@ -1,6 +1,6 @@
+import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 import { render, screen } from '@/testUtils';
 import { SkillSummary } from './SkillSummary';
-import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 
 describe('SkillSummary', () => {
   it('renders single skill without bullet', () => {
@@ -12,7 +12,12 @@ describe('SkillSummary', () => {
   });
 
   it('renders multiple skills with bullet separators', () => {
-    const skills: WorkHistoryFragment['skillSummary'] = ['React', 'TypeScript', 'GraphQL', 'Node.js'];
+    const skills: WorkHistoryFragment['skillSummary'] = [
+      'React',
+      'TypeScript',
+      'GraphQL',
+      'Node.js',
+    ];
     render(<SkillSummary skillSummary={skills} />);
 
     expect(screen.getByText(/React/)).toBeInTheDocument();
@@ -62,7 +67,12 @@ describe('SkillSummary', () => {
   });
 
   it('handles skills with special characters', () => {
-    const skills: WorkHistoryFragment['skillSummary'] = ['C++', 'C#', 'Node.js', 'Vue.js'];
+    const skills: WorkHistoryFragment['skillSummary'] = [
+      'C++',
+      'C#',
+      'Node.js',
+      'Vue.js',
+    ];
     render(<SkillSummary skillSummary={skills} />);
 
     expect(screen.getByText(/C\+\+/)).toBeInTheDocument();
@@ -72,7 +82,11 @@ describe('SkillSummary', () => {
   });
 
   it('maintains inline display for all skills', () => {
-    const skills: WorkHistoryFragment['skillSummary'] = ['React', 'TypeScript', 'GraphQL'];
+    const skills: WorkHistoryFragment['skillSummary'] = [
+      'React',
+      'TypeScript',
+      'GraphQL',
+    ];
     const { container } = render(<SkillSummary skillSummary={skills} />);
 
     const skillContainer = container.firstChild;
@@ -80,7 +94,11 @@ describe('SkillSummary', () => {
   });
 
   it('correctly orders skills and bullets', () => {
-    const skills: WorkHistoryFragment['skillSummary'] = ['First', 'Second', 'Third'];
+    const skills: WorkHistoryFragment['skillSummary'] = [
+      'First',
+      'Second',
+      'Third',
+    ];
     render(<SkillSummary skillSummary={skills} />);
 
     expect(screen.getByText(/First/)).toBeInTheDocument();

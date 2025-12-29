@@ -1,5 +1,5 @@
-import type { Maybe } from '@/graphql/generated/graphql';
 import { Text } from '@chakra-ui/react';
+import type { Maybe } from '@/graphql/generated/graphql';
 
 type LocationDurationProps = {
   location?: Maybe<string>;

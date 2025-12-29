@@ -1,10 +1,10 @@
-import { createContentfulGraphQlUri } from '@/contentful';
 import { HttpLink } from '@apollo/client';
 import {
-  registerApolloClient,
   ApolloClient,
   InMemoryCache,
+  registerApolloClient,
 } from '@apollo/client-integration-nextjs';
+import { createContentfulGraphQlUri } from '@/contentful';
 
 const uri = createContentfulGraphQlUri();
 

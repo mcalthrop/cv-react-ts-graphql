@@ -19,7 +19,9 @@ describe('Section', () => {
       </Section>,
     );
 
-    expect(screen.getByRole('heading', { level: 2, name: 'Test Heading' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 2, name: 'Test Heading' }),
+    ).toBeInTheDocument();
     expect(screen.getByText('Test content')).toBeInTheDocument();
   });
 
@@ -37,6 +39,8 @@ describe('Section', () => {
   it('handles empty children gracefully', () => {
     render(<Section heading={'Empty Section'} />);
 
-    expect(screen.getByRole('heading', { name: 'Empty Section' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Empty Section' }),
+    ).toBeInTheDocument();
   });
 });

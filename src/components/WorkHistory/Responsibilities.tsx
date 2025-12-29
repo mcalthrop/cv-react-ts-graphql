@@ -1,4 +1,4 @@
-import { VStack, Text } from '@chakra-ui/react';
+import { Text, VStack } from '@chakra-ui/react';
 import type { Maybe, ParagraphFragment } from '@/graphql/generated/graphql';
 
 type ResponsibilitiesProps = {

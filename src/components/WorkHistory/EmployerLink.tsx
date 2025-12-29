@@ -23,6 +23,7 @@ export const EmployerLink = ({
         </Link>
       );
     } else {
+      // biome-ignore lint/complexity/noUselessFragments: removing the fragment produces a TS error: Type 'string' is not assignable to type 'Element'.
       element = <>{item.viaEmployerName}</>;
     }
 

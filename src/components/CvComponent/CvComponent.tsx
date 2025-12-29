@@ -1,13 +1,13 @@
 'use client';
 
-import type { CvFragment } from '@/graphql/generated/graphql';
+import { VStack } from '@chakra-ui/react';
 import { Education } from '@/components/Education';
 import { Interests } from '@/components/Interests';
 import { OnTheWeb } from '@/components/OnTheWeb';
 import { Overview } from '@/components/Overview';
-import { WorkHistory } from '@/components/WorkHistory';
 import { PublicationData } from '@/components/PublicationData';
-import { VStack } from '@chakra-ui/react';
+import { WorkHistory } from '@/components/WorkHistory';
+import type { CvFragment } from '@/graphql/generated/graphql';
 
 type CvComponentProps = {
   cvFragment: CvFragment;

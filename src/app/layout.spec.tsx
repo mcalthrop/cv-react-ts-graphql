@@ -1,15 +1,19 @@
-import { render } from '@/testUtils';
+import type { PropsWithChildren } from 'react';
 import { vi } from 'vitest';
 import RootLayout, { metadata } from '@/app/layout';
-import type { PropsWithChildren } from 'react';
+import { render } from '@/testUtils';
 
 vi.mock('@/app/chakra-wrapper', () => ({
-  ChakraWrapper: ({ children }: PropsWithChildren) => <div data-testid={'chakra-wrapper'}>{children}</div>,
+  ChakraWrapper: ({ children }: PropsWithChildren) => (
+    <div data-testid={'chakra-wrapper'}>{children}</div>
+  ),
 }));
 
 // Create a test wrapper that renders just the body content to avoid HTML structure issues.
 // Extract just the body content from the layout to test in isolation.
-const TestLayoutContent = ({ children }: PropsWithChildren) => <div data-testid={'chakra-wrapper'}>{children}</div>;
+const TestLayoutContent = ({ children }: PropsWithChildren) => (
+  <div data-testid={'chakra-wrapper'}>{children}</div>
+);
 
 describe('RootLayout', () => {
   it('layout structure can be rendered without HTML conflicts', () => {
@@ -20,7 +24,9 @@ describe('RootLayout', () => {
     );
 
     expect(container.firstChild).toBeInTheDocument();
-    expect(container.querySelector('[data-testid="page-content"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-testid="page-content"]'),
+    ).toBeInTheDocument();
   });
 
   it('wraps children in provider components', () => {
@@ -30,8 +36,12 @@ describe('RootLayout', () => {
       </TestLayoutContent>,
     );
 
-    expect(container.querySelector('[data-testid="chakra-wrapper"]')).toBeInTheDocument();
-    expect(container.querySelector('[data-testid="page-content"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-testid="chakra-wrapper"]'),
+    ).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-testid="page-content"]'),
+    ).toBeInTheDocument();
   });
 
   it('renders children content', () => {
@@ -41,7 +51,9 @@ describe('RootLayout', () => {
       </TestLayoutContent>,
     );
 
-    expect(container.querySelector('[data-testid="test-child"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-testid="test-child"]'),
+    ).toBeInTheDocument();
     expect(container).toHaveTextContent(/Test Content/);
   });
 
@@ -53,8 +65,12 @@ describe('RootLayout', () => {
       </TestLayoutContent>,
     );
 
-    expect(container.querySelector('[data-testid="child-1"]')).toBeInTheDocument();
-    expect(container.querySelector('[data-testid="child-2"]')).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-testid="child-1"]'),
+    ).toBeInTheDocument();
+    expect(
+      container.querySelector('[data-testid="child-2"]'),
+    ).toBeInTheDocument();
   });
 
   it('component exports exist', () => {
@@ -106,7 +122,8 @@ describe('metadata', () => {
   it('exports correct metadata object', () => {
     expect(metadata).toEqual({
       title: 'CV: Matt Calthrop',
-      description: 'Online CV for Matt Calthrop, using React, TypeScript & GraphQL',
+      description:
+        'Online CV for Matt Calthrop, using React, TypeScript & GraphQL',
       icons: {
         icon: '/favicon.ico',
       },
@@ -118,7 +135,9 @@ describe('metadata', () => {
   });
 
   it('has correct description', () => {
-    expect(metadata.description).toBe('Online CV for Matt Calthrop, using React, TypeScript & GraphQL');
+    expect(metadata.description).toBe(
+      'Online CV for Matt Calthrop, using React, TypeScript & GraphQL',
+    );
   });
 
   it('has correct favicon path', () => {

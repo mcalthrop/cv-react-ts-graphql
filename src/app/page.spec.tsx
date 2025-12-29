@@ -1,10 +1,12 @@
-import { render, screen } from '@/testUtils';
 import { vi } from 'vitest';
 import Page from '@/app/page';
+import { render, screen } from '@/testUtils';
 
 // Mock the CvContainer component since it has complex dependencies
 vi.mock('@/components/CvContainer', () => ({
-  CvContainer: () => <div data-testid={'cv-container'}>Mocked CV Container</div>,
+  CvContainer: () => (
+    <div data-testid={'cv-container'}>Mocked CV Container</div>
+  ),
 }));
 
 describe('Page', () => {
