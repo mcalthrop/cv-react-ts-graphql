@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
-import type { Maybe, WorkHistoryFragment } from '@/graphql/generated/graphql';
 import { Section } from '@/components/Section';
+import type { Maybe, WorkHistoryFragment } from '@/graphql/generated/graphql';
 import { WorkHistoryItem } from './WorkHistoryItem';
 
 type WorkHistoryProps = {

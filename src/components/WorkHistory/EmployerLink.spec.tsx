@@ -1,8 +1,10 @@
+import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 import { render, screen } from '@/testUtils';
 import { EmployerLink } from './EmployerLink';
-import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 
-const createMockItem = (overrides: Partial<WorkHistoryFragment> = {}): WorkHistoryFragment => ({
+const createMockItem = (
+  overrides: Partial<WorkHistoryFragment> = {},
+): WorkHistoryFragment => ({
   roleTitle: 'Test Role',
   employerName: undefined,
   employerUrl: undefined,
@@ -111,7 +113,9 @@ describe('EmployerLink', () => {
 
     render(<EmployerLink item={item} />);
 
-    expect(screen.getByRole('link', { name: 'Test Company' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'Test Company' }),
+    ).toBeInTheDocument();
     expect(screen.queryByText(/via/)).not.toBeInTheDocument();
   });
 

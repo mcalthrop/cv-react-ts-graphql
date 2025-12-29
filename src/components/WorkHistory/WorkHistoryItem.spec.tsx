@@ -1,6 +1,6 @@
+import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 import { render, screen } from '@/testUtils';
 import { WorkHistoryItem } from './WorkHistoryItem';
-import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 
 const mockItem: WorkHistoryFragment = {
   roleTitle: 'Senior Software Engineer',
@@ -36,10 +36,14 @@ describe('WorkHistoryItem', () => {
     expect(screen.getByText('Recruitment Agency')).toBeInTheDocument();
 
     // Check location and duration
-    expect(screen.getByText(/London, UK • 2020-01-Present/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/London, UK • 2020-01-Present/),
+    ).toBeInTheDocument();
 
     // Check responsibilities
-    expect(screen.getByText('Led development of React applications')).toBeInTheDocument();
+    expect(
+      screen.getByText('Led development of React applications'),
+    ).toBeInTheDocument();
     expect(screen.getByText('Mentored junior developers')).toBeInTheDocument();
 
     // Check skills - using getAllByText since React appears in both responsibilities and skills

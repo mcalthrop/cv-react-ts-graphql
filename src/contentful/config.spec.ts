@@ -1,4 +1,7 @@
-import { createContentfulGraphQlUri, createContentfulGraphQlSchemaUri } from './config';
+import {
+  createContentfulGraphQlSchemaUri,
+  createContentfulGraphQlUri,
+} from './config';
 
 describe('contentful config', () => {
   describe('createContentfulGraphQlUri', () => {

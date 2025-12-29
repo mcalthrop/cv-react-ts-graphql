@@ -2,6 +2,7 @@ import type { CodegenConfig } from '@graphql-codegen/cli';
 import { createContentfulGraphQlSchemaUri } from './src/contentful';
 
 const schemaUri = createContentfulGraphQlSchemaUri();
+// biome-ignore lint/suspicious/noConsole: want to log during codegen
 console.log('Using schema URI:', schemaUri);
 
 const codegenConfig: CodegenConfig = {

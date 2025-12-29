@@ -28,7 +28,8 @@ describe('RoleTitle', () => {
   });
 
   it('renders long role titles', () => {
-    const longTitle = 'Senior Principal Staff Software Development Engineer Lead Architect';
+    const longTitle =
+      'Senior Principal Staff Software Development Engineer Lead Architect';
     render(<RoleTitle roleTitle={longTitle} />);
 
     expect(screen.getByText(longTitle)).toBeInTheDocument();

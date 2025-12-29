@@ -1,8 +1,8 @@
+import { vi } from 'vitest';
+import { mockCvData } from '@/mocks/graphql';
 import { render, screen } from '@/testUtils';
 import { CvContainer } from './CvContainer';
 import { fetchCvData } from './fetchCvData';
-import { mockCvData } from '@/mocks/graphql';
-import { vi } from 'vitest';
 
 vi.mock('./fetchCvData', () => ({
   fetchCvData: vi.fn(),
@@ -15,11 +15,17 @@ describe('CvContainer', () => {
 
   it('renders CvComponent when fetchCvData returns data', async () => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
-    vi.mocked(fetchCvData).mockResolvedValue(mockCvData.cvCollection?.items[0]!);
+    vi.mocked(fetchCvData).mockResolvedValue(
+      // biome-ignore lint/style/noNonNullAssertion: get around Contentful limitations
+      // biome-ignore lint/suspicious/noNonNullAssertedOptionalChain: get around Contentful limitations
+      mockCvData.cvCollection?.items[0]!,
+    );
 
     render(await CvContainer());
 
-    expect(screen.getByRole('heading', { name: 'On the web', level: 2 })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'On the web', level: 2 }),
+    ).toBeInTheDocument();
   });
 
   it('displays error when fetchCvData throws "No CVs found"', async () => {

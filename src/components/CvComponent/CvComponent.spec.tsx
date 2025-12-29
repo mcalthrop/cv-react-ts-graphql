@@ -1,5 +1,5 @@
-import { render, screen } from '@/testUtils';
 import type { CvFragment } from '@/graphql/generated/graphql';
+import { render, screen } from '@/testUtils';
 import { CvComponent } from './CvComponent';
 
 const mockCvFragment: CvFragment = {
@@ -45,10 +45,18 @@ describe('CvComponent', () => {
     render(<CvComponent cvFragment={mockCvFragment} />);
 
     expect(screen.getByText('Overview paragraph 1')).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'On the web', level: 2 })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Work history', level: 2 })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Education', level: 2 })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Interests', level: 2 })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'On the web', level: 2 }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Work history', level: 2 }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Education', level: 2 }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Interests', level: 2 }),
+    ).toBeInTheDocument();
   });
 
   it('should pass correct props to child components', () => {

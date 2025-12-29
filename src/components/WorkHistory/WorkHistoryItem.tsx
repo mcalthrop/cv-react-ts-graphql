@@ -1,10 +1,10 @@
+import { VStack } from '@chakra-ui/react';
 import type { Maybe, WorkHistoryFragment } from '@/graphql/generated/graphql';
 import { EmployerLink } from './EmployerLink';
 import { LocationDuration } from './LocationDuration';
 import { Responsibilities } from './Responsibilities';
 import { RoleTitle } from './RoleTitle';
 import { SkillSummary } from './SkillSummary';
-import { VStack } from '@chakra-ui/react';
 
 type WorkHistoryItemProps = {
   item: Maybe<WorkHistoryFragment>;

@@ -1,6 +1,6 @@
+import type { ParagraphFragment } from '@/graphql/generated/graphql';
 import { render, screen } from '@/testUtils';
 import { Responsibilities } from './Responsibilities';
-import type { ParagraphFragment } from '@/graphql/generated/graphql';
 
 const mockItems: ParagraphFragment[] = [
   { para: 'Led development of React applications using TypeScript' },
@@ -12,9 +12,19 @@ describe('Responsibilities', () => {
   it('renders all responsibility items', () => {
     render(<Responsibilities items={mockItems} />);
 
-    expect(screen.getByText('Led development of React applications using TypeScript')).toBeInTheDocument();
-    expect(screen.getByText('Mentored junior developers and conducted code reviews')).toBeInTheDocument();
-    expect(screen.getByText('Collaborated with product team on feature requirements')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Led development of React applications using TypeScript',
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText('Mentored junior developers and conducted code reviews'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Collaborated with product team on feature requirements',
+      ),
+    ).toBeInTheDocument();
   });
 
   it('renders with no items', () => {
@@ -30,18 +40,26 @@ describe('Responsibilities', () => {
   });
 
   it('filters out null items', () => {
-    const itemsWithNull = [{ para: 'Valid responsibility' }, null, { para: 'Another valid responsibility' }];
+    const itemsWithNull = [
+      { para: 'Valid responsibility' },
+      null,
+      { para: 'Another valid responsibility' },
+    ];
 
     render(<Responsibilities items={itemsWithNull} />);
 
     expect(screen.getByText('Valid responsibility')).toBeInTheDocument();
-    expect(screen.getByText('Another valid responsibility')).toBeInTheDocument();
+    expect(
+      screen.getByText('Another valid responsibility'),
+    ).toBeInTheDocument();
   });
 
   it('applies correct text styling', () => {
     render(<Responsibilities items={mockItems} />);
 
-    const firstItem = screen.getByText('Led development of React applications using TypeScript');
+    const firstItem = screen.getByText(
+      'Led development of React applications using TypeScript',
+    );
     expect(firstItem).toBeInTheDocument();
   });
 
@@ -49,8 +67,14 @@ describe('Responsibilities', () => {
     const singleItem = [mockItems[0]];
     render(<Responsibilities items={singleItem} />);
 
-    expect(screen.getByText('Led development of React applications using TypeScript')).toBeInTheDocument();
-    expect(screen.queryByText('Mentored junior developers')).not.toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Led development of React applications using TypeScript',
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByText('Mentored junior developers'),
+    ).not.toBeInTheDocument();
   });
 
   it('handles long responsibility text', () => {
@@ -62,6 +86,8 @@ describe('Responsibilities', () => {
 
     render(<Responsibilities items={longResponsibility} />);
 
-    expect(screen.getByText(/This is a very long responsibility description/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/This is a very long responsibility description/),
+    ).toBeInTheDocument();
   });
 });

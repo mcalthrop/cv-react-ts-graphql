@@ -1,6 +1,0 @@
-# Ignore artifacts:
-.claude
-coverage
-dist
-pnpm-lock.yaml
-src/graphql/generated
