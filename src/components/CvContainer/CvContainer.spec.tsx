@@ -14,7 +14,6 @@ describe('CvContainer', () => {
   });
 
   it('renders CvComponent when fetchCvData returns data', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
     vi.mocked(fetchCvData).mockResolvedValue(
       // biome-ignore lint/style/noNonNullAssertion: get around Contentful limitations
       // biome-ignore lint/suspicious/noNonNullAssertedOptionalChain: get around Contentful limitations
