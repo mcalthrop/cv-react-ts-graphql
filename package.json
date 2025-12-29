@@ -31,8 +31,8 @@
     "test:ui": "vitest --ui"
   },
   "dependencies": {
-    "@apollo/client": "4.0.10",
-    "@apollo/client-integration-nextjs": "0.14.1",
+    "@apollo/client": "4.0.11",
+    "@apollo/client-integration-nextjs": "0.14.3",
     "@chakra-ui/react": "3.30.0",
     "@emotion/react": "11.14.0",
     "@vercel/analytics": "1.6.1",
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "6.1.0",
-    "@graphql-codegen/client-preset": "5.2.1",
+    "@graphql-codegen/client-preset": "5.2.2",
     "@graphql-typed-document-node/core": "3.2.0",
     "@next/bundle-analyzer": "16.1.1",
     "@testing-library/dom": "10.4.1",
