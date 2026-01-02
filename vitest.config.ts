@@ -10,9 +10,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
     globals: true,
-    environment: 'jsdom',
+    environment: 'happy-dom',
     setupFiles: ['./src/setupTestsAfterEnv.ts'],
-    css: true,
+    css: false,
+    pool: 'threads',
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
