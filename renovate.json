@@ -40,7 +40,7 @@
         "@testing-library/jest-dom",
         "@testing-library/react",
         "msw",
-        "jsdom"
+        "happy-dom"
       ]
     },
     {
