@@ -13,7 +13,6 @@ export default defineConfig({
     environment: 'happy-dom',
     setupFiles: ['./src/setupTestsAfterEnv.ts'],
     css: false,
-    pool: 'threads',
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
