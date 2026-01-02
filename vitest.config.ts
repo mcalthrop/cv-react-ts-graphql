@@ -11,7 +11,7 @@ export default defineConfig({
     },
     globals: true,
     environment: 'happy-dom',
-    setupFiles: ['./src/setupTestsAfterEnv.ts'],
+    setupFiles: ['./src/setup-tests-after-env.ts'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
@@ -26,7 +26,7 @@ export default defineConfig({
         'coverage/**',
         '**/*.d.ts',
         '**/*.config.*',
-        'src/setupTestsAfterEnv.ts',
+        'src/setup-tests-after-env.ts',
         'src/components/chakra/**',
         'src/mocks/**',
         'src/index.tsx',

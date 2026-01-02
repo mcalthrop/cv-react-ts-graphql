@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import { vi } from 'vitest';
 import RootLayout, { metadata } from '@/app/layout';
-import { render } from '@/testUtils';
+import { render } from '@/test-utils';
 
 vi.mock('@/app/chakra-wrapper', () => ({
   ChakraWrapper: ({ children }: PropsWithChildren) => (

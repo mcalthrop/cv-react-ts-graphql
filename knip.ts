@@ -7,7 +7,7 @@ const config: KnipConfig = {
     '.next/**',
     'coverage/**',
     'src/components/chakra/**',
-    'src/graphql/createApolloClient.tsx',
+    'src/graphql/create-apollo-client.tsx',
     'src/graphql/generated/**',
   ],
   ignoreDependencies: [
