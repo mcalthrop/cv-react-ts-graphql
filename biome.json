@@ -79,7 +79,7 @@
             "patterns": [
               {
                 "group": ["../**", "src/**"],
-                "message": "Please use path aliases instead of relative imports. For example: '@/components/Section'"
+                "message": "Please use path aliases instead of relative imports. For example: '@/components/section'"
               }
             ]
           }

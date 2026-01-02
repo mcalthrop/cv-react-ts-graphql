@@ -1,1 +1,1 @@
-export * from './Interests';
+export * from './interests';
