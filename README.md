@@ -16,7 +16,7 @@ The application follows a modern React/Next.js architecture with a content-drive
 - **Type Safety**: Full [TypeScript](https://www.typescriptlang.org/) integration with generated GraphQL types for end-to-end type safety
 - **Styling**: Chakra UI component library provides responsive design and theming capabilities
 - **Testing**: Unit tests with [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
-- **Linting & Formatting**: [oxlint](https://oxc.rs/docs/guide/usage/linter) and [Prettier](https://prettier.io/) for code quality and consistency
+- **Linting & Formatting**: [Biome](https://biomejs.dev/) for code quality and consistency
 - **Dead Code Analysis**: [knip](https://knip.dev/) identifies unused dependencies, exports, and files to maintain a clean codebase
 - **Dependency Management**: [Renovate](https://docs.renovatebot.com/) automatically manages dependency updates with intelligent grouping and scheduling
 - **CI/CD**: [GitHub Actions](https://docs.github.com/en/actions) workflow for linting, testing, and deploying the application
@@ -74,36 +74,20 @@ To run all tests:
 pnpm test
 ```
 
-### Linting
+### Linting & Formatting
 
-> Check `eslint.config.js` for the eslint rules.
+> Check [`biome.json`](./biome.json) for the Biome configuration.
 
-To run the linter:
+To check linting and formatting:
 
 ```sh
-pnpm lint
+pnpm check
 ```
 
-And to auto-correct any errors that can be corrected:
+To auto-fix both linting and formatting issues:
 
 ```sh
-pnpm lint:fix
-```
-
-### Code formatting
-
-> Check `.prettierrc.json` for the Prettier rules.
-
-To check the TypeScript formatting:
-
-```sh
-pnpm format
-```
-
-And to auto-correct any errors that can be corrected:
-
-```sh
-pnpm format:fix
+pnpm check:fix
 ```
 
 ## Building & compilation

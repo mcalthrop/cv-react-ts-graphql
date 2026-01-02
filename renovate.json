@@ -48,10 +48,6 @@
       "matchPackageNames": ["typescript", "@types/node"]
     },
     {
-      "groupName": "Linting and formatting",
-      "matchPackageNames": ["oxlint", "oxlint-tsgolint", "prettier"]
-    },
-    {
       "matchManagers": ["github-actions"],
       "automerge": true,
       "automergeType": "pr"
