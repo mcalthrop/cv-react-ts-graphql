@@ -38,7 +38,6 @@ const config: KnipConfig = {
   husky: true,
   msw: true,
   next: true,
-  oxlint: true,
   prettier: true,
   typescript: true,
   'vercel-og': true,
