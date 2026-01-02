@@ -12,7 +12,6 @@ export default defineConfig({
     globals: true,
     environment: 'happy-dom',
     setupFiles: ['./src/setupTestsAfterEnv.ts'],
-    css: false,
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
