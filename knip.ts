@@ -33,6 +33,7 @@ const config: KnipConfig = {
   },
 
   // --- BEGIN PLUGINS ---
+  biome: true,
   'github-actions': true,
   'graphql-codegen': true,
   husky: true,
