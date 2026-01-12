@@ -52,8 +52,8 @@ importers:
         specifier: 2.3.11
         version: 2.3.11
       '@graphql-codegen/cli':
-        specifier: 6.1.0
-        version: 6.1.0(@types/node@24.10.7)(graphql@16.12.0)(typescript@5.9.3)
+        specifier: 6.1.1
+        version: 6.1.1(@types/node@24.10.7)(graphql@16.12.0)(typescript@5.9.3)
       '@graphql-codegen/client-preset':
         specifier: 5.2.2
         version: 5.2.2(graphql@16.12.0)
@@ -547,8 +547,8 @@ packages:
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
 
-  '@graphql-codegen/cli@6.1.0':
-    resolution: {integrity: sha512-7w3Zq5IFONVOBcyOiP01Nv9WRxGS/TEaBCAb/ALYA3xHq95dqKCpoGnxt/Ut9R18jiS+aMgT0gc8Tr8sHy44jA==}
+  '@graphql-codegen/cli@6.1.1':
+    resolution: {integrity: sha512-Ni8UdZ6D/UTvLvDtPb6PzshI0lTqtLDnmv/2t1w2SYP92H0MMEdAzxB/ujDWwIXm2LzVPvvrGvzzCTMsyXa+mA==}
     engines: {node: '>=16'}
     hasBin: true
     peerDependencies:
@@ -3736,7 +3736,7 @@ snapshots:
       graphql: 16.12.0
       tslib: 2.6.3
 
-  '@graphql-codegen/cli@6.1.0(@types/node@24.10.7)(graphql@16.12.0)(typescript@5.9.3)':
+  '@graphql-codegen/cli@6.1.1(@types/node@24.10.7)(graphql@16.12.0)(typescript@5.9.3)':
     dependencies:
       '@babel/generator': 7.28.5
       '@babel/template': 7.27.2
@@ -3958,7 +3958,7 @@ snapshots:
     dependencies:
       graphql: 16.12.0
       lodash.sortby: 4.7.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@graphql-tools/executor-common@0.0.4(graphql@16.12.0)':
     dependencies:
@@ -4149,14 +4149,14 @@ snapshots:
   '@graphql-tools/optimize@2.0.0(graphql@16.12.0)':
     dependencies:
       graphql: 16.12.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@graphql-tools/relay-operation-optimizer@7.0.26(graphql@16.12.0)':
     dependencies:
       '@ardatan/relay-compiler': 12.0.3(graphql@16.12.0)
       '@graphql-tools/utils': 10.11.0(graphql@16.12.0)
       graphql: 16.12.0
-      tslib: 2.6.3
+      tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
 
