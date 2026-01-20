@@ -70,8 +70,8 @@ importers:
         specifier: 6.9.1
         version: 6.9.1
       '@testing-library/react':
-        specifier: 16.3.1
-        version: 16.3.1(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.8))(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: 16.3.2
+        version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.8))(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@types/node':
         specifier: 24.10.9
         version: 24.10.9
@@ -88,8 +88,8 @@ importers:
         specifier: 4.0.17
         version: 4.0.17(vitest@4.0.17)
       happy-dom:
-        specifier: 20.3.3
-        version: 20.3.3
+        specifier: 20.3.4
+        version: 20.3.4
       husky:
         specifier: 9.1.7
         version: 9.1.7
@@ -104,7 +104,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: 4.0.17
-        version: 4.0.17(@types/node@24.10.9)(@vitest/ui@4.0.17)(happy-dom@20.3.3)(jiti@2.6.1)(msw@2.12.7(@types/node@24.10.9)(typescript@5.9.3))(yaml@2.8.2)
+        version: 4.0.17(@types/node@24.10.9)(@vitest/ui@4.0.17)(happy-dom@20.3.4)(jiti@2.6.1)(msw@2.12.7(@types/node@24.10.9)(typescript@5.9.3))(yaml@2.8.2)
 
 packages:
 
@@ -1436,8 +1436,8 @@ packages:
     resolution: {integrity: sha512-zIcONa+hVtVSSep9UT3jZ5rizo2BsxgyDYU7WFD5eICBE7no3881HGeb/QkGfsJs6JTkY1aQhT7rIPC7e+0nnA==}
     engines: {node: '>=14', npm: '>=6', yarn: '>=1'}
 
-  '@testing-library/react@16.3.1':
-    resolution: {integrity: sha512-gr4KtAWqIOQoucWYD/f6ki+j5chXfcPc74Col/6poTyqTmn7zRmodWahWRCp8tYd+GMqBonw6hstNzqjbs6gjw==}
+  '@testing-library/react@16.3.2':
+    resolution: {integrity: sha512-XU5/SytQM+ykqMnAnvB2umaJNIOsLF3PVv//1Ew4CTcpz0/BRyy/af40qqrt7SjKpDdT1saBMc42CUok5gaw+g==}
     engines: {node: '>=18'}
     peerDependencies:
       '@testing-library/dom': ^10.0.0
@@ -2281,8 +2281,8 @@ packages:
     resolution: {integrity: sha512-ax7ZYomf6jqPTQ4+XCpUGyXKHk5WweS+e05MBO4/y3WJ5RkmPXNKvX+bx1behVILVwr6JSQvZAku021CHPXG3Q==}
     engines: {node: '>=10'}
 
-  happy-dom@20.3.3:
-    resolution: {integrity: sha512-hM9gltmtQLfmWPqoPreUtRdP3nZCSzQEw7l/JC+up5CxquDykhYFKzIzoFFeVev3AGFEULNvsbE8fpZPgxUYEQ==}
+  happy-dom@20.3.4:
+    resolution: {integrity: sha512-rfbiwB6OKxZFIFQ7SRnCPB2WL9WhyXsFoTfecYgeCeFSOBxvkWLaXsdv5ehzJrfqwXQmDephAKWLRQoFoJwrew==}
     engines: {node: '>=20.0.0'}
 
   has-flag@4.0.0:
@@ -4720,7 +4720,7 @@ snapshots:
       picocolors: 1.1.1
       redent: 3.0.0
 
-  '@testing-library/react@16.3.1(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.8))(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+  '@testing-library/react@16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.8))(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@testing-library/dom': 10.4.1
@@ -4800,7 +4800,7 @@ snapshots:
       obug: 2.1.1
       std-env: 3.10.0
       tinyrainbow: 3.0.3
-      vitest: 4.0.17(@types/node@24.10.9)(@vitest/ui@4.0.17)(happy-dom@20.3.3)(jiti@2.6.1)(msw@2.12.7(@types/node@24.10.9)(typescript@5.9.3))(yaml@2.8.2)
+      vitest: 4.0.17(@types/node@24.10.9)(@vitest/ui@4.0.17)(happy-dom@20.3.4)(jiti@2.6.1)(msw@2.12.7(@types/node@24.10.9)(typescript@5.9.3))(yaml@2.8.2)
 
   '@vitest/expect@4.0.17':
     dependencies:
@@ -4846,7 +4846,7 @@ snapshots:
       sirv: 3.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
-      vitest: 4.0.17(@types/node@24.10.9)(@vitest/ui@4.0.17)(happy-dom@20.3.3)(jiti@2.6.1)(msw@2.12.7(@types/node@24.10.9)(typescript@5.9.3))(yaml@2.8.2)
+      vitest: 4.0.17(@types/node@24.10.9)(@vitest/ui@4.0.17)(happy-dom@20.3.4)(jiti@2.6.1)(msw@2.12.7(@types/node@24.10.9)(typescript@5.9.3))(yaml@2.8.2)
 
   '@vitest/utils@4.0.17':
     dependencies:
@@ -5862,7 +5862,7 @@ snapshots:
     dependencies:
       duplexer: 0.1.2
 
-  happy-dom@20.3.3:
+  happy-dom@20.3.4:
     dependencies:
       '@types/node': 24.10.9
       '@types/whatwg-mimetype': 3.0.2
@@ -6668,7 +6668,7 @@ snapshots:
       jiti: 2.6.1
       yaml: 2.8.2
 
-  vitest@4.0.17(@types/node@24.10.9)(@vitest/ui@4.0.17)(happy-dom@20.3.3)(jiti@2.6.1)(msw@2.12.7(@types/node@24.10.9)(typescript@5.9.3))(yaml@2.8.2):
+  vitest@4.0.17(@types/node@24.10.9)(@vitest/ui@4.0.17)(happy-dom@20.3.4)(jiti@2.6.1)(msw@2.12.7(@types/node@24.10.9)(typescript@5.9.3))(yaml@2.8.2):
     dependencies:
       '@vitest/expect': 4.0.17
       '@vitest/mocker': 4.0.17(msw@2.12.7(@types/node@24.10.9)(typescript@5.9.3))(vite@7.3.0(@types/node@24.10.9)(jiti@2.6.1)(yaml@2.8.2))
@@ -6693,7 +6693,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.10.9
       '@vitest/ui': 4.0.17(vitest@4.0.17)
-      happy-dom: 20.3.3
+      happy-dom: 20.3.4
     transitivePeerDependencies:
       - jiti
       - less
