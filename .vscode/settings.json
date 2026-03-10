@@ -14,5 +14,5 @@
   "[json]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
-  "cSpell.words": ["calthrop", "codegen", "mcalthrop"]
+  "cSpell.words": ["calthrop", "codegen", "knip", "mcalthrop"]
 }
