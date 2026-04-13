@@ -94,8 +94,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       knip:
-        specifier: 6.4.0
-        version: 6.4.0
+        specifier: 6.4.1
+        version: 6.4.1
       msw:
         specifier: 2.13.2
         version: 2.13.2(@types/node@24.12.2)(typescript@6.0.2)
@@ -2576,8 +2576,8 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  knip@6.4.0:
-    resolution: {integrity: sha512-SAEeggehgkPdoLZWVEcFKzPw+vNlnrUBDqcX8cOcHGydRInSn5pnn9LN3dDJ8SkDHKXR7xYzNq3HtRJaYmxOHg==}
+  knip@6.4.1:
+    resolution: {integrity: sha512-Ry+ywmDFSZvKp/jx7LxMgsZWRTs931alV84e60lh0Stf6kSRYqSIUTkviyyDFRcSO3yY1Kpbi83OirN+4lA2Xw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
@@ -6040,7 +6040,7 @@ snapshots:
 
   json5@2.2.3: {}
 
-  knip@6.4.0:
+  knip@6.4.1:
     dependencies:
       '@nodelib/fs.walk': 1.2.8
       fast-glob: 3.3.3
