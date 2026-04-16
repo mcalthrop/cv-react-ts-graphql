@@ -17,10 +17,11 @@ See the [`rules/`](rules/) directory.
 Run this once in your target repo, from the repo root:
 
 ```sh
-git subtree add --prefix rules https://github.com/mcalthrop/claude-skills main --squash
+git checkout -b chore/add-ai-rules
+git subtree add --prefix rules https://github.com/mcalthrop/ai-skills main --squash
 ```
 
-This checks out the `rules/` files from this repo into `rules/` in your target repo, so you will need to commit the changes.
+`git subtree add` creates a commit automatically, so create a branch first to keep the change reviewable via a PR.
 
 ### Import rules into your instructions file
 
@@ -49,12 +50,13 @@ The tool reads the instructions file automatically, so the imported rules are al
 
 When the rules in this repo change, your repo won't automatically see them.
 
-So to pick them up, pull in the latest changes:
+So to pick them up, create a branch and pull in the latest changes:
 
 ```sh
-git subtree pull --prefix rules https://github.com/mcalthrop/claude-skills main --squash
+git checkout -b chore/update-ai-rules
+git subtree pull --prefix rules https://github.com/mcalthrop/ai-skills main --squash
 ```
 
-You will need to commit the changes.
+Like `git subtree add`, this creates a commit automatically.
 
 If you are importing individual files, check whether any rules were added, removed, or renamed and update your instructions file accordingly.
