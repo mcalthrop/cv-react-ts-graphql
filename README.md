@@ -19,6 +19,7 @@ The application follows a modern React/Next.js architecture with a content-drive
 - **Linting & Formatting**: [Biome](https://biomejs.dev/) for code quality and consistency
 - **Dead Code Analysis**: [knip](https://knip.dev/) identifies unused dependencies, exports, and files to maintain a clean codebase
 - **Dependency Management**: [Renovate](https://docs.renovatebot.com/) automatically manages dependency updates with intelligent grouping and scheduling
+- **AI Rules**: Shared AI coding rules managed via a `git subtree` from [mcalthrop/claude-skills](https://github.com/mcalthrop/ai-skills), referenced in `CLAUDE.md` for use with Claude Code
 - **CI/CD**: [GitHub Actions](https://docs.github.com/en/actions) workflow for linting, testing, and deploying the application
 - **Deployment**: Statically generated site deployed on [Vercel](https://vercel.com/) with automated deployments via GitHub
 
