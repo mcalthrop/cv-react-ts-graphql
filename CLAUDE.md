@@ -1,1 +1,1 @@
-@rules/all.md
+@all.md

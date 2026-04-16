@@ -2,13 +2,13 @@
 
 A centralised collection of AI coding rules, shareable across multiple repos via `git subtree`.
 
-Rules live in `rules/` as focused markdown files. Each repo imports whichever rules it needs using the `@import` syntax supported by Claude Code and Codex — so the rules are always active without any manual invocation.
+Rules live in the repo root as focused markdown files. Each repo imports whichever rules it needs using the `@import` syntax supported by Claude Code and Codex — so the rules are always active without any manual invocation.
 
 > **Other AI tools** (Cursor, Copilot, Windsurf, etc.) use different mechanisms to load rules. Refer to their documentation for how to reference external markdown files.
 
 ## Rules
 
-See the [`rules/`](rules/) directory.
+See the rule files in the repo root (e.g. [`general.md`](general.md), [`all.md`](all.md)).
 
 ## Using these rules in another repo
 
