@@ -2,9 +2,9 @@
 
 ## All rules
 
-- @rules/all.md
+@rules/all.md
 
 ## All skills
 
-- @skills/link-skills/SKILL.md
-- @skills/md2pdf/SKILL.md
+@skills/link-skills/SKILL.md
+@skills/md2pdf/SKILL.md

@@ -2,7 +2,7 @@
 // Provides a footer with a left-aligned generation timestamp
 // and right-aligned "Page X of Y", plus extra bottom margin.
 
-const path = require('path');
+const path = require('node:path');
 const generatedAt = new Date().toLocaleString();
 const inputFilename = path.basename(process.argv[process.argv.length - 1]);
 
