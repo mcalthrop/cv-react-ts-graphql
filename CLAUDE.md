@@ -4,7 +4,7 @@ This is a React TypeScript GraphQL CV application.
 
 ## External rules
 
-@rules/all.md
+@ai-resources/CLAUDE.md
 
 ## External Resources
 

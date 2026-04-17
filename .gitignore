@@ -16,3 +16,6 @@ next-env.d.ts
 
 # Generated GQL types
 src/graphql/generated
+
+# AI tools
+.claude
