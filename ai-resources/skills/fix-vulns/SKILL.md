@@ -1,7 +1,6 @@
 ---
 name: fix-vulns
 description: Check for vulnerabilities with an audit command and raise a PR to fix them. Use when the user asks to "fix vulnerabilities", "fix vulns", "audit dependencies", or "fix security issues".
-disable-model-invocation: true
 allowed-tools: Bash
 ---
 
@@ -31,7 +30,7 @@ Check for dependency vulnerabilities and raise a PR that addresses all of them.
 | `npm`           | `npm audit`       |
 
 ```bash
-"${SHELL:-/bin/sh}" -i -c "<audit-command>"
+"${SHELL:-/bin/bash}" -i -c "<audit-command>"
 ```
 
 3. If no vulnerabilities are found, report that and stop.
@@ -53,7 +52,7 @@ git checkout -b fix/security-vulnerabilities origin/main
 | `npm`           | `update`       |
 
 ```bash
-"${SHELL:-/bin/sh}" -i -c "<package-manager> <update-command> <package-name>"
+"${SHELL:-/bin/bash}" -i -c "<package-manager> <update-command> <package-name>"
 ```
 
 If the required safe version exceeds the current semver range in `package.json`, update the range in `package.json` first, then re-run the update command.
@@ -81,13 +80,13 @@ Example for `pnpm`:
 Then run install to apply the override:
 
 ```bash
-"${SHELL:-/bin/sh}" -i -c "<package-manager> install"
+"${SHELL:-/bin/bash}" -i -c "<package-manager> install"
 ```
 
 6. Re-run the audit to confirm all vulnerabilities are resolved:
 
 ```bash
-"${SHELL:-/bin/sh}" -i -c "<audit-command>"
+"${SHELL:-/bin/bash}" -i -c "<audit-command>"
 ```
 
 7. Commit the changes, staging only the lock file and `package.json`:
