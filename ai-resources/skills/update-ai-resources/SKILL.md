@@ -1,7 +1,6 @@
 ---
 name: update-ai-resources
 description: Update the ai-resources snapshot in the current repo to the latest version from GitHub. Use when the user asks to "update ai-resources", "pull latest ai-resources", or "refresh ai-resources".
-disable-model-invocation: true
 allowed-tools: Bash
 ---
 
@@ -51,4 +50,9 @@ git add ai-resources
 git commit -m "chore: update ai-resources snapshot"
 ```
 
-6. Report which files changed and remind the user to raise a PR.
+6. Ask the user: "Would you like to link the skills so they are available as slash commands?"
+
+   - If yes, run the `link-skills` skill.
+   - If no, continue.
+
+7. Report which files changed and remind the user to raise a PR.
