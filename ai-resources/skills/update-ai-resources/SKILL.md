@@ -55,4 +55,9 @@ git commit -m "chore: update ai-resources snapshot"
    - If yes, run the `link-skills` skill.
    - If no, continue.
 
-7. Report which files changed and remind the user to raise a PR.
+7. Report which files changed.
+
+8. Ask the user: "Would you like me to raise a draft PR?"
+
+   - If yes, push the branch and create a draft PR using `gh pr create --draft`.
+   - If no, remind the user to raise a PR when ready.
