@@ -31,7 +31,7 @@ if git show-ref --verify --quiet refs/heads/chore/update-ai-resources; then
     exit 1
   }
 fi
-git worktree add "${WORKTREE_PATH}" --branch chore/update-ai-resources origin/main
+git worktree add -b chore/update-ai-resources "${WORKTREE_PATH}" origin/main
 ```
 
 3. Download the latest snapshot into a temp directory, then replace `ai-resources/` inside the worktree:
@@ -80,14 +80,6 @@ git -C "${WORKTREE_PATH}" commit -m "chore: update ai-resources snapshot"
      (cd "${WORKTREE_PATH}" && gh pr create --draft --title "chore: update ai-resources snapshot")
      ```
 
-     Then remove the worktree:
+     The worktree will be removed as part of the post-merge steps.
 
-     ```bash
-     git -C "${REPO_ROOT}" worktree remove "${WORKTREE_PATH}"
-     ```
-
-   - If no, remind the user to raise a PR when ready, and remove the worktree:
-
-     ```bash
-     git -C "${REPO_ROOT}" worktree remove "${WORKTREE_PATH}"
-     ```
+   - If no, remind the user to raise a PR when ready. The worktree will be removed as part of the post-merge steps.

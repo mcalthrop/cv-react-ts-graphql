@@ -54,7 +54,7 @@ if git show-ref --verify --quiet refs/heads/fix/security-vulnerabilities; then
     exit 1
   }
 fi
-git worktree add "${WORKTREE_PATH}" --branch fix/security-vulnerabilities origin/main
+git worktree add -b fix/security-vulnerabilities "${WORKTREE_PATH}" origin/main
 ```
 
 5. For each vulnerable package identified in the audit output, update it to the minimum safe version using the appropriate command. Run all subsequent commands from within `${WORKTREE_PATH}`.
@@ -111,13 +111,14 @@ git add <lock-file> package.json
 git commit -m "fix(deps): resolve audit vulnerabilities"
 ```
 
-8. Push the branch from within the worktree, raise a draft PR, then remove the worktree:
+8. Push the branch from within the worktree and raise a draft PR:
 
 ```bash
 cd "${WORKTREE_PATH}"
 git push --set-upstream origin fix/security-vulnerabilities
 gh pr create --draft --title "fix(deps): resolve audit vulnerabilities" --body "..."
-git -C "$REPO_ROOT" worktree remove "${WORKTREE_PATH}"
 ```
 
 The PR body must list every vulnerability that was fixed, including package name, severity, and the resolution applied.
+
+The worktree will be removed as part of the post-merge steps.
