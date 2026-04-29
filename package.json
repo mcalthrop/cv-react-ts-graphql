@@ -38,7 +38,7 @@
     "test:ui": "vitest --ui"
   },
   "dependencies": {
-    "@apollo/client": "4.1.7",
+    "@apollo/client": "4.1.9",
     "@apollo/client-integration-nextjs": "0.14.5",
     "@chakra-ui/react": "3.35.0",
     "@emotion/react": "11.14.0",
