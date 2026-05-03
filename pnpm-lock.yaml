@@ -9,7 +9,7 @@ overrides:
   picomatch@<2.3.2: 4.0.4
   picomatch@>=4.0.0 <4.0.4: 4.0.4
   vite@>=7.0.0 <=7.3.1: 8.0.10
-  yaml@>=1.0.0 <1.10.3: 2.8.3
+  yaml@>=1.0.0 <1.10.3: 2.8.4
   yaml@>=2.0.0 <2.8.3: 2.8.4
 
 importers:
@@ -3255,11 +3255,6 @@ packages:
   yallist@3.1.1:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
 
-  yaml@2.8.3:
-    resolution: {integrity: sha512-AvbaCLOO2Otw/lW5bmh9d/WEdcDFdQp2Z2ZUH3pX9U2ihyUY0nvLv7J6TrWowklRGPYbB/IuIMfYgxaCPg5Bpg==}
-    engines: {node: '>= 14.6'}
-    hasBin: true
-
   yaml@2.8.4:
     resolution: {integrity: sha512-ml/JPOj9fOQK8RNnWojA67GbZ0ApXAUlN2UQclwv2eVgTgn7O9gg9o7paZWKMp4g0H3nTLtS9LVzhkpOFIKzog==}
     engines: {node: '>= 14.6'}
@@ -5543,7 +5538,7 @@ snapshots:
       import-fresh: 3.3.1
       parse-json: 5.2.0
       path-type: 4.0.0
-      yaml: 2.8.3
+      yaml: 2.8.4
 
   cosmiconfig@8.3.6(typescript@6.0.3):
     dependencies:
@@ -6704,8 +6699,6 @@ snapshots:
   y18n@5.0.8: {}
 
   yallist@3.1.1: {}
-
-  yaml@2.8.3: {}
 
   yaml@2.8.4: {}
 
