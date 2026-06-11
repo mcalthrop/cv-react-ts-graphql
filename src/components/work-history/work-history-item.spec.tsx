@@ -63,13 +63,13 @@ describe('WorkHistoryItem', () => {
   it('renders with minimal data', () => {
     const minimalItem: WorkHistoryFragment = {
       roleTitle: 'Developer',
-      employerName: undefined,
-      employerUrl: undefined,
-      viaEmployerName: undefined,
-      viaEmployerUrl: undefined,
-      location: undefined,
-      dateFrom: undefined,
-      dateTo: undefined,
+      employerName: null,
+      employerUrl: null,
+      viaEmployerName: null,
+      viaEmployerUrl: null,
+      location: null,
+      dateFrom: null,
+      dateTo: null,
       responsibilitiesCollection: {
         items: [],
       },
