@@ -1,10 +1,10 @@
 import { HStack, Image, Text, VStack } from '@chakra-ui/react';
 import { Section } from '@/components/section';
-import type { Maybe, ParagraphFragment } from '@/graphql/generated/graphql';
+import type { ParagraphFragment } from '@/graphql/generated/graphql';
 
 type OverviewProps = {
-  image?: Maybe<string>;
-  items?: Array<Maybe<ParagraphFragment>>;
+  image?: string | null;
+  items?: Array<ParagraphFragment | null>;
 };
 
 export const Overview = ({

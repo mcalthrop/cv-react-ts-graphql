@@ -1,9 +1,9 @@
 import { Text, VStack } from '@chakra-ui/react';
 import { Section } from '@/components/section';
-import type { Maybe, ParagraphFragment } from '@/graphql/generated/graphql';
+import type { ParagraphFragment } from '@/graphql/generated/graphql';
 
 type InterestsProps = {
-  items?: Array<Maybe<ParagraphFragment>>;
+  items?: Array<ParagraphFragment | null>;
 };
 
 export const Interests = ({ items }: InterestsProps): React.JSX.Element => (
