@@ -15,14 +15,14 @@ export const PublicationData = ({
       'data-published-version',
       String(publishedVersion),
     );
-    document.body.setAttribute('data-published-at', publishedAt);
+    document.body.setAttribute('data-published-at', String(publishedAt));
   }, [publishedAt, publishedVersion]);
 
   return (
     <Section>
       <Text fontSize={'xs'} color={'fg.subtle'}>
         Contentful CMS data v{publishedVersion} published on{' '}
-        {publishedAt.replace('T', ' at ').replace('Z', '').slice(0, -4)} GMT
+        {publishedAt?.replace('T', ' at ').replace('Z', '').slice(0, -4)} GMT
       </Text>
     </Section>
   );

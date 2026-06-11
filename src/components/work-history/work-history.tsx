@@ -1,10 +1,10 @@
 import { Flex } from '@chakra-ui/react';
 import { Section } from '@/components/section';
-import type { Maybe, WorkHistoryFragment } from '@/graphql/generated/graphql';
+import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 import { WorkHistoryItem } from './work-history-item';
 
 type WorkHistoryProps = {
-  items?: Array<Maybe<WorkHistoryFragment>>;
+  items?: Array<WorkHistoryFragment | null>;
 };
 
 export const WorkHistory = ({ items }: WorkHistoryProps): React.JSX.Element => (
