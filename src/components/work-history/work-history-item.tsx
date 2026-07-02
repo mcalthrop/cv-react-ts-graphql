@@ -1,5 +1,5 @@
 import { VStack } from '@chakra-ui/react';
-import type { Maybe, WorkHistoryFragment } from '@/graphql/generated/graphql';
+import type { WorkHistoryFragment } from '@/graphql/generated/graphql';
 import { EmployerLink } from './employer-link';
 import { LocationDuration } from './location-duration';
 import { Responsibilities } from './responsibilities';
@@ -7,7 +7,7 @@ import { RoleTitle } from './role-title';
 import { SkillSummary } from './skill-summary';
 
 type WorkHistoryItemProps = {
-  item: Maybe<WorkHistoryFragment>;
+  item: WorkHistoryFragment | null;
 };
 
 export const WorkHistoryItem = ({

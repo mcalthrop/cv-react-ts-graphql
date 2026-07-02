@@ -1,10 +1,9 @@
 import { Text } from '@chakra-ui/react';
-import type { Maybe } from '@/graphql/generated/graphql';
 
 type LocationDurationProps = {
-  location?: Maybe<string>;
-  dateFrom?: Maybe<string>;
-  dateTo?: Maybe<string>;
+  location?: string | null;
+  dateFrom?: string | null;
+  dateTo?: string | null;
 };
 
 export const LocationDuration = ({
