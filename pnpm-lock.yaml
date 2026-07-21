@@ -23,8 +23,8 @@ importers:
         specifier: 0.14.5
         version: 0.14.5(@apollo/client@4.2.7(graphql-ws@6.0.8(graphql@16.14.2)(ws@8.21.0))(graphql@16.14.2)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(rxjs@7.8.2))(@types/react@19.2.17)(graphql@16.14.2)(next@16.2.10(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(rxjs@7.8.2)
       '@chakra-ui/react':
-        specifier: 3.36.0
-        version: 3.36.0(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.7))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+        specifier: 3.36.1
+        version: 3.36.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.7))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@emotion/react':
         specifier: 11.14.0
         version: 11.14.0(@types/react@19.2.17)(react@19.2.7)
@@ -308,8 +308,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@chakra-ui/react@3.36.0':
-    resolution: {integrity: sha512-6AxUbJsC6yyTzPeYL8sxyAL07lflT0NA+S6tcPzEuwdMux+benRMFOpPktnkifWKl/Vq/JD7fhxDyMuDQ4M0gA==}
+  '@chakra-ui/react@3.36.1':
+    resolution: {integrity: sha512-8uPVBdkw9CfwDQSGGmNqx8jLygUanV9virh2dwbj3x02Cu5bmw12ZCRdD/RZ+00+KrklJZlVnmG20y7PwLhyqg==}
     peerDependencies:
       '@emotion/react': '>=11'
       react: '>=18'
@@ -3480,7 +3480,7 @@ snapshots:
   '@biomejs/cli-win32-x64@2.5.4':
     optional: true
 
-  '@chakra-ui/react@3.36.0(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.7))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+  '@chakra-ui/react@3.36.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.7))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
       '@ark-ui/react': 5.37.2(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@emotion/is-prop-valid': 1.4.0
