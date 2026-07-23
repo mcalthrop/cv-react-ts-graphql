@@ -6,10 +6,10 @@
   "repository": "git@github.com:mcalthrop/cv-react-ts-graphql.git",
   "author": "Matt Calthrop <matt@calthrop.com>",
   "license": "MIT",
-  "packageManager": "pnpm@10.34.5",
+  "packageManager": "pnpm@11.16.0",
   "engines": {
     "node": "24.x",
-    "pnpm": "10.34.5",
+    "pnpm": "11.16.0",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm"
   },
